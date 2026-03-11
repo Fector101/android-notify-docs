@@ -26,10 +26,6 @@
     margin-left: 20px;
 }
 
-.main-page section {
-    /* min-height: 40vh; */
-}
-
 .main-page section#features .inner-section-1 {
     margin-left: 25px;
 }
@@ -70,4 +66,15 @@
     .main-page h2.long-title {
         font-size: 20px;
     }
+}
+
+.text-marker{
+    width: max-content;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+.sub-header.system{
+    color: #d2f7f7;
+    background-color: #5959573e;
+    
 }

@@ -11,6 +11,18 @@ export default function HomePage() {
             <section className="page-section flex fd-column" id='installation'>
 
                 <h1 className='huge'>1.60<span style={{ fontSize: "2rem" }}>.10</span></h1>
+                <div className='jumpto-box'>
+                    Jump To: 
+                    <ol>
+                        <li>
+                        * <Link to="getting-started#installation">Installation</Link>
+                        </li>
+                        <li>
+                        * <Link to="components#images">Components</Link>
+                        </li>
+
+                    </ol>
+                </div>
                 <p>Release Notes</p>
                 <hr />
                 <p className="paragraph">This release includes several improvements, features and enhances stability of the library.</p>

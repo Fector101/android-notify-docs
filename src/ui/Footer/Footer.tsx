@@ -22,7 +22,7 @@ export default function Footer(): JSX.Element {
             {/* <p>Made with ❤️ using <Link to='https://react.dev/'>React</Link> and <Link to='https://vitejs.dev/'>Vite</Link></p> */}
             {/* <p>Documentation hosted on <Link to='https://vercel.com/'>Vercel</Link></p> */}
             <div className="flex fd-column gap-10">
-                <p>Thoroughly Tested and supported by <Link to='https://github.com/Fector101/laner'>Laner</Link> </p>
+                <p>Thoroughly Tested and supported by <br/><Link to='https://github.com/Fector101/laner'>Laner</Link> & <Link to='https://github.com/Fector101/wallpaper-carousel'>The Carousel</Link> </p>
                 <p>Last Updated: {date}, © Fabian</p>
                 {/* <p>Last Updated: {date}, © {new Date().getFullYear()} Fabian</p> */}
             </div>
