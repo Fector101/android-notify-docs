@@ -1,10 +1,10 @@
-export const installation_code_buildozer = `# Add pyjnius so ensure it's packaged with the build
+export const installation_code_buildozer = `# Ensure pyjnius is included in the build
 requirements = python3, kivy, pyjnius, android-notify
 
-# Add permission for notifications
+# Notification Permission
 android.permissions = POST_NOTIFICATIONS
 
-# Required dependency (write exactly as shown, no quotation marks)
+# AndroidX dependency
 android.gradle_dependencies = androidx.core:core-ktx:1.15.0
 android.enable_androidx = True
 android.api = 35`
