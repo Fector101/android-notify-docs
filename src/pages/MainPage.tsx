@@ -90,7 +90,7 @@ export default function MainPage() {
                     </details>
 
                     <details>
-                        <summary><strong>Channels for </strong>(<a href="https://android-notify.vercel.app/advanced-methods#channel-management" target="_blank" rel="noopener noreferrer">Android 8.0+</a>):</summary>
+                        <summary><strong>Channels for </strong>(<a href="advanced-methods#channel-management" target="_blank" rel="noopener noreferrer">Android 8.0+</a>):</summary>
                         <ul className='space-y-[10px] mt-[10px]'>
                             <li>Create, delete, delete all</li>
                             <li>Set importance, vibration, and sound</li>
