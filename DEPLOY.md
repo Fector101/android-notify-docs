@@ -20,12 +20,16 @@ You can deploy your new Vite project with a single command from your terminal us
 $ vercel
 ```
 ---------
-## From me 
+
+## Turned-Off Auto Deploy
+
 Added `deploymentEnabled": false` to stop unnecessary deployments
 ```json
 "git": {
     "deploymentEnabled": false
-  }```
+  }
+```
+
 ```json
 {
     "rewrites": [
