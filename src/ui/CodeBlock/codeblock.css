@@ -9,7 +9,9 @@ code {
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: #1e1e2e;
+    /* background: #1e1e2e; */
+    background-color: #111518;
+    /* background-color: #1c1c1e; */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: relative;
     font-family: 'Inter', system-ui, sans-serif;
