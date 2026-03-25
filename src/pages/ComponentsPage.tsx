@@ -190,7 +190,7 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
                                 <p className='paragraph'>Use <span className='link-design' onClick={() => setVersion("1.59")}>v1.59.3</span> for proper implementation </p>
                             </>
                             :
-                            <p>You can use <span className="code">addLine</span> and pass in each line or<br /><span className="code">setLines</span> and pass in list of strings or <br /> Pass in txt separated by <span className="code">\n</span> as arg to <span className="code">lines_txt</span> in instance</p>
+                            <p>You can use <span className="code">addLine</span> and pass in each line, Lines will show when users click the drop down button</p>
 
                     }
 

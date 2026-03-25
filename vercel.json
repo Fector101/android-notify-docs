@@ -4,8 +4,5 @@
       "source": "/:match*",
       "destination": "/index.html"
     }
-  ],
-  "git": {
-    "deploymentEnabled": false
-  }
+  ]
 }
