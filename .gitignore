@@ -16,6 +16,7 @@ dist
 dist-ssr
 *.local
 
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -27,3 +28,4 @@ dist-ssr
 *.sln
 *.sw?
 .vite
+.next

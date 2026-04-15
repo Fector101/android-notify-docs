@@ -1,4 +1,5 @@
-import { Link } from 'react-router'
+"use client";
+import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ScrollToSection } from '../ui/ScrollAssist'
 // import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
@@ -15,10 +16,10 @@ export default function HomePage() {
                     Jump To: 
                     <ol>
                         <li>
-                        * <Link to="getting-started#installation">Installation</Link>
+                        * <Link href="getting-started#installation">Installation</Link>
                         </li>
                         <li>
-                        * <Link to="components#images">Components</Link>
+                        * <Link href="components#images">Components</Link>
                         </li>
 
                     </ol>
@@ -44,7 +45,7 @@ export default function HomePage() {
                     <li>
                         <strong>No Gradle Dependencies</strong>
                         <p>
-                            Added <Link to="https://github.com/Fector101/android_notify/tree/without-androidx"><span className="code green-shade">without-androidx</span></Link> branch for
+                            Added <Link href="https://github.com/Fector101/android_notify/tree/without-androidx"><span className="code green-shade">without-androidx</span></Link> branch for
                             lightweight usage.
                         </p>
                         <ul  className="ml-[15px]">
@@ -172,14 +173,14 @@ export default function HomePage() {
 
 
             <span className='flex next-page-btns-box space-between'>
-                <Link className='next-page-btn' to='/help'>
+                <Link className='next-page-btn' href='/help'>
                     <ChevronLeft />
                     <span>
                         <p className='next-txt'>Previous</p>
                         <p className='page-name'>help</p>
                     </span>
                 </Link>
-                <Link className='next-page-btn' to='/getting-started'>
+                <Link className='next-page-btn' href='/getting-started'>
                     <span>
                         <p className='next-txt'>Next</p>
                         <p className='page-name'>Getting Started</p>

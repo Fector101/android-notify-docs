@@ -1,3 +1,4 @@
+"use client";
 import { IReferencePage } from "../../assets/js/mytypes";
 
 const bigimgcode = `from android_notify import Notification, NotificationStyles

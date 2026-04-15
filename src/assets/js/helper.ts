@@ -37,7 +37,7 @@ function randInt(start: number = 0, end: number): number {
  * @returns {boolean}
  */
 function isTouchDevice(): boolean {
-    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    return typeof window !== "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 }
 
 /**
@@ -85,43 +85,49 @@ function preventDefaultForScrollKeys(e: KeyboardEvent): boolean {
 
 let supportPassive = false;
 // Test for passive event listener support
-try {
-    const options = Object.defineProperty({}, "passive", {
-        get: function (this) {
-            supportPassive = true;
-            return true;
-        },
-    });
+if (typeof window !== "undefined") {
+    try {
+        const options = Object.defineProperty({}, "passive", {
+            get: function (this) {
+                supportPassive = true;
+                return true;
+            },
+        });
 
-    window.addEventListener(
-        "test",
-        () => {},
-        options as AddEventListenerOptions
-    );
-    window.removeEventListener("test", () => {}, options);
-} catch (e) {
-    console.log(e);
-    // Browser does not support passive events
+        window.addEventListener(
+            "test",
+            () => {},
+            options as AddEventListenerOptions
+        );
+        window.removeEventListener("test", () => {}, options as EventListenerOptions);
+    } catch (e) {
+        console.log(e);
+        // Browser does not support passive events
+    }
 }
 
 const wheelOpt: AddEventListenerOptions | boolean = supportPassive
     ? { passive: false }
     : false;
 const wheelEvent: string =
-    "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+    typeof document !== "undefined" && "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
 
 function disableScroll(): void {
-    window.addEventListener("DOMMouseScroll", preventDefault, false); // older
-    window.addEventListener(wheelEvent, preventDefault, wheelOpt);
-    window.addEventListener("touchmove", preventDefault, wheelOpt); // For mobile
-    window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+    if (typeof window !== "undefined") {
+        window.addEventListener("DOMMouseScroll", preventDefault, false); // older
+        window.addEventListener(wheelEvent, preventDefault, wheelOpt);
+        window.addEventListener("touchmove", preventDefault, wheelOpt); // For mobile
+        window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+    }
 }
 
 async function enableScroll(): Promise<void> {
-    window.removeEventListener("DOMMouseScroll", preventDefault, false);
-    window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-    window.removeEventListener("touchmove", preventDefault, wheelOpt);
-    window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
+    if (typeof window !== "undefined") {
+        window.removeEventListener("DOMMouseScroll", preventDefault, false);
+        window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+        window.removeEventListener("touchmove", preventDefault, wheelOpt);
+        window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
+    }
 }
 
 const formatDate = (dateString: string) => {

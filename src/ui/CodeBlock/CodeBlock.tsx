@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { Prism } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -12,17 +13,18 @@ export function InlineCode({ code }: { code: string }) {
     return <span className='code'>{code}</span>
 }
 export function CodeBlock(
-    { title, img = '', code, lang = 'python', pydroid = ``, has_pydroid_support = true }: { title?: string, img?: string, code: string; lang?: string; pydroid?: string; has_pydroid_support?: boolean }
+    { title, img = '', code, lang = 'python', pydroid = ``, has_pydroid_support = true }: { title?: string, img?: any, code: string; lang?: string; pydroid?: string; has_pydroid_support?: boolean }
 ) {
 
-    const [fontSize, setFontSize] = useState<string>(getFontSize());
-
-    function getFontSize(): string {
-        return window.innerWidth < 500 ? '12px' : '16px';
-    }
+    const [fontSize, setFontSize] = useState<string>("16px");
 
     useEffect(() => {
-        const handleResize = () => setFontSize(getFontSize());
+        const handleResize = () => {
+            setFontSize(window.innerWidth < 500 ? '12px' : '16px');
+        };
+        
+        // Trigger immediately on mount (client-side only)
+        handleResize();
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -105,7 +107,7 @@ if __name__ == '__main__':
                 <Prism language={lang} style={dracula} customStyle={{ margin: 0, padding: '20px', borderRadius: 0, fontSize: fontSize, overflowX: 'auto', background: 'transparent' }}>{code}</Prism>
                 {img && (
                     <div className="preview-container">
-                        <img src={img} alt={title || 'Code result'} />
+                        <img src={typeof img === 'string' ? img : img?.src || img} alt={title || 'Code result'} />
                     </div>
                 )}
             </div>

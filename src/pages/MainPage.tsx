@@ -1,5 +1,6 @@
+"use client";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router'
+import Link from 'next/link'
 import { ScrollToSection } from '../ui/ScrollAssist';
 import { CodeBlock, InlineCode } from '../ui/CodeBlock/CodeBlock';
 import '../assets/css/mainpage.css'
@@ -192,14 +193,14 @@ if __name__ == "__main__":
                 </div>
             </section>
             <span className='flex next-page-btns-box space-between'>
-            <Link className='next-page-btn' to='/'>
+            <Link className='next-page-btn' href='/'>
                 <ChevronLeft />
                 <span>
                     <p className='next-txt'>Previous</p>
                     <p className='page-name'>Home</p>
                 </span>
             </Link>
-            <Link className='next-page-btn' to='/components'>
+            <Link className='next-page-btn' href='/components'>
                 <span>
                     <p className='next-txt'>Next</p>
                     <p className='page-name'>Components</p>

@@ -1,4 +1,5 @@
-import { Link, useLocation } from "react-router";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import "./siteoverview.css";
 import { useEffect, useState } from "react";
@@ -67,7 +68,7 @@ function DropDown({
                             <li key={each}>
                                 <Link
                                     className={active ? "active" : ""}
-                                    to={route + hash_}
+                                    href={route + hash_}
                                     tabIndex={opened ? 0 : -1}
                                 >
                                     {each}
@@ -84,8 +85,12 @@ function DropDown({
 }
 
 export default function SiteOverview() {
-    const location = useLocation();
-    const [hash, setHash] = useState(location.hash);
+    const pathname = usePathname();
+    const [hash, setHash] = useState("");
+    
+    useEffect(() => {
+        setHash(window.location.hash);
+    }, [pathname]);
 
     // Update active hash based on scroll position using Intersection Observer
     useEffect(() => {
@@ -186,10 +191,9 @@ export default function SiteOverview() {
         },
     ];
 
-    // update active hash when route changes
     useEffect(() => {
-        setHash(location.hash);
-    }, [location]);
+        setHash(window.location.hash);
+    }, [pathname]);
     return (
         <div id="site-overview">
             {data.map((each) => (

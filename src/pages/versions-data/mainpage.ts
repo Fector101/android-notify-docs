@@ -1,3 +1,4 @@
+"use client";
 export const installation_code_buildozer = `# Ensure pyjnius is included in the build
 requirements = python3, kivy, pyjnius, android-notify
 

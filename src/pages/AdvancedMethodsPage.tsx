@@ -1,5 +1,6 @@
+"use client";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router'
+import Link from 'next/link'
 import { CodeBlock } from "../ui/CodeBlock/CodeBlock";
 import { ScrollToSection } from "../ui/ScrollAssist";
 import '../assets/css/advmethodspage.css'
@@ -96,14 +97,14 @@ export default function AdvancedMethodsPage({ version }: { version: Iversion }) 
 
 
             <span className='flex next-page-btns-box space-between'>
-                <Link className='next-page-btn' to='/components'>
+                <Link className='next-page-btn' href='/components'>
                     <ChevronLeft />
                     <span>
                         <p className='next-txt'>Previous</p>
                         <p className='page-name'>Components</p>
                     </span>
                 </Link>
-                <Link className='next-page-btn' to='/reference'>
+                <Link className='next-page-btn' href='/reference'>
                     <span>
                         <p className='next-txt'>Next</p>
                         <p className='page-name'>Reference</p>

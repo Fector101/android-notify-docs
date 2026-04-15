@@ -1,3 +1,4 @@
+"use client";
 // index.tsx
 import { Iversion, NotificationMethods, IReferencePage } from "../../assets/js/mytypes";
 import { reference_page as v158 } from "./1.58";

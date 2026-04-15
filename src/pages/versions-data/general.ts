@@ -1,3 +1,4 @@
+"use client";
 interface IPageDict {
     [key: string]: { title: string; description: string } | undefined;
 }

@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { usePathname } from "next/navigation";
 
 const ScrollToTop: React.FC = () => {
-    const routePath = useLocation();
+    const routePath = usePathname();
     const onTop = () => window.scrollTo(0, 0);
     useEffect(onTop, [routePath]);
     return null;
 };
 
 const ScrollToSection = () => {
-    const { hash } = useLocation();
+    const pathname = usePathname();
+    const [hash, setHash] = useState<string>("");
+    useEffect(() => {
+        setHash(window.location.hash);
+    }, [pathname]);
+
     const [scroll_top, setScrollToTop] = useState<React.ReactNode>(null);
     useEffect(() => {
         if (hash) {

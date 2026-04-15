@@ -1,7 +1,8 @@
+"use client";
 import "../assets/css/referencepage.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { nanoid } from "nanoid";
-import { Link } from "react-router";
+import Link from "next/link";
 import { InlineCode } from "../ui/CodeBlock/CodeBlock";
 import { Iversion, NotificationMethods } from "../assets/js/mytypes";
 import { isLegacyVersion } from "../assets/js/helper";
@@ -138,7 +139,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
 
       {/* Navigation */}
       <span className="flex next-page-btns-box space-between">
-        <Link className="next-page-btn" to="/advanced-methods">
+        <Link className="next-page-btn" href="/advanced-methods">
           <ChevronLeft />
           <span>
             <p className="next-txt">Previous</p>
@@ -146,7 +147,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
           </span>
         </Link>
 
-        <Link className="next-page-btn" to="/help">
+        <Link className="next-page-btn" href="/help">
           <span>
             <p className="next-txt">Next</p>
             <p className="page-name">Help</p>

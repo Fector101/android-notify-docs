@@ -1,7 +1,8 @@
+"use client";
 
 import { ScrollToSection } from '../ui/ScrollAssist';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router'
+import Link from 'next/link'
 import './../assets/css/componentspage.css'
 import bigPicImg from './../assets/imgs/bigpicturenoti.jpg'
 import btnsImg from './../assets/imgs/btns.jpg'
@@ -133,7 +134,7 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
 
                     }
 
-                    <p className='paragraph inner-section-1'>For about Images see <Link to='/advanced-methods#updating-notification'>advanced methods</Link> section</p>
+                    <p className='paragraph inner-section-1'>For about Images see <Link href='/advanced-methods#updating-notification'>advanced methods</Link> section</p>
                 </div>
             </section>
 
@@ -154,8 +155,8 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
                     </p>
                 </div>
                 <CodeBlock title='Button Example' img={btnsImg} code={data?.buttons_code || ''} />
-                {/* <p className='paragraph inner-section-1'>For more on functions and callbacks see the <Link to='/advanced-methods#functions'>Advanced</Link> section</p> */}
-                <p className='paragraph inner-section-1'>For Steps to Create BroadCast Buttons Visit: <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/How-to-Use-with-Broadcast-Listener'>android-notify-wiki</Link> - make things happen without opening app.</p>
+                {/* <p className='paragraph inner-section-1'>For more on functions and callbacks see the <Link href='/advanced-methods#functions'>Advanced</Link> section</p> */}
+                <p className='paragraph inner-section-1'>For Steps to Create BroadCast Buttons Visit: <Link target='_blank' rel='noopener noreferrer' href='https://github.com/Fector101/android_notify/wiki/How-to-Use-with-Broadcast-Listener'>android-notify-wiki</Link> - make things happen without opening app.</p>
             </section>
 
             <section tabIndex={0} className="page-section" id="progress-bars">
@@ -236,15 +237,15 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
             </section>
 
             <span className='flex next-page-btns-box space-between'>
-                <Link className='next-page-btn' to='/getting-started'>
+                <Link className='next-page-btn' href='/getting-started'>
                     <ChevronLeft />
                     <span>
                         <p className='next-txt'>Previous</p>
                         <p className='page-name'>Getting Started</p>
                     </span>
                 </Link>
-                <Link className='next-page-btn' to='/advanced-methods'>
-                    {/* <Link className='next-page-btn' to='/event-handling'> */}
+                <Link className='next-page-btn' href='/advanced-methods'>
+                    {/* <Link className='next-page-btn' href='/event-handling'> */}
                     <span>
                         <p className='next-txt'>Next</p>
                         <p className='page-name'>Advanced Methods</p>
