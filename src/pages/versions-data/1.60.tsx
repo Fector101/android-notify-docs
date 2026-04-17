@@ -238,3 +238,5 @@ const reference_page: IReferencePage = {
 };
 
 export { component_page, reference_page, advanced_methods_page }
+
+export default function Page() { return null; }

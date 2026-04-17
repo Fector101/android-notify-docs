@@ -2,6 +2,7 @@
 tsconfig.app.tsbuildinfo
 tsconfig.node.tsbuildinfo
 .env
+next-swc-linux-x64-gnu-16.2.3.tgz
 # Logs
 logs
 *.log

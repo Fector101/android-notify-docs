@@ -14,20 +14,12 @@ const pages_dict: IPageDict = {
             "Explore the various components.",
             // "Explore the various components available in the Android-notify library.",
     },
-    // 'general': {
+// 'general': {
     //     'title': 'General',
     //     'description': 'Learn about the general features and functionalities of the Android-notify library.',
     // },
-    // 'notifications': {
-    //     'title': 'Notifications',
-    //     'description': 'Discover how to create and manage notifications using the Android-notify library.',
-    // },
-    // 'progress-bars': {
-    //     'title': 'Progress Bars',
-    //     'description': 'Learn how to implement progress bars in your notifications using the Android-notify library.',
-    // },
-    // 'content': (
-    //     <div className='page-content'>
-};
+}
 
 export {pages_dict};
+
+export default function Page() { return null; }

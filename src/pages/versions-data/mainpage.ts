@@ -31,3 +31,5 @@ def send_notification(ans):
 
 NotificationHandler.asks_permission(send_notification)
 `;
+
+export default function Page() { return null; }

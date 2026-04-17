@@ -144,3 +144,5 @@ for (let i = 0; i < VERSION_ORDER.length; i++) {
     STYLE_ATTRIBUTES: styles,
   };
 }
+
+export default function Page() { return null; }
