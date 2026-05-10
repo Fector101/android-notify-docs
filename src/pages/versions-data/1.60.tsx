@@ -219,8 +219,42 @@ class Myapp(MDApp):
         name = NotificationHandler.get_name()
         use_name(name)`
 
+export const custom_sound_code = `from android_notify import Notification
+
+# Create a custom notification channel with a unique sound resource for Android 8+
+Notification.createChannel(
+    id="weird_sound_tester",
+    name="Weird Sound Tester",
+    description="A test channel for custom sounds from the res/raw folder.",
+    res_sound_name="sneeze" # file name without .wav or .mp3
+)
+
+# Send a notification through the created channel
+n = Notification(
+    title="Custom Sound Notification",
+    message="This tests playback of a custom sound (sneeze.wav) stored in res/raw.",
+    channel_id="weird_sound_tester" # tells notification to use right channel
+)
+n.setSound("sneeze") # for Android 7 below
+n.send()
+`
+
+export const vibrate_code = `from android_notify import Notification
+
+# Create a channel with vibration enabled
+Notification.createChannel(id='shake', name="Shake Passage", vibrate=True)
+
+n = Notification(title='Vibrate', channel_id='shake')
+n.setVibrate() # for less than Android 8
+n.fVibrate() # To Call Device Vibrator, For Emergencies, like Alarms.
+n.send()
+
+`
+
 const advanced_methods_page = {
     getting_identifier_code: getting_identifer,
+    custom_sound_code,
+    vibrate_code,
 }
 
 

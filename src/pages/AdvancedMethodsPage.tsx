@@ -9,6 +9,13 @@ import { useEffect, useState } from 'react';
 import { Iversion } from '../assets/js/mytypes';
 import { isLegacyVersion } from '../assets/js/helper';
 
+const vibratePermissionCode = `# buildozer.spec
+android.permissions = VIBRATE`
+
+const soundBuildozerCode = `# buildozer.spec
+android.add_resources = res
+source.include_exts = wav`
+
 
 interface IAdvancedMethodsPage {
     title_and_message_update_code: string;
@@ -16,6 +23,8 @@ interface IAdvancedMethodsPage {
     adding_image_code: string;
     channel_management_code: string;
     getting_identifier_code: string;
+    custom_sound_code?: string;
+    vibrate_code?: string;
 }
 
 export default function AdvancedMethodsPage({ version }: { version: Iversion }) {
@@ -81,6 +90,21 @@ export default function AdvancedMethodsPage({ version }: { version: Iversion }) 
                     <li>Custom Channel Name's Gives User ability to turn on/off specific notifications</li>
                 </ul>
                 <CodeBlock title='Channel Management' code={data?.channel_management_code || ''} img={channelimg} />
+
+                <h3 className="underline text-xl mt-[10px] mb-[0]">Custom Sound:</h3>
+                <p className="paragraph">You can assign a custom sound from your app's <span className="code">res/raw</span> folder to a notification channel for Android 8+:</p>
+                <p className="paragraph">Put your audio files (e.g. <span className="code">sneeze.wav</span>) in <span className="code">res/raw</span>, then configure <span className="code">buildozer.spec</span>:</p>
+                <CodeBlock title="buildozer.spec" code={soundBuildozerCode} />
+                <CodeBlock title="Custom Sound Channel" code={data?.custom_sound_code || ''} />
+                <p className="paragraph">For devices below Android 8, use <span className="code">setSound</span> on the notification object.</p>
+
+                <h3 className="underline text-xl mt-[10px] mb-[0]">Vibration:</h3>
+                <p className="paragraph">For the vibrate feature to work correctly, make sure to use version <span className="code">1.61.0</span> or later.</p>
+                <p className="paragraph">You can make the phone vibrate when a notification arrives. For Android 8+, enable vibration on the channel.</p>
+                <p className="paragraph">You also need to add the <span className="code">VIBRATE</span> permission in your <span className="code">buildozer.spec</span>:</p>
+                <CodeBlock title="" code={vibratePermissionCode} />
+                <CodeBlock title="Vibrate Channel" code={data?.vibrate_code || ''} />
+                <p className="paragraph">For the vibrate feature to work correctly, make sure to use version <span className="code">1.61.0</span> or later.</p>
             </section>
 
             <section id="getting-identifer" className="page-section" tabIndex={0}>
