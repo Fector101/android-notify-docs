@@ -162,6 +162,10 @@ const NOTIFICATION_METHODS = {
         args: [
             { name: 'res_sound_name', desc: "The name of the sound resource in your app (without file extension)." }
         ]
+    },
+    refresh: {
+        signature: 'refresh()',
+        description: 'Applies new components after using the send() method.',
     }
 
 };
@@ -175,6 +179,21 @@ const HANDLER_METHODS = [
             'Returns the unique string `name` or `id` for the notification or button that opened the app.',
         args: [
             { name: 'on_start', desc: 'must be True when called from App.on_start(), defaults to False.' },
+        ]
+    },
+    {
+        id: 'has_permission',
+        signature: 'NotificationHandler.has_permission()',
+        description:
+            'Checks if the app has notification permission. Returns True if granted.',
+    },
+    {
+        id: 'asks_permission',
+        signature: 'NotificationHandler.asks_permission(callback?)',
+        description:
+            'Requests notification permission from the user.',
+        args: [
+            { name: 'callback', desc: 'Optional function called with True if permission is granted.' }
         ]
     },
 

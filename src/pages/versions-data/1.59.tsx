@@ -293,11 +293,6 @@ const STYLE_ATTRIBUTES = [
         signature: 'NotificationStyles.INBOX',
         description: "contains 'inbox' value",
     },
-    {
-        id: 'BIG_TEXT',
-        signature: 'NotificationStyles.BIG_TEXT',
-        description: "contains 'big_text' value",
-    },
 ];
 
 

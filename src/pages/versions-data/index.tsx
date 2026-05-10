@@ -126,7 +126,7 @@ for (let i = 0; i < VERSION_ORDER.length; i++) {
 
   let methods: NotificationMethods = {};
   let handlers: any[] = [];
-  let styles: any = {};
+  let styles: any[] = [];
 
   for (let j = 0; j <= i; j++) {
     const v = VERSION_ORDER[j];
@@ -134,7 +134,7 @@ for (let i = 0; i < VERSION_ORDER.length; i++) {
 
     methods = mergeMethods(methods, ref.NOTIFICATION_METHODS, version);
     handlers = mergeArrayById(handlers, ref.HANDLER_METHODS || [], version);
-    styles = { ...styles, ...(ref.STYLE_ATTRIBUTES || {}) };
+    styles = mergeArrayById(styles, ref.STYLE_ATTRIBUTES || [], version);
   }
 
   VERSION_MAP[version] = {

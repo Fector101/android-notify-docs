@@ -95,7 +95,7 @@ export default function AdvancedMethodsPage({ version }: { version: Iversion }) 
                 <p className="paragraph">You can assign a custom sound from your app's <span className="code">res/raw</span> folder to a notification channel for Android 8+:</p>
                 <p className="paragraph">Put your audio files (e.g. <span className="code">sneeze.wav</span>) in <span className="code">res/raw</span>, then configure <span className="code">buildozer.spec</span>:</p>
                 <CodeBlock title="buildozer.spec" code={soundBuildozerCode} />
-                <CodeBlock title="Custom Sound Channel" code={data?.custom_sound_code || ''} />
+                <CodeBlock has_pydroid_support={false} title="Custom Sound Channel" code={data?.custom_sound_code || ''} />
                 <p className="paragraph">For devices below Android 8, use <span className="code">setSound</span> on the notification object.</p>
 
                 <h3 className="underline text-xl mt-[10px] mb-[0]">Vibration:</h3>

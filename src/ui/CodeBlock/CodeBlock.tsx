@@ -8,8 +8,8 @@ import { copyText } from '../../assets/js/helper';
 
 
 
-export function InlineCode({ code }: { code: string }) {
-    return <span className='code'>{code}</span>
+export function InlineCode({ code, className }: { code: string, className?: string }) {
+    return <span className={`code ${className || ''}`}>{code}</span>
 }
 export function CodeBlock(
     { title, img = '', code, lang = 'python', pydroid = ``, has_pydroid_support = true }: { title?: string, img?: string, code: string; lang?: string; pydroid?: string; has_pydroid_support?: boolean }

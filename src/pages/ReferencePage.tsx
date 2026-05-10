@@ -203,7 +203,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
             NotificationStyles attributes for Safely Adding Styles
           </h2>
         ) : (
-          <> <h2 className="text-xl font-bold">NotificationStyles</h2> <p className="paragraph"> All NotificationStyles attributes are deprecated in v1.59.3 they were transformed to methods for better usability and to free up __init__ kwargs. </p> <p>The New Methods Are: <InlineCode code='setSmallIcon' />, <InlineCode code='setLargeIcon' />, <InlineCode code='setBigPicture' />, <InlineCode code='setBigText' /> and <InlineCode code='updateProgressBar'/> work to safely add styles without worrying about overwriting other styles or kwargs. </p> </>
+          <> <h2 className="text-xl font-bold">NotificationStyles</h2> <p className="paragraph"> All NotificationStyles attributes are <InlineCode className="yellow" code="deprecated in v1.59.3" />  they were transformed to methods for better usability and to free up __init__ kwargs. </p> <p>The New Methods Are: <InlineCode className="green" code='setSmallIcon' />, <InlineCode className="green" code='setLargeIcon' />, <InlineCode className="green" code='setBigPicture' />, <InlineCode className="green" code='setBigText' /> and <InlineCode className="green" code='updateProgressBar'/> work to safely add styles without worrying about overwriting other styles or kwargs. </p> </>
         )}
 
         <div className="flex flex-wrap align-items-cen justify-content-cen styles-container">
