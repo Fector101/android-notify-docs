@@ -242,11 +242,18 @@ n.send()
 export const vibrate_code = `from android_notify import Notification
 
 # Create a channel with vibration enabled
-Notification.createChannel(id='shake', name="Shake Passage", vibrate=True)
+Notification.createChannel(
+    id='shake',
+    name="Shake Passage",
+    vibrate=True
+)
 
-n = Notification(title='Vibrate', channel_id='shake')
+n = Notification(
+    title='Vibrate',
+    channel_id='shake'
+)
 n.setVibrate() # for less than Android 8
-n.fVibrate() # To Call Device Vibrator, For Emergencies, like Alarms.
+n.fVibrate() # To Call Device Vibrator, For Emergencies.
 n.send()
 
 `
