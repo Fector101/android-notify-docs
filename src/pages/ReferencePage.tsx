@@ -1,5 +1,6 @@
+import { useState } from "react";
 import "../assets/css/referencepage.css";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { nanoid } from "nanoid";
 import { Link } from "react-router";
 import { InlineCode } from "../ui/CodeBlock/CodeBlock";
@@ -8,6 +9,27 @@ import { isLegacyVersion } from "../assets/js/helper";
 
 import { VERSION_MAP } from "./versions-data/index";
 import { ScrollToSection } from "../ui/ScrollAssist";
+
+function matchesSearch(query: string, ...fields: any[]): boolean {
+  if (!query) return true;
+  const q = query.toLowerCase();
+  return fields.some(f => {
+    if (typeof f === "string") return f.toLowerCase().includes(q);
+    return false;
+  });
+}
+
+function itemMatchesSearch(query: string, item: any, key?: string): boolean {
+  if (!query) return true;
+  const desc = typeof item.description === "string" ? item.description : "";
+  if (matchesSearch(query, key, item.signature, desc)) return true;
+  if (item.args?.length) {
+    return item.args.some((a: any) =>
+      matchesSearch(query, a.name, a.desc)
+    );
+  }
+  return false;
+}
 
 function MethodCard({method, fallback }: { method: any; fallback?: string }) {
   const class_name = fallback? fallback+" ref-code": "ref-code"
@@ -32,6 +54,33 @@ export default function ReferencePage({ version }: { version: Iversion }) {
   const data = VERSION_MAP[version];
   const NOTIFICATION_METHODS: NotificationMethods =
     data?.NOTIFICATION_METHODS || {};
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const notificationEntries = Object.entries(NOTIFICATION_METHODS).filter(
+    ([key, m]) => itemMatchesSearch(searchQuery, m, key)
+  );
+  const handlerMethods = (data?.HANDLER_METHODS || []).filter((m) =>
+    itemMatchesSearch(searchQuery, m, m.id)
+  );
+  const styleEntries = data?.STYLE_ATTRIBUTES
+    ? Object.entries(data.STYLE_ATTRIBUTES).filter(([key, m]) =>
+        itemMatchesSearch(searchQuery, m, key)
+      )
+    : [];
+
+  const totalMethods =
+    Object.keys(NOTIFICATION_METHODS).length +
+    (data?.HANDLER_METHODS?.length || 0) +
+    (data?.STYLE_ATTRIBUTES
+      ? Object.keys(data.STYLE_ATTRIBUTES).length
+      : 0);
+
+  const matchedCount =
+    notificationEntries.length +
+    handlerMethods.length +
+    styleEntries.length;
+
+  const hasResults = matchedCount > 0;
 
   return (
     <div className="page main-page reference-page">
@@ -39,7 +88,42 @@ export default function ReferencePage({ version }: { version: Iversion }) {
       <h2>Reference</h2>
       <hr />
 
+      {/* Search */}
+      <div className="ref-search-wrapper">
+        <Search className="ref-search-icon" size={18} />
+        <input
+          type="search"
+          className="ref-search-input"
+          placeholder="Search methods, signatures, descriptions..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        {searchQuery && (
+          <button
+            className="ref-search-clear"
+            onClick={() => setSearchQuery("")}
+          >
+            &times;
+          </button>
+        )}
+      </div>
+
+      {searchQuery && (
+        <p className="ref-search-count">
+          {hasResults
+            ? <>Found <strong>{matchedCount}</strong> of {totalMethods} results</>
+            : <>No results for "<strong>{searchQuery}</strong>"</>}
+        </p>
+      )}
+
+      {!hasResults && searchQuery && (
+        <div className="ref-no-results">
+          <p>Try a different search term</p>
+        </div>
+      )}
+
       {/* Table of Contents */}
+      {hasResults && (<>
       <nav className="border-l-4 border-blue-600 pl-4">
         <h2 className="font-semibold mb-2">Contents</h2>
         <ul className="inner-section-2 space-y-1 text-sm">
@@ -76,6 +160,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
       )}
 
       {/* Notification Methods */}
+      {notificationEntries.length > 0 && (
       <section
         id="notification-class"
         className="space-y-6 page-section"
@@ -85,13 +170,14 @@ export default function ReferencePage({ version }: { version: Iversion }) {
           Notification Attributes and Methods
         </h2>
 
-        {Object.entries(NOTIFICATION_METHODS).map(([key, m]) => (
+        {notificationEntries.map(([key, m]) => (
           <MethodCard key={key} method={m} fallback={key}/>
-          
         ))}
       </section>
+      )}
 
       {/* Handler Methods */}
+      {handlerMethods.length > 0 && (
       <section
         id="notificationhandler-class"
         className="space-y-6 page-section"
@@ -99,12 +185,14 @@ export default function ReferencePage({ version }: { version: Iversion }) {
       >
         <h2 className="text-xl font-bold">NotificationHandler Methods</h2>
 
-        {data?.HANDLER_METHODS?.map((m) => (
+        {handlerMethods.map((m) => (
           <MethodCard key={nanoid()} method={m} />
         ))}
       </section>
+      )}
 
       {/* Styles */}
+      {styleEntries.length > 0 && (
       <section
         id="notificationstyles-class"
         className="space-y-6 page-section"
@@ -119,8 +207,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
         )}
 
         <div className="flex flex-wrap align-items-cen justify-content-cen styles-container">
-          {data?.STYLE_ATTRIBUTES &&
-            Object.entries(data.STYLE_ATTRIBUTES).map(([key, m]) => (
+          {styleEntries.map(([key, m]) => (
               <div
                 key={nanoid()}
                 className="bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition"
@@ -135,6 +222,8 @@ export default function ReferencePage({ version }: { version: Iversion }) {
             ))}
         </div>
       </section>
+      )}
+      </>)}
 
       {/* Navigation */}
       <span className="flex next-page-btns-box space-between">
