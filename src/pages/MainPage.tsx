@@ -112,19 +112,15 @@ export default function MainPage() {
             <section className="page-section" id='installation'>
                 <h2>Installation</h2>
                 <hr />
-                <h3 className='my-[20px] underline'> Using AndroidX (Recommended)</h3>
-                <h4 className='ml-[5px]'>Best for modern Android builds and projects already using AndroidX.</h4>
+                
 
                 <div className='inner-section-1'>
                     <h3 className='sub-header text-marker system'>Kivy Apps</h3>
                     <p>In your <InlineCode code="buildozer.spec"/> file include the following:</p>
                     <CodeBlock code={installation_code_buildozer} lang='ini' />
 
-                    <h3 className='my-[20px] underline'>Using Legacy Android APIs (No Gradle Dependencies)</h3>
                     
-                    <h4 className='ml-[5px] my-[20px]'>This option avoids AndroidX and additional Gradle dependencies.
-                        <br/>
-                    It uses Android's legacy notification APIs and has been tested up to Android 15.</h4>
+                    <h4 className='ml-[5px] my-[20px]'>Usage without additional Gradle dependency.</h4>
 
                     <h3 className='sub-header text-marker system'>Flet Apps</h3>
 
