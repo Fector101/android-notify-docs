@@ -159,6 +159,8 @@ export default function SiteOverview() {
             route: "/advanced-methods",
             sections: {
                 "Channel Management": "channel-management",
+                "Custom Sound": "custom-sound",
+                "Vibration": "vibration",
                 "Getting Identifer": "getting-identifer",
             },
         },
