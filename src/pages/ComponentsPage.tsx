@@ -175,6 +175,7 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
                     </p>
                 </div>
                 <CodeBlock title='Progress Bar Style' img={version == "1.58" ? progressbarImg : progressbarGif} code={data?.progressbar_code || ''} />
+                 <span className="paragraph code yellow flex progressbar-warning">Avoid updating too frequently, Android ignores updates faster than 0.5sec on some devices.<br/> Android-notify has a built in logic to make sure updates show by cancelling old update if a new one is received in less than a second.</span>
             </section>
 
 
@@ -206,6 +207,20 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
                 <p className='paragraph'>Sub Text is a smaller text that appears side of app name, often used to provide additional context or information, Like download seconds remaining.</p>
                 <p className='paragraph'>Use <span className='code'>setSubText</span> to display string</p>
                 <CodeBlock title='Sub Text' code={data?.sub_text_code || '# No available in version: ' + version} img={subTextImg} />
+
+                <h3 className='paragraph'>Updating Title and Message</h3>
+                <p className='paragraph'>After sending a notification, you can update its title and message using <span className='code'>updateTitle()</span> and <span className='code'>updateMessage()</span> methods.</p>
+                <CodeBlock title='Update Notification Text' code={`from android_notify import Notification
+
+notification = Notification(
+    title="Processing...",
+    message="Starting task"
+)
+notification.send()
+
+# Update the notification after sending
+notification.updateTitle("Processing Complete!")
+notification.updateMessage("Task finished successfully")`} />
 
                 <h3 className='paragraph'>Colored Texts [dev]</h3>
                 <ol>

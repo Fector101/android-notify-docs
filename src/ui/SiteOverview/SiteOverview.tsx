@@ -158,8 +158,6 @@ export default function SiteOverview() {
             title: "Advanced Methods",
             route: "/advanced-methods",
             sections: {
-                "Updating Notification": "updating-notification",
-                "Adding Image": "adding-image",
                 "Channel Management": "channel-management",
                 "Getting Identifer": "getting-identifer",
             },
