@@ -175,7 +175,11 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
                     </p>
                 </div>
                 <CodeBlock title='Progress Bar Style' img={version == "1.58" ? progressbarImg : progressbarGif} code={data?.progressbar_code || ''} />
-                 <span className="paragraph code yellow flex progressbar-warning">Avoid updating too frequently, Android ignores updates faster than 0.5sec on some devices.<br/> Android-notify has a built in logic to make sure updates show by cancelling old update if a new one is received in less than a second.</span>
+                
+                <div className="progress-warning-box">
+                    <h4>Update Frequency</h4>
+                    <p>Android ignores updates faster than <strong>0.5 seconds</strong>. android-notify automatically handles rapid updates by cancelling old ones if a new update arrives within 1 second.</p>
+                </div>
             </section>
 
 

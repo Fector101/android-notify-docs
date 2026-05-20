@@ -9,6 +9,36 @@
 
 }
 
+/* Progress Warning Box */
+.progress-warning-box {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.08) 0%, rgba(255, 152, 0, 0.05) 100%);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.progress-warning-box h4 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffc107;
+    letter-spacing: 0.5px;
+}
+
+.progress-warning-box p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.progress-warning-box strong {
+    color: #ffc107;
+    font-weight: 600;
+}
+
 /* .components-page h3.paragraph{
     margin-top: 20px;
     font-size: 15px;
@@ -18,5 +48,18 @@
 @media screen and (max-width:500px) {
     .components-page .app-icon-h3 {
         font-size: 15px;
+    }
+
+    .progress-warning-box {
+        padding: 12px 15px;
+    }
+
+    .progress-warning-box h4 {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    .progress-warning-box p {
+        font-size: 0.9rem;
     }
 }
