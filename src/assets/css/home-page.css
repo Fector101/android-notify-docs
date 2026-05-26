@@ -1,39 +1,100 @@
-.home-page .huge {
-    font-size: 5rem;
-    font-weight: 700;
-    /* color: #333; */
+.home-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.home-hero {
     text-align: center;
-    margin: 10px;
-    /* font-family: 'Poppins', sans-serif; */
-
+    padding: 48px 0 40px;
 }
 
-.version-deatils {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid grey;
-    font-size: 14px;
-
+.home-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin: 0 0 8px 0;
 }
 
-.version-deatils:open {
-    border: none;
-    background-color: rgba(114, 114, 112, 0.082);
-
+.home-hero .tagline {
+    font-size: 1rem;
+    color: #999;
+    margin: 0 0 16px 0;
 }
 
-.version-deatils summary {
-    color: rgb(250, 250, 91);
+.home-hero .version-badge {
+    display: inline-block;
+    background: #2a3a2a;
+    color: #4caf50;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
-li strong{
-    color: white;
+
+.home-section {
+    margin-bottom: 40px;
 }
-.jumpto-box{
-    width: max-content;
-    padding-block: 10px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+
+.home-section h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e0e0e0;
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
 }
-.jumpto-box li{
-    padding-left: 10px;
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.home-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.15s;
+}
+
+.home-card:hover {
+    border-color: #4caf50;
+    text-decoration: none;
+}
+
+.home-card .card-icon {
+    color: #4caf50;
+}
+
+.home-card .card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e8e8e8;
+    margin: 0;
+}
+
+.home-card .card-desc {
+    font-size: 0.82rem;
+    color: #888;
+    margin: 0;
+    line-height: 1.4;
+}
+
+@media screen and (max-width: 500px) {
+    .home-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .home-hero {
+        padding: 32px 0 24px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
 }
