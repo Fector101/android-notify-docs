@@ -17,33 +17,32 @@ header .brand {
 }
 
 header .css-dropdown {
-    gap: 5px;
     position: relative;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* background-color: yellowgreen; */
     height: 50px;
+}
+
+header .css-dropdown .active {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    /* border: 1px solid #555; */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+}
+
+header .css-dropdown .active:hover {
+    border-color: #888;
+    background: #2a2a2a;
 }
 
 header .css-dropdown .active .up-svg {
     display: none;
-}
-
-header .css-dropdown .active {
-    gap: 5px;
-}
-
-header .css-dropdown .opts {
-    position: absolute;
-    border: 1px solid grey;
-    top: 40px;
-    background: #262626;
-    height: auto;
-    display: none;
-}
-
-header .css-dropdown:hover .opts {
-    display: block;
 }
 
 header .css-dropdown:hover .active .up-svg {
@@ -54,35 +53,62 @@ header .css-dropdown:hover .active .down-svg {
     display: none;
 }
 
+header .css-dropdown .opts {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    min-width: 160px;
+    background: #1e1e1e;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 4px;
+    display: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    z-index: 10;
+}
+
+header .css-dropdown:hover .opts {
+    display: block;
+}
+
 header .css-dropdown .opts button {
-    padding: 10px;
     display: block;
     width: 100%;
-    color: white;
-    font-size: unset;
+    padding: 8px 12px;
+    color: #d0d0d0;
+    font-size: 0.9rem;
+    text-align: left;
+    border-radius: 5px;
+    background: none;
+    transition: background 0.1s;
 }
 
 header .css-dropdown .opts button:hover {
-    background: #555454;
+    background: #333;
     cursor: pointer;
 }
 
 header .css-dropdown .opts .release-link {
     display: block;
-    padding: 10px;
-    color: white;
-    font-size: 14px;
+    padding: 8px 12px;
+    margin-top: 4px;
+    color: #aaa;
+    font-size: 0.8rem;
     text-align: center;
-    border-top: 1px solid grey;
+    border-top: 1px solid #333;
     text-decoration: none;
+    border-radius: 5px;
 }
 
 header .css-dropdown .opts .release-link:hover {
-    background: #555454;
+    background: #333;
+    color: #e0e0e0;
 }
 
 header .version-no {
-    font-size: 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #e0e0e0;
 }
 
 header .page-title {

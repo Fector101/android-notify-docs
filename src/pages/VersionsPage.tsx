@@ -19,7 +19,7 @@ const LEGEND = [
 function VersionBlock({ version, sections }: { version: string; sections: { msg: React.ReactNode; type: SectionType }[] }) {
     return (
         <div className="version-block">
-            <h2 className="version-title">Version {version}</h2>
+            <h2 id={`v${version.replace('.', '_')}`} className="version-title">Version {version}</h2>
             <div className="version-content">
                 {sections.map(({ msg, type }) => {
                     if (type === '') {
