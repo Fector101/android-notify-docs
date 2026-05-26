@@ -26,7 +26,7 @@ function App() {
             <Header version={version} setVersion={setVersion} />
             <main className="flex">
                 <SiteOverview />
-                <main className="flex fd-column overflow-hidden m-auto" style={{"flex":"1"}}>
+                <main className="flex fd-column overflow-hidden m-auto " style={{"flex":"1","minHeight": "calc(100vh - var(--header-height));"}}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/getting-started" element={<MainPage />} />
@@ -36,7 +36,7 @@ function App() {
                         <Route path="/help" element={<ExtrasPage />} />
                         {/* <Route path="/versions" element={<p className="main-page page">Will contain list of versions from 1.58+</p>} /> */}
                         <Route path="/versions" element={<VersionsPage />} />
-                        <Route path="*" element={<p className="page">Page Not Found</p>} />
+                        <Route path="*" element={<p className="flex m-auto">Page Not Found</p>} />
                     </Routes>
                     <Footer />
                 </main>
