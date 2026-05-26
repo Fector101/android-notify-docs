@@ -96,7 +96,7 @@ code {
         font-size: 11px;
     }
 
-    .code-block .copy-buttons button .btn-text {
+    .code-block .copy-buttons button.regular-copy-btn .btn-text {
         display: none;
     }
 }

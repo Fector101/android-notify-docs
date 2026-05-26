@@ -35,7 +35,7 @@ function App() {
                         <Route path="/reference" element={<ReferencePage version={version} />} />
                         <Route path="/help" element={<ExtrasPage />} />
                         {/* <Route path="/versions" element={<p className="main-page page">Will contain list of versions from 1.58+</p>} /> */}
-                        <Route path="/versions" element={<VersionsPage setVersion={setVersion} />} />
+                        <Route path="/versions" element={<VersionsPage />} />
                         <Route path="*" element={<p className="page">Page Not Found</p>} />
                     </Routes>
                     <Footer />

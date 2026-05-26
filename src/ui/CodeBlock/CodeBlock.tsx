@@ -85,13 +85,13 @@ if __name__ == '__main__':
             <div className="header">
                 <span className="title">{title || lang || 'code'}</span>
                 <div className="copy-buttons">
-                    <button onClick={(e) => copyAction(code, e)} title="Copy Code">
+                    <button onClick={(e) => copyAction(code, e)} title="Copy Code" className="regular-copy-btn">
                         <Copy className='copy-icon' size={16} />
                         <Check className='check-icon display-none' size={16} />
                         <span className="btn-text">Copy</span>
                     </button>
                     {has_pydroid_support && lang === 'python' && (
-                        <button onClick={(e) => copyPydroidAction(pydroid || code, e, Boolean(pydroid))} title="Copy for Pydroid 3">
+                        <button onClick={(e) => copyPydroidAction(pydroid || code, e, Boolean(pydroid))} title="Copy for Pydroid 3" className="pydroid-copy-btn">
                             <Smartphone className='copy-icon' size={16} />
                             <Check className='check-icon display-none' size={16} />
                             <span className="btn-text">Pydroid</span>

@@ -5,9 +5,10 @@ import {
 import './header.css'
 import { Link, useLocation } from 'react-router'
 import { toTitleCase } from '../../assets/js/helper';
-import {pages_dict} from '../../pages/versions-data/general';
+import { pages_dict } from '../../pages/versions-data/general';
 import { useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
+import { toast } from 'sonner';
 import { Iversion } from '../../assets/js/mytypes';
 
 // type PagesDict = {
@@ -58,12 +59,13 @@ export default function Header({ version,setVersion }:IHeader) {
             </Link>
             <div className='css-dropdown flex fd-column'>
                 <span className='flex active'>
-                    <Link to='/versions' className='version-no'>v{version}</Link>
+                    <span className='version-no'>v{version}</span>
                     <ChevronDown className='down-svg'/>
                     <ChevronUp className='up-svg' />
                 </span>
                 <div className='opts'>
-                    {["1.58","1.59", "1.60"].map(each => <button onClick={()=>setVersion(each)} key={nanoid()}>{each}</button>)}
+                    {["1.58","1.59", "1.60"].map(each => <button onClick={() => { setVersion(each); toast.success(`Switched docs to v${each}`) }} key={nanoid()}>{each}</button>)}
+                    <Link to='/versions' className='release-link'>View all release notes</Link>
                 </div>
             </div>
             <p className='page-title'>{location.pathname.slice(1).split('-').map(toTitleCase).join(' ')}{description || ''}</p>

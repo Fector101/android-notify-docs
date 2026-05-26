@@ -68,6 +68,20 @@ header .css-dropdown .opts button:hover {
     cursor: pointer;
 }
 
+header .css-dropdown .opts .release-link {
+    display: block;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    border-top: 1px solid grey;
+    text-decoration: none;
+}
+
+header .css-dropdown .opts .release-link:hover {
+    background: #555454;
+}
+
 header .version-no {
     font-size: 18px;
 }
