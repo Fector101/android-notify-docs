@@ -4,38 +4,29 @@ import './../assets/css/versionspage.css'
 
 type SectionType = 'good' | 'warning' | 'bad' | ''
 
-const TYPE_TITLES: Record<string, { label: string; className: string }> = {
-    good: { label: 'Added', className: 'good' },
-    warning: { label: 'Changed', className: 'warning' },
-    bad: { label: 'Fixed', className: 'bad' },
+const TYPE_ITEM_CLASS: Record<string, string> = {
+    good: 'good-item',
+    warning: 'warning-item',
+    bad: 'bad-item',
 }
 
-function VersionBlock({ version, sections }: { version: string; sections: { msg: React.ReactNode; type: SectionType }[] }) {
-    const groups = {
-        good: sections.filter(s => s.type === 'good'),
-        warning: sections.filter(s => s.type === 'warning'),
-        bad: sections.filter(s => s.type === 'bad'),
-        neutral: sections.filter(s => s.type === ''),
-    }
+const LEGEND = [
+    { label: 'New features or API', dotClass: 'good' },
+    { label: 'API changes or issues with advanced methods', dotClass: 'warning' },
+    { label: 'Critical fixes', dotClass: 'bad' },
+]
 
+function VersionBlock({ version, sections }: { version: string; sections: { msg: React.ReactNode; type: SectionType }[] }) {
     return (
         <div className="version-block">
             <h2 className="version-title">Version {version}</h2>
             <div className="version-content">
-                {(['good', 'warning', 'bad', 'neutral'] as const).map(type => {
-                    const items = groups[type]
-                    if (!items.length) return null
-                    const info = TYPE_TITLES[type]
-                    return (
-                        <div key={type} className="version-group">
-                            {info && <h3 className={`group-title ${info.className}`}>{info.label}</h3>}
-                            <ul>
-                                {items.map(({ msg }) => (
-                                    <li key={nanoid()}>{msg}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    )
+                {sections.map(({ msg, type }) => {
+                    if (type === '') {
+                        return <h3 key={nanoid()} className="version-subheading">{msg}</h3>
+                    }
+                    const liClass = TYPE_ITEM_CLASS[type]
+                    return <li key={nanoid()} className={liClass}>{msg}</li>
                 })}
             </div>
         </div>
@@ -45,6 +36,18 @@ export default function VersionsPage() {
     return (
         <div className="page main-page versions-page flex fd-column">
             <ScrollToSection />
+            <h1 className="page-heading">Changelog</h1>
+            <p className="page-subtitle">Release notes for all versions of Android Notify</p>
+
+            <div className="legend">
+                {LEGEND.map(item => (
+                    <span key={item.label} className="legend-item">
+                        <span className={`legend-dot ${item.dotClass}`} />
+                        {item.label}
+                    </span>
+                ))}
+            </div>
+
             <section className="versions">
                 <VersionBlock
                     version="1.60"
