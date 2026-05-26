@@ -4,6 +4,7 @@ import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import './codeblock.css'
 import { Check, Copy, Smartphone } from "lucide-react";
 import { copyText } from '../../assets/js/helper';
+import { toast } from 'sonner';
 
 
 
@@ -73,8 +74,10 @@ if __name__ == '__main__':
     MainApp().run()`
 
             copyText(pydroidTemplate)
+            toast.success('Copied for Pydroid 3')
         } else {
             copyText(txt)
+            toast.success('Copied for Pydroid 3')
         }
 
 
