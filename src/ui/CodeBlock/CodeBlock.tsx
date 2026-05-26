@@ -30,27 +30,26 @@ export function CodeBlock(
 
 
 
+    function showCheck(element: HTMLElement | null | undefined) {
+        element?.querySelector('.copy-icon')?.classList.add('display-none')
+        element?.querySelector('.check-icon')?.classList.remove('display-none')
+        setTimeout(() => {
+            element?.querySelector('.copy-icon')?.classList.remove('display-none')
+            element?.querySelector('.check-icon')?.classList.add('display-none')
+        }, 1500)
+    }
+
     function copyAction(txt: string, e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         let element = e.target as HTMLElement | null | undefined
         element = element?.closest('button')
-        console.log(element)
-
-        element?.querySelector('.copy-icon')?.classList.add('display-none')
-        element?.querySelector('.check-icon')?.classList.remove('display-none')
-        // setTimeout(() => {
-        //     element?.querySelector('.copy-icon')?.classList.remove('display-none')
-        //     element?.querySelector('.check-icon')?.classList.add('display-none')
-        // },500)
+        showCheck(element)
         copyText(txt)
-
     }
 
     function copyPydroidAction(txt: string, e: React.MouseEvent<HTMLButtonElement, MouseEvent>, no_patch = false) {
         let element = e.target as HTMLElement | null | undefined
         element = element?.closest('button')
-
-        element?.querySelector('.copy-icon')?.classList.add('display-none')
-        element?.querySelector('.check-icon')?.classList.remove('display-none')
+        showCheck(element)
 
         if (!no_patch) {
 
