@@ -22,7 +22,7 @@ export default function MainPage() {
                 <p className="paragraph">
                     It handles all Java details so you can focus on notification content in Python, No extra APIs or services needed.
                 </p>
-                <p className="paragraph">Dependencies: Kivy, Pyjnius</p>
+                <p className="paragraph">Dependency: Pyjnius</p>
             </section>
 
             <section className="page-section" id="features">
