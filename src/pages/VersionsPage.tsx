@@ -79,7 +79,7 @@ export default function VersionsPage() {
                         { msg: <><span className="code">channelExists</span> - channel_id, to check if said channel exists.</>, type: 'good' },
                         { msg: <><span className="code">doChannelsExist</span> - ids, returns those that do not exist.</>, type: 'good' },
                         { msg: <><span className="code">setData</span> - attach a dictionary of data for later use.</>, type: 'good' },
-                        { msg: <><span className="code">fVibrate</span> - force vibration even if disabled in device settings.</>, type: 'good' },
+                        { msg: <><span className="code">fVibrate</span> - Trigger a standard notification vibration.</>, type: 'good' },
                         { msg: <><span className="code">fill_args</span> - fills notification args without sending.</>, type: 'good' },
 
                         { msg: 'Support for devices less than Android 8', type: 'good' },
