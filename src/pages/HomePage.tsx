@@ -26,7 +26,7 @@ export default function HomePage() {
 
             <section className="home-hero">
                 <h1>Android Notify</h1>
-                <p className="tagline">Rich, native Android notifications for Python powered apps, built for Kivy and Flet.</p>
+                <p className="tagline">A simple way to create and customize Android notifications in Kivy and Flet apps.</p>
 
                 <Link to="/versions#v1_60" className="version-badge">v1.60.10</Link>
             </section>
