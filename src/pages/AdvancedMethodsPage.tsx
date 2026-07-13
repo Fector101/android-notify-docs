@@ -9,11 +9,9 @@ import { useEffect, useState } from 'react';
 import { Iversion } from '../assets/js/mytypes';
 import { isLegacyVersion } from '../assets/js/helper';
 
-const vibratePermissionCode = `# buildozer.spec
-android.permissions = VIBRATE`
+const vibratePermissionCode = `android.permissions = VIBRATE`
 
-const soundBuildozerCode = `# buildozer.spec
-android.add_resources = res
+const soundBuildozerCode = `android.add_resources = res
 source.include_exts = wav`
 
 
@@ -69,7 +67,7 @@ export default function AdvancedMethodsPage({ version }: { version: Iversion }) 
                 <p className="paragraph">For the vibrate feature to work correctly, make sure to use version <span className="code">1.61.0</span> or later.</p>
                 <p className="paragraph">You can make the phone vibrate when a notification arrives. For Android 8+, enable vibration on the channel.</p>
                 <p className="paragraph">You also need to add the <span className="code">VIBRATE</span> permission in your <span className="code">buildozer.spec</span>:</p>
-                <CodeBlock title="spec" code={vibratePermissionCode} />
+                <CodeBlock title="buildozer.spec" code={vibratePermissionCode} has_pydroid_support={false}/>
                 <CodeBlock title="Vibrate Channel" code={data?.vibrate_code || ''} />
                 <p className="paragraph">For the vibrate feature to work correctly, make sure to use version <span className="code">1.61.0</span> or later.</p>
             </section>
