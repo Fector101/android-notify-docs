@@ -71,10 +71,25 @@
   line-height: 1.8;
   color: #a8a29e;
   margin: 0;
+  -webkit-overflow-scrolling: touch;
 }
 .terminal code {
   background: none;
   padding: 0;
   font-size: 0.8rem;
   color: inherit;
+}
+
+@media screen and (max-width: 500px) {
+  .terminal-bar {
+    padding: 0.5rem 0.75rem;
+  }
+  .terminal pre {
+    padding: 0.75rem;
+    font-size: 0.7rem;
+  }
+  .term-btn {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.6rem;
+  }
 }
