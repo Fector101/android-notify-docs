@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="/img.svg"/>
+  <title>API Reference - Android Notify Docs</title>
+  <meta name="description" content="Full API reference for Android Notify: Notification class, NotificationHandler, and NotificationStyles."/>
+  <meta name="keywords" content="android notify, API, reference, documentation, methods"/>
+  <meta name="author" content="Fector101"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="application-name" content="Android Notify"/>
+  <meta name="theme-color" content="#3F51B5"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="API Reference - Android Notify Docs"/>
+  <meta property="og:description" content="Full API reference for Android Notify: Notification class, NotificationHandler, and NotificationStyles."/>
+  <meta property="og:image" content="https://android-notify.vercel.app/meta.jpg"/>
+  <meta property="og:url" content="https://android-notify.vercel.app/"/>
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:title" content="API Reference - Android Notify Docs"/>
+  <meta property="twitter:description" content="Full API reference for Android Notify: Notification class, NotificationHandler, and NotificationStyles."/>
+  <meta property="twitter:image" content="https://android-notify.vercel.app/meta.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-dracula.min.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<header>
+  <a href="/"><svg class="brand" viewBox="0 0 24 24" fill="none" stroke="rgb(207,207,249)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></a>
+  <div class="css-dropdown">
+    <span class="active">
+      <span class="version-no">v1.60</span>
+      <svg class="down-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="up-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </span>
+    <div class="opts">
+      <button onclick="setCurrentVersion('1.58');showToast('Switched docs to v1.58');window.location.reload()">1.58</button>
+      <button onclick="setCurrentVersion('1.59');showToast('Switched docs to v1.59');window.location.reload()">1.59</button>
+      <button onclick="setCurrentVersion('1.60');showToast('Switched docs to v1.60');window.location.reload()">1.60</button>
+      <a href="/versions.html" class="release-link">View all release notes</a>
+    </div>
+  </div>
+  <p class="page-title"></p>
+  <nav class="icon-nav">
+    <a href="https://github.com/Fector101/android_notify" target="_blank" rel="noopener noreferrer" class="btn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+    <button onclick="toggleSidebar()" class="btn-link menu-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </nav>
+</header>
+<main class="flex">
+<div id="site-overview"><div class="dropdown"><div class="header"><p>Getting Started</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/getting-started.html#introduction">Introduction</a></li><li><a href="/getting-started.html#features">Features</a></li><li><a href="/getting-started.html#installation">Installation</a></li><li><a href="/getting-started.html#basic-usage">Basic Usage</a></li></ol></div><div class="dropdown"><div class="header"><p>Components</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/components.html#images">Images</a></li><li><a href="/components.html#buttons">Buttons</a></li><li><a href="/components.html#progress-bars">Progress Bars</a></li><li><a href="/components.html#texts">Texts</a></li></ol></div><div class="dropdown"><div class="header"><p>Advanced Methods</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/advanced-methods.html#channel-management">Channel Management</a></li><li><a href="/advanced-methods.html#custom-sound">Custom Sound</a></li><li><a href="/advanced-methods.html#vibration">Vibration</a></li><li><a href="/advanced-methods.html#getting-identifer">Getting Identifer</a></li></ol></div><div class="dropdown"><div class="header"><p>Reference</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:auto"><li><a href="/reference.html#notification-class">Notification Class</a></li><li><a href="/reference.html#notificationhandler-class">NotificationHandler Class</a></li><li><a href="/reference.html#notificationstyles-class">NotificationStyles Class</a></li></ol></div><div class="dropdown"><div class="header"><p>Help</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/help.html#how-to-update">How to update</a></li><li><a href="/help.html#debugging-tips">Debugging Tips</a></li><li><a href="/help.html#contributing-issues">Contributing-Issues</a></li><li><a href="/help.html#support-project">Support Project</a></li><li><a href="/help.html#credits">Credits</a></li></ol></div></div>
+<main class="flex fd-column overflow-hidden m-auto" style="flex:1;min-height:calc(100vh - var(--header-height));">
+<div class="page main-page"><div id="page-content"></div>
+<script>
+(function(){
+  const v = getCurrentVersion();
+  const d = getMergedVersionData(v);
+  const NOTIFICATION_METHODS = d.reference_page.NOTIFICATION_METHODS;
+  const HANDLER_METHODS = d.reference_page.HANDLER_METHODS;
+  const STYLE_ATTRIBUTES = d.reference_page.STYLE_ATTRIBUTES;
+
+  function matchesSearch(query, ...fields) {
+    if (!query) return true;
+    const q = query.toLowerCase();
+    return fields.some(f => typeof f === 'string' && f.toLowerCase().includes(q));
+  }
+  function itemMatchesSearch(query, item, key) {
+    if (!query) return true;
+    const desc = typeof item.description === 'string' ? item.description : '';
+    if (matchesSearch(query, key, item.signature, desc)) return true;
+    if (item.args && item.args.length) return item.args.some(a => matchesSearch(query, a.name, a.desc));
+    return false;
+  }
+  function renderMethodCard(method, fallback) {
+    const cls = fallback ? fallback + ' ref-code' : 'ref-code';
+    let html = '<div style="background-color:#232323;padding:1rem;border-radius:0.5rem;box-shadow:0 1px 2px rgba(0,0,0,0.05);transition:box-shadow 0.2s ease,transform 0.2s ease;">';
+    html += '<p class="' + cls + '">' + (method.signature || fallback) + '</p>';
+    html += '<p class="paragraph" style="margin-bottom:0.5rem;color:#9ca3af;">' + (method.description || '') + '</p>';
+    if (method.args && method.args.length > 0) {
+      html += '<dl style="padding-left:1rem;">';
+      method.args.forEach(a => {
+        html += '<div><dt>' + a.name + '</dt><dd>' + a.desc + '</dd></div>';
+      });
+      html += '</dl>';
+    }
+    html += '</div>';
+    return html;
+  }
+
+  let html = '<h2>Reference</h2><hr/>';
+  html += '<div class="ref-search-wrapper"><svg class="ref-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
+  html += '<input type="search" class="ref-search-input" placeholder="Search methods, signatures, descriptions..." id="ref-search"/>';
+  html += '<button class="ref-search-clear" id="ref-clear" style="display:none;">&times;</button></div>';
+  html += '<p class="ref-search-count" id="ref-count" style="display:none;"></p>';
+  html += '<div class="ref-no-results" id="ref-no-results" style="display:none;"><p>Try a different search term</p></div>';
+
+  html += '<div id="ref-toc"><nav style="border-left:4px solid #2563EB;padding-left:1rem;"><h2 style="font-weight:600;margin-bottom:0.5rem;">Contents</h2>';
+  html += '<ul class="inner-section-2" style="list-style:none;"><li><a href="#notification-class" style="color:#2563EB;">Notification Attributes and Methods</a></li>';
+  html += '<li><a href="#notificationhandler-class" style="color:#2563EB;">NotificationHandler Methods</a></li>';
+  if (STYLE_ATTRIBUTES) html += '<li><a href="#notificationstyles-class" style="color:#2563EB;">NotificationStyles</a></li>';
+  html += '</ul></nav></div>';
+
+  if (v === '1.59') {
+    html += '<div class="side-note"><h2>For v1.59</h2><p class="paragraph">Methods were introduced to free up <span class="code">__init__</span> kwargs and replace direct style usage.</p></div>';
+  }
+
+  // Notification Methods
+  html += '<section id="notification-class" class="page-section" data-searchable>';
+  html += '<h2 style="font-size:1.25rem;font-weight:700;">Notification Attributes and Methods</h2>';
+  html += '<div class="ref-methods">';
+  for (const [key, m] of Object.entries(NOTIFICATION_METHODS)) {
+    html += renderMethodCard(m, key);
+  }
+  html += '</div></section>';
+
+  // Handler Methods
+  html += '<section id="notificationhandler-class" class="page-section" data-searchable>';
+  html += '<h2 style="font-size:1.25rem;font-weight:700;">NotificationHandler Methods</h2>';
+  html += '<div class="ref-handlers">';
+  HANDLER_METHODS.forEach(m => { html += renderMethodCard(m); });
+  html += '</div></section>';
+
+  // Styles
+  if (STYLE_ATTRIBUTES) {
+    html += '<section id="notificationstyles-class" class="page-section" data-searchable>';
+    if (isLegacyVersion(v)) {
+      html += '<h2 style="font-size:1.25rem;font-weight:700;">NotificationStyles attributes for Safely Adding Styles</h2>';
+    } else {
+      html += '<h2 style="font-size:1.25rem;font-weight:700;">NotificationStyles</h2>';
+      html += '<p class="paragraph">All NotificationStyles attributes are <span class="code yellow" style="color:#dfdf1a;">deprecated in v1.59.3</span> they were transformed to methods for better usability.</p>';
+      html += '<p>The New Methods Are: <span class="code green" style="color:#71f171;">setSmallIcon</span>, <span class="code green" style="color:#71f171;">setLargeIcon</span>, <span class="code green" style="color:#71f171;">setBigPicture</span>, <span class="code green" style="color:#71f171;">setBigText</span> and <span class="code green" style="color:#71f171;">updateProgressBar</span></p>';
+    }
+    html += '<div class="flex flex-wrap align-items-cen justify-content-cen styles-container">';
+    STYLE_ATTRIBUTES.forEach(m => {
+      html += '<div><h3 class="style-attr"><code>' + (m.signature || m.id) + '</code></h3>';
+      html += '<p style="color:#9ca3af;white-space:pre-line;">' + m.description + '</p></div>';
+    });
+    html += '</div></section>';
+  }
+
+  html += '<span class="flex next-page-btns-box space-between">
+  <a class="next-page-btn" href="/advanced-methods.html">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    <span><p class="next-txt">Previous</p><p class="page-name">Advanced Methods</p></span>
+  </a>
+  <a class="next-page-btn" href="/help.html">
+    <span><p class="next-txt">Next</p><p class="page-name">Help</p></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+</span>';
+  document.getElementById('page-content').outerHTML = html;
+
+  // Search functionality
+  const searchInput = document.getElementById('ref-search');
+  const clearBtn = document.getElementById('ref-clear');
+  const countEl = document.getElementById('ref-count');
+  const noResults = document.getElementById('ref-no-results');
+  const tocEl = document.getElementById('ref-toc');
+
+  searchInput.addEventListener('input', function() {
+    const q = this.value;
+    clearBtn.style.display = q ? 'block' : 'none';
+
+    const allCards = document.querySelectorAll('.ref-methods > div, .ref-handlers > div, .styles-container > div');
+    let matched = 0;
+
+    // Filter notification methods
+    document.querySelectorAll('.ref-methods > div').forEach((card, i) => {
+      const entries = Object.entries(NOTIFICATION_METHODS);
+      if (i < entries.length) {
+        const [key, m] = entries[i];
+        const show = itemMatchesSearch(q, m, key);
+        card.style.display = show ? '' : 'none';
+        if (show) matched++;
+      }
+    });
+
+    // Filter handler methods
+    document.querySelectorAll('.ref-handlers > div').forEach((card, i) => {
+      if (i < HANDLER_METHODS.length) {
+        const m = HANDLER_METHODS[i];
+        const show = itemMatchesSearch(q, m, m.id);
+        card.style.display = show ? '' : 'none';
+        if (show) matched++;
+      }
+    });
+
+    // Filter styles
+    if (STYLE_ATTRIBUTES) {
+      document.querySelectorAll('.styles-container > div').forEach((card, i) => {
+        if (i < STYLE_ATTRIBUTES.length) {
+          const m = STYLE_ATTRIBUTES[i];
+          const show = itemMatchesSearch(q, m, m.id);
+          card.style.display = show ? '' : 'none';
+          if (show) matched++;
+        }
+      });
+    }
+
+    const total = Object.keys(NOTIFICATION_METHODS).length + HANDLER_METHODS.length + (STYLE_ATTRIBUTES ? STYLE_ATTRIBUTES.length : 0);
+
+    if (q) {
+      countEl.style.display = 'block';
+      countEl.innerHTML = matched > 0
+        ? 'Found <strong>' + matched + '</strong> of ' + total + ' results'
+        : 'No results for "<strong>' + q + '</strong>"';
+      noResults.style.display = matched === 0 ? 'flex' : 'none';
+      tocEl.style.display = matched > 0 ? '' : 'none';
+    } else {
+      countEl.style.display = 'none';
+      noResults.style.display = 'none';
+      tocEl.style.display = '';
+    }
+  });
+
+  clearBtn.addEventListener('click', function() {
+    searchInput.value = '';
+    searchInput.dispatchEvent(new Event('input'));
+  });
+})();
+</script></div>
+<footer>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <p>Thoroughly Tested and supported by <br/><a href="https://github.com/Fector101/laner">Laner</a> &amp; <a href="https://github.com/Fector101/wallpaper-carousel">The Carousel</a></p>
+    <p>Last Updated: <span id="footer-date">...</span>, &copy; Fabian</p>
+  </div>
+  <div class="support-links-box" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+    <p>Find this project helpful?</p>
+    <p>consider buying me a <a href="https://www.buymeacoffee.com/fector101">Coffee</a></p>
+    <p>Or a star on <a href="https://github.com/Fector101/android_notify">GitHub.</a></p>
+    <p>Your support helps maintain and improve the project.</p>
+  </div>
+</footer>
+</main>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-ini.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-toml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+<script src="/js/version-data.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>

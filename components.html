@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="/img.svg"/>
+  <title>Components - Android Notify Docs</title>
+  <meta name="description" content="Explore notification components: images, buttons, progress bars, and text styles for Android notifications."/>
+  <meta name="keywords" content="android notify, images, buttons, progress bars, text styles, components"/>
+  <meta name="author" content="Fector101"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="application-name" content="Android Notify"/>
+  <meta name="theme-color" content="#3F51B5"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Components - Android Notify Docs"/>
+  <meta property="og:description" content="Explore notification components: images, buttons, progress bars, and text styles for Android notifications."/>
+  <meta property="og:image" content="https://android-notify.vercel.app/meta.jpg"/>
+  <meta property="og:url" content="https://android-notify.vercel.app/"/>
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:title" content="Components - Android Notify Docs"/>
+  <meta property="twitter:description" content="Explore notification components: images, buttons, progress bars, and text styles for Android notifications."/>
+  <meta property="twitter:image" content="https://android-notify.vercel.app/meta.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-dracula.min.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<header>
+  <a href="/"><svg class="brand" viewBox="0 0 24 24" fill="none" stroke="rgb(207,207,249)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></a>
+  <div class="css-dropdown">
+    <span class="active">
+      <span class="version-no">v1.60</span>
+      <svg class="down-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="up-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </span>
+    <div class="opts">
+      <button onclick="setCurrentVersion('1.58');showToast('Switched docs to v1.58');window.location.reload()">1.58</button>
+      <button onclick="setCurrentVersion('1.59');showToast('Switched docs to v1.59');window.location.reload()">1.59</button>
+      <button onclick="setCurrentVersion('1.60');showToast('Switched docs to v1.60');window.location.reload()">1.60</button>
+      <a href="/versions.html" class="release-link">View all release notes</a>
+    </div>
+  </div>
+  <p class="page-title"></p>
+  <nav class="icon-nav">
+    <a href="https://github.com/Fector101/android_notify" target="_blank" rel="noopener noreferrer" class="btn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+    <button onclick="toggleSidebar()" class="btn-link menu-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </nav>
+</header>
+<main class="flex">
+<div id="site-overview"><div class="dropdown"><div class="header"><p>Getting Started</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/getting-started.html#introduction">Introduction</a></li><li><a href="/getting-started.html#features">Features</a></li><li><a href="/getting-started.html#installation">Installation</a></li><li><a href="/getting-started.html#basic-usage">Basic Usage</a></li></ol></div><div class="dropdown"><div class="header"><p>Components</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:auto"><li><a href="/components.html#images">Images</a></li><li><a href="/components.html#buttons">Buttons</a></li><li><a href="/components.html#progress-bars">Progress Bars</a></li><li><a href="/components.html#texts">Texts</a></li></ol></div><div class="dropdown"><div class="header"><p>Advanced Methods</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/advanced-methods.html#channel-management">Channel Management</a></li><li><a href="/advanced-methods.html#custom-sound">Custom Sound</a></li><li><a href="/advanced-methods.html#vibration">Vibration</a></li><li><a href="/advanced-methods.html#getting-identifer">Getting Identifer</a></li></ol></div><div class="dropdown"><div class="header"><p>Reference</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/reference.html#notification-class">Notification Class</a></li><li><a href="/reference.html#notificationhandler-class">NotificationHandler Class</a></li><li><a href="/reference.html#notificationstyles-class">NotificationStyles Class</a></li></ol></div><div class="dropdown"><div class="header"><p>Help</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/help.html#how-to-update">How to update</a></li><li><a href="/help.html#debugging-tips">Debugging Tips</a></li><li><a href="/help.html#contributing-issues">Contributing-Issues</a></li><li><a href="/help.html#support-project">Support Project</a></li><li><a href="/help.html#credits">Credits</a></li></ol></div></div>
+<main class="flex fd-column overflow-hidden m-auto" style="flex:1;min-height:calc(100vh - var(--header-height));">
+<div class="page main-page"><div id="page-content"></div>
+<script>
+(function(){
+  const v = getCurrentVersion();
+  const d = getMergedVersionData(v);
+  const cp = d.component_page;
+  const isLegacy = isLegacyVersion(v);
+
+  let html = '<section class="page-section" id="images"><h2>Images</h2><hr/><div class="inner-section-1">';
+  html += '<p>You can enhance your notifications by adding images, Images can be local or online</p>';
+  html += '<p class="paragraph">For Local Images:</p><ul><li>Image path should be in relative to your <span class="code">main.py</span></li></ul>';
+  html += '<p class="paragraph">For Online Images:</p><ul><li>you'll have to specify this requirement in your <span class="code">buildozer.spec</span> file:<br/><span class="code">android.permissions = INTERNET</span></li><li>Paths should start with <span class="code">http://</span> or <span class="code">https://</span></li></ul><br/>';
+  html += '<p>You can display:</p><ul><li>A large image (Big Picture Style)</li><li>A small image (Large Icon Style)</li><li>Both large and small images together</li><li>Also custom app icons and custom colors</li></ul>';
+  html += renderInlineCodeBlock(cp.big_picture_code, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-bp"');
+  html += renderInlineCodeBlock(cp.large_icon_code, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-li"');
+  html += cp.how_to_add_both_imgs;
+  html += '<h3 class="app-icon-h3 sub-header">Changing Default Notification Icon [Android 8+]</h3>';
+  html += isLegacy ? '<p class="paragraph">When you initialize Notification instance you can pass in file path to <span class="code">app_icon</span></p>' : '<p class="paragraph">Use <span class="code">.setSmallIcon(path)</span> to set custom notification icon</p>';
+  html += '<p class="paragraph">Must use <span class="code yellow"> PNG format</span> Or Image Will display as a Black Box.</p>';
+  html += renderInlineCodeBlock(cp.small_icon_code, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-si"');
+  html += '<p class="paragraph">You can also set custom color for the icon to match your app theme:</p>';
+  html += '<p class="paragraph">Use <span class="code">.setColor(color)</span> method to set a custom color</p>';
+  html += '<p class="paragraph">You can specify the color using a hex code (e.g., "#FF0000" for red).</p>';
+  html += '<p>Strings <span class="code yellow">(red, green, blue)</span> work without hex code.</p>';
+  const colorCode = 'from android_notify import Notification\nnotification = Notification(\n    title="Emergency",\n    message="Check out now!"\n)\nnotification.setColor("red") # or "#FF0000"\nnotification.send()';
+  html += renderInlineCodeBlock(colorCode, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-color"');
+  const onlineCode = isLegacy
+    ? 'from android_notify import Notification, NotificationStyles\n\nNotification(\n    title="Using Online Image",\n    message="Pass image URL as path to setBigImage",\n    style=NotificationStyles.BIG_PICTURE,\n    big_picture_path="https://www.python.org/static/img/python-logo.png").send()'
+    : 'from android_notify import Notification\nnotification = Notification(\n    title="Using Online Image",\n    message="Pass image URL as path to setBigImage"\n)\nnotification.setBigPicture("https://www.python.org/static/img/python-logo.png")\nnotification.send()';
+  html += renderInlineCodeBlock(onlineCode, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-online"');
+  html += '<p class="paragraph inner-section-1">For about Images see <a href="/advanced-methods.html">advanced methods</a> section</p>';
+  html += '</div></section>';
+
+  // Buttons
+  html += '<section class="page-section" id="buttons"><h2>Buttons</h2><hr/>';
+  html += '<div class="inner-section-1"><p>Allowing users to trigger specific Functions.</p>';
+  html += '<ul class="paragraph inner-section-2"><li>Handle user clicks with the provided callback function</li>';
+  html += '<li>Add one or more buttons using <span class="code">addButton(text, callback)</span></li>';
+  html += '<li>Easily remove buttons with <span class="code">removeButtons()</span></li></ul>';
+  html += '<p class="paragraph">This makes your notifications more dynamic and interactive.</p></div>';
+  html += renderInlineCodeBlock(cp.buttons_code, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-btns"');
+  html += '<p class="paragraph inner-section-1">For Steps to Create BroadCast Buttons Visit: <a href="https://github.com/Fector101/android_notify/wiki/How-to-Use-with-Broadcast-Listener" target="_blank" rel="noopener noreferrer">android-notify-wiki</a> - make things happen without opening app.</p>';
+  html += '</section>';
+
+  // Progress Bars
+  html += '<section class="page-section" id="progress-bars"><h2>Progress Bars</h2><hr/>';
+  html += '<div class="inner-section-1"><p>Notifications with progress indicators are useful for showing download status, pending actions, task completion.</p>';
+  html += '<ul><li>Update progress in real-time with <span class="code">updateProgressBar()</span></li>';
+  html += '<li>Show an infinite progress animation with <span class="code">showInfiniteProgressBar()</span></li>';
+  html += '<li>Cleanly remove the progress bar with <span class="code">removeProgressBar()</span></li></ul>';
+  html += '<p>You can customize the displayed message and title while the progress bar updates.</p></div>';
+  html += renderInlineCodeBlock(cp.progressbar_code, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-prog"');
+  html += '<div class="progress-warning-box"><h4>Update Frequency</h4><p>Android ignores updates faster than <strong>0.5 seconds</strong>. android-notify automatically handles rapid updates by cancelling old ones if a new update arrives within 1 second.</p></div>';
+  html += '</section>';
+
+  // Texts
+  html += '<section class="page-section" id="texts"><h2>Texts</h2><hr/>';
+  html += '<h3>Multi-Line Text</h3><div class="paragraph inner-section-2">';
+  if (isLegacy) {
+    html += '<p>This feature doesn't work properly for v1.58, No way to set message and lines together.</p><p class="paragraph">Use <span class="link-design" onclick="setCurrentVersion('1.59');window.location.reload()">v1.59.3</span> for proper implementation</p>';
+  } else {
+    html += '<p>You can use <span class="code">addLine</span> and pass in each line, Lines will show when users click the drop down button</p>';
+  }
+  html += '</div>';
+  html += renderInlineCodeBlock(cp.inbox_style_code, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-inbox"');
+  html += '<h3 class="paragraph">Big Text Style</h3>';
+  html += '<p class="paragraph">When using big_text style <span class="code">message</span> acts as sub-title, Then when notification drop down button is pressed <span class="code">body</span> is revealed</p>';
+  if (v !== "1.58") html += '<p class="paragraph">Use <span class="code">setBigText</span> to display string</p>';
+  html += renderInlineCodeBlock(cp.big_text_style_code, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-bigtext"');
+  html += '<h3 class="paragraph">Sub Text</h3>';
+  html += '<p class="paragraph">Sub Text is a smaller text that appears side of app name, often used to provide additional context or information, Like download seconds remaining.</p>';
+  html += '<p class="paragraph">Use <span class="code">setSubText</span> to display string</p>';
+  html += renderInlineCodeBlock(cp.sub_text_code || '# Not available in version: ' + v, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-subtext"');
+  html += '<h3 class="paragraph">Updating Title and Message</h3>';
+  html += '<p class="paragraph">After sending a notification, you can update its title and message using <span class="code">updateTitle()</span> and <span class="code">updateMessage()</span> methods.</p>';
+  const updateCode = 'from android_notify import Notification\n\nnotification = Notification(\n    title="Processing...",\n    message="Starting task"\n)\nnotification.send()\n\n# Update the notification after sending\nnotification.updateTitle("Processing Complete!")\nnotification.updateMessage("Task finished successfully")';
+  html += renderInlineCodeBlock(updateCode, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-update"');
+  html += '<h3 class="paragraph">Colored Texts [dev]</h3>';
+  html += '<ol><li class="paragraph">Create a path named <span>res/layout</span></li>';
+  html += '<li class="paragraph">Copy these files using exact names';
+  html += '<details><summary><span class="code">an_colored_basic_small.xml</span></summary>' + renderInlineCodeBlock(cp.an_colored_basic_small || '# Not available in version: ' + v, 'markup').replace('<div class="code-block"','<div class="code-block" id="cb-xml1"') + '</details>';
+  html += '<details><summary><span class="code">an_colored_basic_large.xml</span></summary>' + renderInlineCodeBlock(cp.an_colored_basic_large || '# Not available in version: ' + v, 'markup').replace('<div class="code-block"','<div class="code-block" id="cb-xml2"') + '</details>';
+  html += '</li><li class="paragraph">In your buildozer.spec file add these:<br/><p>- source.include_exts = xml and android.add_resources = res</p></li></ol>';
+  html += '<p class="paragraph">Use params <span class="code">title_color</span> and/or <span class="code">message_color</span> with hex color codes to control colors.</p>';
+  html += renderInlineCodeBlock(cp.colored_text_code || '# Not available in version: ' + v, 'python').replace('<div class="code-block"','<div class="code-block" id="cb-colors"');
+  html += '</section>';
+  html += '<span class="flex next-page-btns-box space-between">
+  <a class="next-page-btn" href="/getting-started.html">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    <span><p class="next-txt">Previous</p><p class="page-name">Getting Started</p></span>
+  </a>
+  <a class="next-page-btn" href="/advanced-methods.html">
+    <span><p class="next-txt">Next</p><p class="page-name">Advanced Methods</p></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+</span>';
+  document.getElementById('page-content').outerHTML = html;
+})();
+</script></div>
+<footer>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <p>Thoroughly Tested and supported by <br/><a href="https://github.com/Fector101/laner">Laner</a> &amp; <a href="https://github.com/Fector101/wallpaper-carousel">The Carousel</a></p>
+    <p>Last Updated: <span id="footer-date">...</span>, &copy; Fabian</p>
+  </div>
+  <div class="support-links-box" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+    <p>Find this project helpful?</p>
+    <p>consider buying me a <a href="https://www.buymeacoffee.com/fector101">Coffee</a></p>
+    <p>Or a star on <a href="https://github.com/Fector101/android_notify">GitHub.</a></p>
+    <p>Your support helps maintain and improve the project.</p>
+  </div>
+</footer>
+</main>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-ini.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-toml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+<script src="/js/version-data.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>

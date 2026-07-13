@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="/img.svg"/>
+  <title>Help - Android Notify Docs</title>
+  <meta name="description" content="How to update, debugging tips, contributing, and support for Android Notify."/>
+  <meta name="keywords" content="android notify, help, debugging, update, contributing"/>
+  <meta name="author" content="Fector101"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="application-name" content="Android Notify"/>
+  <meta name="theme-color" content="#3F51B5"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Help - Android Notify Docs"/>
+  <meta property="og:description" content="How to update, debugging tips, contributing, and support for Android Notify."/>
+  <meta property="og:image" content="https://android-notify.vercel.app/meta.jpg"/>
+  <meta property="og:url" content="https://android-notify.vercel.app/"/>
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:title" content="Help - Android Notify Docs"/>
+  <meta property="twitter:description" content="How to update, debugging tips, contributing, and support for Android Notify."/>
+  <meta property="twitter:image" content="https://android-notify.vercel.app/meta.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-dracula.min.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<header>
+  <a href="/"><svg class="brand" viewBox="0 0 24 24" fill="none" stroke="rgb(207,207,249)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></a>
+  <div class="css-dropdown">
+    <span class="active">
+      <span class="version-no">v1.60</span>
+      <svg class="down-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="up-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </span>
+    <div class="opts">
+      <button onclick="setCurrentVersion('1.58');showToast('Switched docs to v1.58');window.location.reload()">1.58</button>
+      <button onclick="setCurrentVersion('1.59');showToast('Switched docs to v1.59');window.location.reload()">1.59</button>
+      <button onclick="setCurrentVersion('1.60');showToast('Switched docs to v1.60');window.location.reload()">1.60</button>
+      <a href="/versions.html" class="release-link">View all release notes</a>
+    </div>
+  </div>
+  <p class="page-title"></p>
+  <nav class="icon-nav">
+    <a href="https://github.com/Fector101/android_notify" target="_blank" rel="noopener noreferrer" class="btn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+    <button onclick="toggleSidebar()" class="btn-link menu-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </nav>
+</header>
+<main class="flex">
+<div id="site-overview"><div class="dropdown"><div class="header"><p>Getting Started</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/getting-started.html#introduction">Introduction</a></li><li><a href="/getting-started.html#features">Features</a></li><li><a href="/getting-started.html#installation">Installation</a></li><li><a href="/getting-started.html#basic-usage">Basic Usage</a></li></ol></div><div class="dropdown"><div class="header"><p>Components</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/components.html#images">Images</a></li><li><a href="/components.html#buttons">Buttons</a></li><li><a href="/components.html#progress-bars">Progress Bars</a></li><li><a href="/components.html#texts">Texts</a></li></ol></div><div class="dropdown"><div class="header"><p>Advanced Methods</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/advanced-methods.html#channel-management">Channel Management</a></li><li><a href="/advanced-methods.html#custom-sound">Custom Sound</a></li><li><a href="/advanced-methods.html#vibration">Vibration</a></li><li><a href="/advanced-methods.html#getting-identifer">Getting Identifer</a></li></ol></div><div class="dropdown"><div class="header"><p>Reference</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/reference.html#notification-class">Notification Class</a></li><li><a href="/reference.html#notificationhandler-class">NotificationHandler Class</a></li><li><a href="/reference.html#notificationstyles-class">NotificationStyles Class</a></li></ol></div><div class="dropdown"><div class="header"><p>Help</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:auto"><li><a href="/help.html#how-to-update">How to update</a></li><li><a href="/help.html#debugging-tips">Debugging Tips</a></li><li><a href="/help.html#contributing-issues">Contributing-Issues</a></li><li><a href="/help.html#support-project">Support Project</a></li><li><a href="/help.html#credits">Credits</a></li></ol></div></div>
+<main class="flex fd-column overflow-hidden m-auto" style="flex:1;min-height:calc(100vh - var(--header-height));">
+<div class="page main-page">
+<section class="page-section" id="how-to-update">
+  <h2>How to Update</h2><hr/>
+  <p class="paragraph">When using buildozer and you want to use a new version, buildozer doesn't automatically remove old versions,</p>
+  <p>You'll have to delete the old version in the .buildozer folder these are some commands to help automate the process for linux, windows and mac</p>
+  <p class="paragraph">Linux</p>
+  <div class="code-block" data-lang="bash"><div class="header"><span class="title">bash</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-bash">cd .buildozer &amp;&amp; find . -type d -name "android_notify*" -print0 | xargs -0 rm -r &amp;&amp; cd ..</code></pre></div></div>
+  <p class="paragraph">Windows</p>
+  <div class="paragraph inner-section-2">
+    <p>On PowerShell</p>
+    <p class="paragraph">If command prints folder paths containing android-notify replace <span class="code">Write-Output</span> with <span class="code">Remove-Item</span></p>
+    <div class="code-block" data-lang="powershell"><div class="header"><span class="title">powershell</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-powershell">cd .buildozer
+Get-ChildItem -Path . -Directory -Filter "android_notify*" | ForEach-Object { Write-Output $_.FullName }
+cd ..</code></pre></div></div>
+    <p class="paragraph">Git Bash (if installed)</p>
+    <div class="code-block" data-lang="bash"><div class="header"><span class="title">bash</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-bash">cd .buildozer &amp;&amp; find . -type d -name "android_notify*" -print0 | xargs -0 rm -r &amp;&amp; cd ..</code></pre></div></div>
+  </div>
+  <p class="paragraph">MacOS</p>
+  <div class="code-block" data-lang="bash"><div class="header"><span class="title">bash</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-bash">cd .buildozer &amp;&amp; find . -type d -name "android_notify*" -exec rm -r {} + &amp;&amp; cd ..</code></pre></div></div>
+</section>
+<section class="page-section" id="debugging-tips">
+  <h2>Debugging Tips</h2><hr/>
+  <ul class="inner-section-2"><li>Enable logs during development: Notification.logs = True</li><li>Check channel creation with Android's notification settings</li><li>Verify image paths before sending notifications</li></ul>
+</section>
+<section class="page-section screen-height200px flex fd-column justify-content-cen" id="contributing-issues">
+  <h2>Contribution || Reporting Issues</h2><hr/>
+  <p>Feel free to submit pull requests for improvements! on <a href="https://github.com/Fector101/android_notify">Github</a></p>
+  <p>Or Found a bug? Please open an issue on our GitHub <a href="https://github.com/Fector101/android_notify/issues">Issues page</a></p>
+</section>
+<section id="credits" class="page-section screen-height200px flex fd-column justify-content-cen">
+  <h2>Credits</h2><hr/>
+  <ul class="inner-section-2">
+    <li>Name: Fabian - fector101@yahoo.com</li>
+    <li>GitHub: <a href="https://github.com/Fector101/android_notify">Android Notify Repo</a></li>
+    <li>Twitter: <a href="https://twitter.com/intent/user?user_id=1246911115319263233">FabianDev_</a></li>
+  </ul>
+  <p class="paragraph">This Project was thoroughly Tested by the <a href="https://github.com/Fector101/Laner">Laner</a> Project - A application for Securely Transfering Files Wirelessly between your PC and Phone.</p>
+  <p>Special thanks to the Kivy and Pyjnius communities for their support and contributions.</p>
+</section>
+<section id="support-project" class="page-section screen-height200px flex fd-column justify-content-cen">
+  <h2>Support</h2><hr/>
+  <p>If you find this project helpful, consider buying me a <a href="https://www.buymeacoffee.com/fector101">coffee!</a> Or Giving it a star on <a href="https://github.com/Fector101/android_notify">GitHub.</a></p>
+  <p>Your support helps maintain and improve the project.</p>
+</section>
+<span class="flex next-page-btns-box space-between">
+  <a class="next-page-btn" href="/reference.html">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    <span><p class="next-txt">Previous</p><p class="page-name">Reference</p></span>
+  </a>
+  <a class="next-page-btn" href="/getting-started.html">
+    <span><p class="next-txt">Next</p><p class="page-name">Getting Started</p></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+</span></div>
+<footer>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <p>Thoroughly Tested and supported by <br/><a href="https://github.com/Fector101/laner">Laner</a> &amp; <a href="https://github.com/Fector101/wallpaper-carousel">The Carousel</a></p>
+    <p>Last Updated: <span id="footer-date">...</span>, &copy; Fabian</p>
+  </div>
+  <div class="support-links-box" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+    <p>Find this project helpful?</p>
+    <p>consider buying me a <a href="https://www.buymeacoffee.com/fector101">Coffee</a></p>
+    <p>Or a star on <a href="https://github.com/Fector101/android_notify">GitHub.</a></p>
+    <p>Your support helps maintain and improve the project.</p>
+  </div>
+</footer>
+</main>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-ini.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-toml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+<script src="/js/version-data.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>

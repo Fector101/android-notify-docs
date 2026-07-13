@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="/img.svg"/>
+  <title>Getting Started - Android Notify Docs</title>
+  <meta name="description" content="Learn how to install and use Android Notify to create rich notifications in your Kivy and Flet Python apps."/>
+  <meta name="keywords" content="android notify, install, getting started, python, kivy, flet"/>
+  <meta name="author" content="Fector101"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="application-name" content="Android Notify"/>
+  <meta name="theme-color" content="#3F51B5"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Getting Started - Android Notify Docs"/>
+  <meta property="og:description" content="Learn how to install and use Android Notify to create rich notifications in your Kivy and Flet Python apps."/>
+  <meta property="og:image" content="https://android-notify.vercel.app/meta.jpg"/>
+  <meta property="og:url" content="https://android-notify.vercel.app/"/>
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:title" content="Getting Started - Android Notify Docs"/>
+  <meta property="twitter:description" content="Learn how to install and use Android Notify to create rich notifications in your Kivy and Flet Python apps."/>
+  <meta property="twitter:image" content="https://android-notify.vercel.app/meta.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-dracula.min.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<header>
+  <a href="/"><svg class="brand" viewBox="0 0 24 24" fill="none" stroke="rgb(207,207,249)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></a>
+  <div class="css-dropdown">
+    <span class="active">
+      <span class="version-no">v1.60</span>
+      <svg class="down-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="up-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </span>
+    <div class="opts">
+      <button onclick="setCurrentVersion('1.58');showToast('Switched docs to v1.58');window.location.reload()">1.58</button>
+      <button onclick="setCurrentVersion('1.59');showToast('Switched docs to v1.59');window.location.reload()">1.59</button>
+      <button onclick="setCurrentVersion('1.60');showToast('Switched docs to v1.60');window.location.reload()">1.60</button>
+      <a href="/versions.html" class="release-link">View all release notes</a>
+    </div>
+  </div>
+  <p class="page-title"></p>
+  <nav class="icon-nav">
+    <a href="https://github.com/Fector101/android_notify" target="_blank" rel="noopener noreferrer" class="btn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+    <button onclick="toggleSidebar()" class="btn-link menu-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </nav>
+</header>
+<main class="flex">
+<div id="site-overview"><div class="dropdown"><div class="header"><p>Getting Started</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:auto"><li><a href="/getting-started.html#introduction">Introduction</a></li><li><a href="/getting-started.html#features">Features</a></li><li><a href="/getting-started.html#installation">Installation</a></li><li><a href="/getting-started.html#basic-usage">Basic Usage</a></li></ol></div><div class="dropdown"><div class="header"><p>Components</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/components.html#images">Images</a></li><li><a href="/components.html#buttons">Buttons</a></li><li><a href="/components.html#progress-bars">Progress Bars</a></li><li><a href="/components.html#texts">Texts</a></li></ol></div><div class="dropdown"><div class="header"><p>Advanced Methods</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/advanced-methods.html#channel-management">Channel Management</a></li><li><a href="/advanced-methods.html#custom-sound">Custom Sound</a></li><li><a href="/advanced-methods.html#vibration">Vibration</a></li><li><a href="/advanced-methods.html#getting-identifer">Getting Identifer</a></li></ol></div><div class="dropdown"><div class="header"><p>Reference</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/reference.html#notification-class">Notification Class</a></li><li><a href="/reference.html#notificationhandler-class">NotificationHandler Class</a></li><li><a href="/reference.html#notificationstyles-class">NotificationStyles Class</a></li></ol></div><div class="dropdown"><div class="header"><p>Help</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/help.html#how-to-update">How to update</a></li><li><a href="/help.html#debugging-tips">Debugging Tips</a></li><li><a href="/help.html#contributing-issues">Contributing-Issues</a></li><li><a href="/help.html#support-project">Support Project</a></li><li><a href="/help.html#credits">Credits</a></li></ol></div></div>
+<main class="flex fd-column overflow-hidden m-auto" style="flex:1;min-height:calc(100vh - var(--header-height));">
+<div class="page main-page">
+<section class="page-section" id="introduction">
+  <h2>Introduction</h2><hr/>
+  <p class="reader">Android-Notify makes creating and managing Android notifications easy with <span class="code green">Python</span>.</p>
+  <p class="paragraph reader">Built with Pyjnius, it interacts directly with Android's Java APIs.</p>
+  <p class="paragraph">It handles all Java details so you can focus on notification content in Python, No extra APIs or services needed.</p>
+  <p class="paragraph">Dependency: Pyjnius</p>
+</section>
+<section class="page-section" id="features">
+  <h2>Features</h2><hr/>
+  <ul class="inner-section-1" style="list-style:disc;">
+    <details><summary><strong>Notification Components&amp;Design:</strong></summary>
+      <ul style="list-style:disc;" class="inner-section-2">
+        <li>Texts (<a href="/components.html#texts">texts section</a>)<ul style="list-style:disc;"><li>Simple text</li><li>Big text</li><li>Inbox-style</li><li>Sub Texts</li><li>and Colored texts.</li></ul></li>
+        <li>Images (<a href="/components.html#images">images section</a>)<ul style="list-style:disc;"><li>Large icon</li><li>Big picture</li><li>Custom app icons</li><li>Colored app icons</li></ul></li>
+        <li>Progress bar (<a href="/components.html#progress-bars">progress bars section</a>)<ul style="list-style:disc;"><li>Determinate</li><li>Indeterminate</li></ul></li>
+        <li>Buttons (<a href="/components.html#buttons">buttons section</a>)<ul style="list-style:disc;"><li>Runtime Functions</li><li>Broadcast Actions</li></ul></li>
+      </ul>
+    </details>
+    <details><summary><strong>Behaviours/ Runtime Functions:</strong></summary>
+      <ul style="list-style:disc;" class="inner-section-2"><li>Send: normal/silent/persistent/vibrate</li><li>Update: title, message, images, progress bar</li><li>Add or Remove Buttons</li><li>Click handlers and opening app on notification click</li><li>Custom sound per and vibrate notification</li><li>Set timestamps</li><li>Clear single or all notifications</li></ul>
+    </details>
+    <details><summary><strong>Channels for</strong> (<a href="advanced-methods.html#channel-management">Android 8.0+</a>):</summary>
+      <ul style="list-style:disc;" class="inner-section-2"><li>Create, delete, delete all</li><li>Set importance, vibration, and sound</li></ul>
+    </details>
+    <details><summary><strong>Permissions:</strong></summary>
+      <ul style="list-style:disc;" class="inner-section-2"><li>Ask / check notification permission with callback</li></ul>
+    </details>
+  </ul>
+</section>
+<section class="page-section" id="installation">
+  <h2>Installation</h2><hr/>
+  <div class="inner-section-1">
+    <h3 class="sub-header text-marker system">Kivy Apps</h3>
+    <p>In your <span class="code">buildozer.spec</span> file include the following:</p>
+    <div class="code-block" data-lang="ini"><div class="header"><span class="title">ini</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-ini"># Ensure pyjnius is included in the build
+requirements = python3, kivy, pyjnius, android-notify
+
+# Notification Permission
+android.permissions = POST_NOTIFICATIONS
+
+# AndroidX dependency
+android.gradle_dependencies = androidx.core:core:1.12.0
+android.enable_androidx = True</code></pre></div></div>
+    <h4 style="margin-left:5px;margin:20px 5px;">Usage without additional Gradle dependency.</h4>
+    <h3 class="sub-header text-marker system">Flet Apps</h3>
+    <p>Add the following to your <span class="code">pyproject.toml:</span></p>
+    <div class="code-block" data-lang="toml"><div class="header"><span class="title">toml</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-toml">[tool.flet.android]
+dependencies = [
+  "pyjnius","android-notify==1.60.10.dev0"
+]
+
+[tool.flet.android.permission]
+"android.permission.POST_NOTIFICATIONS" = true</code></pre></div></div>
+    <h3 class="sub-header text-marker system">Kivy Apps</h3>
+    <p class="paragraph">Add the following to your <span class="code">buildozer.spec:</span></p>
+    <div class="code-block" data-lang="ini"><div class="header"><span class="title">ini</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-ini">requirements = python3, kivy, pyjnius, android-notify==1.60.10.dev0
+android.permissions = POST_NOTIFICATIONS</code></pre></div></div>
+    <h3 class="sub-header text-marker system">Pydroid 3 App</h3>
+    <p class="paragraph">In pip section where you're asked to insert library name paste <span class="code">android-notify==1.60.10.dev0</span></p>
+    <h3 class="sub-header text-marker system">PIP</h3>
+    <p class="paragraph">You can also install the package with pip for development, testing, or IDE IntelliSense.</p>
+    <div class="code-block" data-lang="bash"><div class="header"><span class="title">bash</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-bash">pip install android-notify</code></pre></div></div>
+  </div>
+</section>
+<section class="page-section" id="basic-usage">
+  <h2>Basic Usage</h2><hr/>
+  <div class="inner-section-1">
+    <p>You can easily create and send notifications with just a few lines of code.</p>
+    <p>Below is a simple example of how to create a basic notification:</p>
+    <div class="code-block" data-lang="python"><div class="header"><span class="title">python</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button><button onclick="handlePydroidCopy(this.closest('.code-block').id)" title="Copy for Pydroid 3" class="pydroid-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Pydroid</span></button></div></div><div class="content"><pre><code class="language-python">from android_notify import Notification, NotificationHandler
+
+# Create a simple notification
+def send_notification(ans):
+    Notification(
+        title="Hello From Python",
+        message="This is a basic notification."
+    ).send()
+
+NotificationHandler.asks_permission(send_notification)</code></pre></div></div>
+  </div>
+</section>
+<span class="flex next-page-btns-box space-between">
+  <a class="next-page-btn" href="/index.html">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    <span><p class="next-txt">Previous</p><p class="page-name">Home</p></span>
+  </a>
+  <a class="next-page-btn" href="/components.html">
+    <span><p class="next-txt">Next</p><p class="page-name">Components</p></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+</span></div>
+<footer>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <p>Thoroughly Tested and supported by <br/><a href="https://github.com/Fector101/laner">Laner</a> &amp; <a href="https://github.com/Fector101/wallpaper-carousel">The Carousel</a></p>
+    <p>Last Updated: <span id="footer-date">...</span>, &copy; Fabian</p>
+  </div>
+  <div class="support-links-box" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+    <p>Find this project helpful?</p>
+    <p>consider buying me a <a href="https://www.buymeacoffee.com/fector101">Coffee</a></p>
+    <p>Or a star on <a href="https://github.com/Fector101/android_notify">GitHub.</a></p>
+    <p>Your support helps maintain and improve the project.</p>
+  </div>
+</footer>
+</main>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-ini.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-toml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+<script src="/js/version-data.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>

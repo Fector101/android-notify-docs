@@ -4,21 +4,21 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/svg+xml" href="/img.svg"/>
-  <title>Android Notify — Python Notification Library for Android</title>
-  <meta name="description" content="Create rich Android notifications with Python. Simple API for progress bars, buttons, images, channels, and more in your Kivy and Flet apps."/>
-  <meta name="keywords" content="android, notifications, python, kivy, flet, mobile development"/>
+  <title>Changelog - Android Notify Docs</title>
+  <meta name="description" content="Release notes and changelog for all versions of Android Notify."/>
+  <meta name="keywords" content="android notify, changelog, releases, versions"/>
   <meta name="author" content="Fector101"/>
   <meta name="robots" content="index, follow"/>
   <meta name="application-name" content="Android Notify"/>
   <meta name="theme-color" content="#3F51B5"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Android Notify — Python Notification Library for Android"/>
-  <meta property="og:description" content="Create rich Android notifications with Python. Simple API for progress bars, buttons, images, channels, and more in your Kivy and Flet apps."/>
+  <meta property="og:title" content="Changelog - Android Notify Docs"/>
+  <meta property="og:description" content="Release notes and changelog for all versions of Android Notify."/>
   <meta property="og:image" content="https://android-notify.vercel.app/meta.jpg"/>
   <meta property="og:url" content="https://android-notify.vercel.app/"/>
   <meta property="twitter:card" content="summary_large_image"/>
-  <meta property="twitter:title" content="Android Notify — Python Notification Library for Android"/>
-  <meta property="twitter:description" content="Create rich Android notifications with Python. Simple API for progress bars, buttons, images, channels, and more in your Kivy and Flet apps."/>
+  <meta property="twitter:title" content="Changelog - Android Notify Docs"/>
+  <meta property="twitter:description" content="Release notes and changelog for all versions of Android Notify."/>
   <meta property="twitter:image" content="https://android-notify.vercel.app/meta.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -51,45 +51,76 @@
 <main class="flex">
 <div id="site-overview"><div class="dropdown"><div class="header"><p>Getting Started</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/getting-started.html#introduction">Introduction</a></li><li><a href="/getting-started.html#features">Features</a></li><li><a href="/getting-started.html#installation">Installation</a></li><li><a href="/getting-started.html#basic-usage">Basic Usage</a></li></ol></div><div class="dropdown"><div class="header"><p>Components</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/components.html#images">Images</a></li><li><a href="/components.html#buttons">Buttons</a></li><li><a href="/components.html#progress-bars">Progress Bars</a></li><li><a href="/components.html#texts">Texts</a></li></ol></div><div class="dropdown"><div class="header"><p>Advanced Methods</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/advanced-methods.html#channel-management">Channel Management</a></li><li><a href="/advanced-methods.html#custom-sound">Custom Sound</a></li><li><a href="/advanced-methods.html#vibration">Vibration</a></li><li><a href="/advanced-methods.html#getting-identifer">Getting Identifer</a></li></ol></div><div class="dropdown"><div class="header"><p>Reference</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/reference.html#notification-class">Notification Class</a></li><li><a href="/reference.html#notificationhandler-class">NotificationHandler Class</a></li><li><a href="/reference.html#notificationstyles-class">NotificationStyles Class</a></li></ol></div><div class="dropdown"><div class="header"><p>Help</p><button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div><ol class="content" style="height:0px"><li><a href="/help.html#how-to-update">How to update</a></li><li><a href="/help.html#debugging-tips">Debugging Tips</a></li><li><a href="/help.html#contributing-issues">Contributing-Issues</a></li><li><a href="/help.html#support-project">Support Project</a></li><li><a href="/help.html#credits">Credits</a></li></ol></div></div>
 <main class="flex fd-column overflow-hidden m-auto" style="flex:1;min-height:calc(100vh - var(--header-height));">
-<div class="page main-page"><section class="home-hero">
-  <h1>Android Notify</h1>
-  <p class="tagline">A simple way to create and customize Android notifications in Kivy and Flet apps.</p>
-  <a href="/versions.html#v1_60" class="version-badge">v1.60.10</a>
-</section>
-<section class="home-section">
-  <h2>Quick Start</h2>
-  <div class="code-block" data-code="from android_notify import Notification
-
-Notification(
-    title=&quot;Hello!&quot;,
-    message=&quot;Welcome to Android Notify&quot;
-).send()" data-lang="python"><div class="header"><span class="title">python</span><div class="copy-buttons"><button onclick="handleCopy(this.closest('.code-block').id)" title="Copy Code" class="regular-copy-btn"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="check-icon display-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="btn-text">Copy</span></button></div></div><div class="content"><pre><code class="language-python">from android_notify import Notification
-
-Notification(
-    title="Hello!",
-    message="Welcome to Android Notify"
-).send()</code></pre></div></div>
-</section>
-<section class="home-section">
-  <h2>Documentation</h2>
-  <div class="cards-grid">
-    <a href="/getting-started.html" class="home-card"><svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><p class="card-title">Getting Started</p><p class="card-desc">Installation, basic usage, and first notification</p></a>
-    <a href="/components.html" class="home-card"><svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><p class="card-title">Components</p><p class="card-desc">Images, buttons, progress bars, text styles</p></a>
-    <a href="/advanced-methods.html" class="home-card"><svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg><p class="card-title">Advanced Methods</p><p class="card-desc">Channels, custom sound, vibration, identifiers</p></a>
-    <a href="/reference.html" class="home-card"><svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><p class="card-title">Reference</p><p class="card-desc">Full API reference by version</p></a>
-    <a href="/help.html" class="home-card"><svg class="card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><p class="card-title">Help</p><p class="card-desc">Debugging, contributing, support</p></a>
+<div class="page main-page">
+<h1 class="page-heading">Changelog</h1>
+<p class="page-subtitle">Release notes for all versions of Android Notify</p>
+<div class="legend">
+  <span class="legend-item"><span class="legend-dot good"></span>New features or API</span>
+  <span class="legend-item"><span class="legend-dot warning"></span>API changes or issues with advanced methods</span>
+  <span class="legend-item"><span class="legend-dot bad"></span>Critical fixes</span>
+</div>
+<section class="versions">
+  <div class="version-block">
+    <h2 id="v1_60" class="version-title">Version 1.60</h2>
+    <div class="version-content">
+      <h3 class="version-subheading">Improvements</h3>
+      <li class="good-item">Interactions in Service: A way to pass in BroadCast Reciver and Actions to Buttons</li>
+      <li class="good-item">Usage without gradle dependencies: new branch <span class="code green-shade">without-androidx</span> was created, allowing usage in Pyroid3 and Flet apps. Install via <span class="code green-shade">__version__.dev0</span>.</li>
+      <li class="good-item">Flet support: Beta support for Flet Python apps.</li>
+      <li class="good-item">Better Logging: replaced prints with Python logger, allowing log levels.</li>
+      <li class="good-item">Modularization: split package into smaller task-based structure for easier management.</li>
+      <h3 class="version-subheading">Class: Notification</h3>
+      <h3 class="version-subheading">New Arguments</h3>
+      <li class="good-item"><span class="code">addButton</span> - receiver_name, action</li>
+      <li class="good-item"><span class="code">createChannel</span> - vibrate, res_sound_name</li>
+      <li class="good-item"><span class="code">setBigText</span> - title, summary</li>
+      <h3 class="version-subheading">New Methods</h3>
+      <li class="good-item"><span class="code">setColor</span> - color, changes app icon color using hex code.</li>
+      <li class="good-item"><span class="code">setSubText</span> - text, Adds small text near the title.</li>
+      <li class="good-item"><span class="code">setWhen</span> - secs_ago, to change the time the notification was created.</li>
+      <li class="good-item"><span class="code">channelExists</span> - channel_id, to check if said channel exists.</li>
+      <li class="good-item"><span class="code">doChannelsExist</span> - ids, returns those that do not exist.</li>
+      <li class="good-item"><span class="code">setData</span> - attach a dictionary of data for later use.</li>
+      <li class="good-item"><span class="code">fVibrate</span> - Trigger a standard notification vibration.</li>
+      <li class="good-item"><span class="code">fill_args</span> - fills notification args without sending.</li>
+      <li class="good-item">Support for devices less than Android 8</li>
+      <li class="good-item"><span class="code">setVibrate</span> - pattern, defaults to a single vibration.</li>
+      <li class="good-item"><span class="code">setSound</span> - res_sound_name, changes the default notification sound.</li>
+      <h3 class="version-subheading">Class: NotificationHandler</h3>
+      <h3 class="version-subheading">New Arguments</h3>
+      <li class="good-item"><span class="code">get_name</span> - on_start must be True when called from App.on_start().</li>
+      <h3 class="version-subheading">New Property</h3>
+      <li class="good-item"><span class="code">data_object</span> - access data added via Notification.setData.</li>
+    </div>
   </div>
-</section>
-<span class="flex next-page-btns-box space-between">
-  <a class="next-page-btn" href="/help.html">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-    <span><p class="next-txt">Previous</p><p class="page-name">Help</p></span>
-  </a>
-  <a class="next-page-btn" href="/getting-started.html">
-    <span><p class="next-txt">Next</p><p class="page-name">Getting Started</p></span>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-  </a>
-</span></div>
+  <div class="version-block">
+    <h2 id="v1_59" class="version-title">Version 1.59</h2>
+    <div class="version-content">
+      <h3 class="version-subheading">Add new features</h3>
+      <li class="good-item">Added a way to access Old Notification instance with <span class="code">Notification().id</span></li>
+      <li class="good-item">methods to cancel a certain or all Notifications <span class="code">Notification().cancel()</span>, <span class="code">Notification.cancelAll</span></li>
+      <li class="good-item">When setting a new component after <span class="code">Notification().send</span> use <span class="code">Notification().refresh</span></li>
+      <li class="good-item">Instead of only requesting in init created <span class="code">NotificationHandler.asks_permission</span> and <span class="code">NotificationHandler.has_permission</span></li>
+      <h3 class="version-subheading">Add methods working to free up __init__ kwargs</h3>
+      <li class="good-item"><span class="code">setSmallIcon</span> == <span class="code yellow-shade">Notification(...,app_icon="...")</span></li>
+      <li class="good-item"><span class="code">setLargeIcon</span> == <span class="code yellow-shade">Notification(...,large_icon_path="...",style=NotificationStyles.LARGE_ICON)</span></li>
+      <li class="good-item"><span class="code">setBigPicture</span> == <span class="code yellow-shade">Notification(...,body="...",style=NotificationStyles.BIG_PICTURE)</span></li>
+      <li class="good-item"><span class="code">setBigText</span> == <span class="code yellow-shade">Notification(...,big_picture_path="...",style=NotificationStyles.BIG_TEXT)</span></li>
+      <li class="good-item">For creating channels <span class="code">Notification.createChannel(name, id, desc)</span></li>
+      <li class="good-item">For deleting channels <span class="code">Notification.deleteAllChannel()</span> and <span class="code">Notification.deleteChannel(channel_id)</span></li>
+      <h3 class="version-subheading">Changed</h3>
+      <li class="warning-item">Notification.identifer to Notification.name</li>
+      <li class="warning-item">NotificationHandler.getIdentifer to NotificationHandler.get_name</li>
+    </div>
+  </div>
+  <div class="version-block">
+    <h2 id="v1_58" class="version-title">Version 1.58</h2>
+    <div class="version-content">
+      <li class="warning-item">showInfiniteProgressBar Had no guard block when not on android</li>
+      <li class="bad-item">NotificationHandler.getIdentifer always returned value even when app not opened from notification</li>
+    </div>
+  </div>
+</section></div>
 <footer>
   <div style="display:flex;flex-direction:column;gap:10px;">
     <p>Thoroughly Tested and supported by <br/><a href="https://github.com/Fector101/laner">Laner</a> &amp; <a href="https://github.com/Fector101/wallpaper-carousel">The Carousel</a></p>
