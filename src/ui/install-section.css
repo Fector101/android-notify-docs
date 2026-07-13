@@ -6,7 +6,7 @@
 
 .install-label {
   font-family: 'Sometype Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #4caf50;
   text-transform: uppercase;
@@ -17,7 +17,7 @@
 .install-section h2 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #e0e0e0;
+  /* color: #e0e0e0; */
   margin: 0 0 0.5rem 0;
   padding-bottom: 0;
   border-bottom: none;

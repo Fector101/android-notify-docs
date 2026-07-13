@@ -22,8 +22,10 @@ export function InstallSection() {
   const [tab, setTab] = useState('pip')
   return (
     <section className="install-section">
-      <p className="install-label">Installation</p>
-      <h2>One command away</h2>
+      <h2>Installation</h2>
+                <hr />
+      {/* <p>Installation</p> */}
+      <p className="install-label">One command away</p>
       <p className="install-intro">Pick your framework and get going in seconds.</p>
       <div className="install-tabs">
         {tabs.map(t => (
