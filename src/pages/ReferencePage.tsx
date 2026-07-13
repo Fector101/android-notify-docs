@@ -123,10 +123,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
       <hr />
 
       <p className="intro-text">All methods, arguments, and descriptions for v{version}.</p>
-      <button className="ref-download-btn" onClick={downloadMd} title="Download API docs for AI coding agents">
-        <Download size={14} />
-        <span>Download-for-agents.md</span>
-      </button>
+      
 
       <div className="ref-search-wrapper">
         <Search className="ref-search-icon" size={18} />
@@ -262,6 +259,10 @@ export default function ReferencePage({ version }: { version: Iversion }) {
           )}
         </>
       )}
+      <button className="ref-download-btn" onClick={downloadMd} title={`Download android-notify-v${version}-api.md for AI coding agents`}>
+        <Download size={14} />
+        <span>Download API for Agents</span>
+      </button>
 
       <span className='flex next-page-btns-box space-between'>
         <Link className='next-page-btn' to='/advanced-methods'>
