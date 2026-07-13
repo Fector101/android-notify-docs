@@ -86,13 +86,10 @@ export default function MainPage() {
 
 
             <section className="page-section" id='basic-usage'>
-
                 <h2>Basic Usage</h2>
                 <hr />
-                <div className='inner-section-1'>
-                    <p>You can easily create and send notifications with just a few lines of code.</p>
-                    <p>Below is a simple example of how to create a basic notification:</p>
-                    <CodeBlock code={code} pydroid={`# Testing with "android-notify==1.60.10.dev0" on pydroid
+                <p className="intro-text">Create and send notifications with just a few lines of code.</p>
+                <CodeBlock code={code} pydroid={`# Testing with "android-notify==1.60.10.dev0" on pydroid
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -126,9 +123,6 @@ class AndroidNotifyDemoApp(App):
 
 if __name__ == "__main__":
     AndroidNotifyDemoApp().run()`} />
-
-
-                </div>
             </section>
             <span className='flex next-page-btns-box space-between'>
             <Link className='next-page-btn' to='/'>
