@@ -26,7 +26,7 @@ function App() {
             <Header version={version} setVersion={setVersion} />
             <main className="flex">
                 <SiteOverview />
-                <main className="flex fd-column overflow-hidden m-auto " style={{"flex":"1","minHeight": "calc(100vh - var(--header-height));"}}>
+                <main className="flex fd-column overflow-hidden m-auto " style={{"flex":"1","minHeight": "calc(100vh - var(--header-height))"}}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/getting-started" element={<MainPage />} />

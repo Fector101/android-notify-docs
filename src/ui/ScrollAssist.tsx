@@ -1,34 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router";
 
-const ScrollToTop: React.FC = () => {
-    const routePath = useLocation();
-    const onTop = () => window.scrollTo(0, 0);
-    useEffect(onTop, [routePath]);
-    return null;
-};
-
 const ScrollToSection = () => {
-    const { hash } = useLocation();
-    const [scroll_top, setScrollToTop] = useState<React.ReactNode>(null);
+    const location = useLocation();
     useEffect(() => {
-        if (hash) {
-            const section = document.querySelector(hash) as HTMLElement;
-            // console.log(hash,section)
+        if (location.hash) {
+            const section = document.querySelector(location.hash) as HTMLElement;
             if (section) {
-                const headerHeight = 70
+                const headerHeight = 70;
                 window.scrollTo({
                     top: section.offsetTop - headerHeight,
                     behavior: "smooth",
                 });
             }
-        }else{
-            console.log('else....')
-            setScrollToTop(<ScrollToTop/>)
+        } else {
+            window.scrollTo(0, 0);
         }
-    }, [hash]);
+    }, [location]);
 
-    return scroll_top
+    return null;
 };
 
 export { ScrollToSection };
