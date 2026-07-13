@@ -34,6 +34,27 @@
     color: rgb(234, 234, 234);
 }
 
+.intro-text {
+    color: #ccc;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.intro-info {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.intro-tag {
+    font-size: 0.75rem;
+    color: #888;
+    background: #262626;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
 .main-page p,
 .main-page li {
     color: rgb(222, 222, 222);

@@ -5,7 +5,6 @@ import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
 import { InstallSection } from '../ui/InstallSection';
 import '../assets/css/mainpage.css'
 import { code } from './versions-data/mainpage';
-import { Type, Zap, Radio, Shield } from 'lucide-react';
 
 export default function MainPage() {
 
@@ -15,16 +14,13 @@ export default function MainPage() {
             <section className="page-section" id="introduction">
                 <h2>Introduction</h2>
                 <hr />
-                <p className="reader">
-                    Android-Notify makes creating and managing Android notifications easy with <span className="code green">Python</span>.
+                <p className="intro-text">
+                    Android-Notify makes creating and managing Android notifications easy with <span className="code green">Python</span>. It handles all Java details so you can focus on notification content.
                 </p>
-                <p className="paragraph reader">
-                    Built with Pyjnius, it interacts directly with Android’s Java APIs.
-                </p>
-                <p className="paragraph">
-                    It handles all Java details so you can focus on notification content in Python, No extra APIs or services needed.
-                </p>
-                <p className="paragraph">Dependency: Pyjnius</p>
+                <div className="intro-info">
+                    <span className="intro-tag">Built with Pyjnius</span>
+                    <span className="intro-tag">No extra APIs or services needed</span>
+                </div>
             </section>
 
             <section className="page-section" id="features">
