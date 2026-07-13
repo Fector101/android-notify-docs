@@ -37,7 +37,39 @@ code {
     gap: 8px;
 }
 
-.code-block .copy-buttons button {
+.code-tabs {
+    display: flex;
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.code-tab {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 4px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.code-tab:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.code-tab.active {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.copy-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.6);
@@ -56,14 +88,10 @@ code {
     font-weight: 500;
 }
 
-.code-block .copy-buttons button:hover {
+.copy-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
     border-color: rgba(255, 255, 255, 0.2);
-}
-
-.code-block .copy-buttons button svg {
-    margin: 0;
 }
 
 .code-block .content {
@@ -92,11 +120,12 @@ code {
         padding: 10px 12px;
     }
 
-    .code-block .title {
+    .code-tab {
+        padding: 3px 8px;
         font-size: 11px;
     }
 
-    .code-block .copy-buttons button.regular-copy-btn .btn-text {
+    .copy-btn .btn-text {
         display: none;
     }
 }

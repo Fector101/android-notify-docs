@@ -1,22 +1,71 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "../assets/css/referencepage.css";
-import { Search, ChevronLeft, ChevronRight } from "lucide-react";
-import { nanoid } from "nanoid";
-import { Link } from "react-router";
-import { InlineCode } from "../ui/CodeBlock/CodeBlock";
-import { Iversion, NotificationMethods } from "../assets/js/mytypes";
+import { Search, ChevronLeft, ChevronRight, ChevronDown, Download } from "lucide-react";
+import { Iversion } from "../assets/js/mytypes";
 import { isLegacyVersion } from "../assets/js/helper";
 
 import { VERSION_MAP } from "./versions-data/index";
 import { ScrollToSection } from "../ui/ScrollAssist";
+import { Link } from "react-router";
 
-function matchesSearch(query: string, ...fields: any[]): boolean {
+function generateMarkdown(version: string, data: any): string {
+  const lines: string[] = [];
+  lines.push(`# Android Notify v${version} — API Reference\n`);
+
+  const notifMethods = data?.NOTIFICATION_METHODS || {};
+  const notifEntries = Object.entries(notifMethods);
+  if (notifEntries.length) {
+    lines.push(`## Notification\n`);
+    for (const [key, m] of notifEntries) {
+      const method = m as any;
+      lines.push(`### ${method.signature || key}\n`);
+      if (method.description) lines.push(`${method.description}\n`);
+      if (method.args?.length) {
+        lines.push(`| Parameter | Description |`);
+        lines.push(`|-----------|-------------|`);
+        for (const a of method.args) {
+          lines.push(`| \`${a.name}\` | ${a.desc} |`);
+        }
+        lines.push("");
+      }
+    }
+  }
+
+  const handlers = data?.HANDLER_METHODS || [];
+  if (handlers.length) {
+    lines.push(`## NotificationHandler\n`);
+    for (const m of handlers) {
+      lines.push(`### ${m.signature}\n`);
+      if (m.description) lines.push(`${m.description}\n`);
+      if (m.args?.length) {
+        lines.push(`| Parameter | Description |`);
+        lines.push(`|-----------|-------------|`);
+        for (const a of m.args) {
+          lines.push(`| \`${a.name}\` | ${a.desc} |`);
+        }
+        lines.push("");
+      }
+    }
+  }
+
+  const styles = data?.STYLE_ATTRIBUTES || {};
+  const styleEntries = Object.entries(styles);
+  if (styleEntries.length) {
+    lines.push(`## NotificationStyles (deprecated)\n`);
+    for (const [key, m] of styleEntries) {
+      const style = m as any;
+      lines.push(`### ${style.signature || key}\n`);
+      if (style.description) lines.push(`${style.description}\n`);
+    }
+  }
+
+  return lines.join("\n");
+}
+
+function matchesSearch(query: string, ...fields: (string | undefined)[]): boolean {
   if (!query) return true;
   const q = query.toLowerCase();
-  return fields.some(f => {
-    if (typeof f === "string") return f.toLowerCase().includes(q);
-    return false;
-  });
+  return fields.some(f => typeof f === "string" && f.toLowerCase().includes(q));
 }
 
 function itemMatchesSearch(query: string, item: any, key?: string): boolean {
@@ -24,42 +73,34 @@ function itemMatchesSearch(query: string, item: any, key?: string): boolean {
   const desc = typeof item.description === "string" ? item.description : "";
   if (matchesSearch(query, key, item.signature, desc)) return true;
   if (item.args?.length) {
-    return item.args.some((a: any) =>
-      matchesSearch(query, a.name, a.desc)
-    );
+    return item.args.some((a: any) => matchesSearch(query, a.name, a.desc));
   }
   return false;
 }
 
-function MethodCard({method, fallback }: { method: any; fallback?: string }) {
-  const class_name = fallback? fallback+" ref-code": "ref-code"
-  return (<div className="bg-gray-50 p-4 rounded-lg shadow-sm transition">
-    <p className={class_name}>{method.signature || fallback}</p>
-    <p className="paragraph mb-2 text-gray-700">{method.description}</p>
-
-    {method.args && method.args.length > 0 && (
-      <dl className="pl-4 space-y-1">
-        {method.args.map(({ name, desc }: { name: string; desc: string }) => (
-          <div key={nanoid()}>
-            <dt>{name}</dt>
-            <dd>{desc}</dd>
-          </div>
-        ))}
-      </dl>
-    )}
-  </div>
-);
-}
 export default function ReferencePage({ version }: { version: Iversion }) {
   const data = VERSION_MAP[version];
-  const NOTIFICATION_METHODS: NotificationMethods =
-    data?.NOTIFICATION_METHODS || {};
+  const NOTIFICATION_METHODS = data?.NOTIFICATION_METHODS || {};
   const [searchQuery, setSearchQuery] = useState("");
+  const [openCards, setOpenCards] = useState<Record<string, boolean>>({});
+
+  const downloadMd = useCallback(() => {
+    const md = generateMarkdown(version, data);
+    const blob = new Blob([md], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `android-notify-v${version}-api.md`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [version, data]);
+
+  const toggle = (key: string) => setOpenCards(p => ({ ...p, [key]: !p[key] }));
 
   const notificationEntries = Object.entries(NOTIFICATION_METHODS).filter(
     ([key, m]) => itemMatchesSearch(searchQuery, m, key)
   );
-  const handlerMethods = (data?.HANDLER_METHODS || []).filter((m) =>
+  const handlerMethods = (data?.HANDLER_METHODS || []).filter((m: any) =>
     itemMatchesSearch(searchQuery, m, m.id)
   );
   const styleEntries = data?.STYLE_ATTRIBUTES
@@ -71,24 +112,19 @@ export default function ReferencePage({ version }: { version: Iversion }) {
   const totalMethods =
     Object.keys(NOTIFICATION_METHODS).length +
     (data?.HANDLER_METHODS?.length || 0) +
-    (data?.STYLE_ATTRIBUTES
-      ? Object.keys(data.STYLE_ATTRIBUTES).length
-      : 0);
-
-  const matchedCount =
-    notificationEntries.length +
-    handlerMethods.length +
-    styleEntries.length;
-
+    (data?.STYLE_ATTRIBUTES ? Object.keys(data.STYLE_ATTRIBUTES).length : 0);
+  const matchedCount = notificationEntries.length + handlerMethods.length + styleEntries.length;
   const hasResults = matchedCount > 0;
 
   return (
     <div className="page main-page reference-page">
-      <ScrollToSection/>
+      <ScrollToSection />
       <h2>Reference</h2>
       <hr />
 
-      {/* Search */}
+      <p className="intro-text">All methods, arguments, and descriptions for v{version}.</p>
+      
+
       <div className="ref-search-wrapper">
         <Search className="ref-search-icon" size={18} />
         <input
@@ -99,10 +135,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         {searchQuery && (
-          <button
-            className="ref-search-clear"
-            onClick={() => setSearchQuery("")}
-          >
+          <button className="ref-search-clear" onClick={() => setSearchQuery("")}>
             &times;
           </button>
         )}
@@ -122,123 +155,127 @@ export default function ReferencePage({ version }: { version: Iversion }) {
         </div>
       )}
 
-      {/* Table of Contents */}
-      {hasResults && (<>
-      <nav className="border-l-4 border-blue-600 pl-4">
-        <h2 className="font-semibold mb-2">Contents</h2>
-        <ul className="inner-section-2 space-y-1 text-sm">
-          <li>
-            <a href="#notification-class" className="text-blue-600 hover:underline">
-              Notification Attributes and Methods
-            </a>
-          </li>
-          <li>
-            <a
-              href="#notificationhandler-class"
-              className="text-blue-600 hover:underline"
-            >
-              NotificationHandler Methods
-            </a>
-          </li>
-          <li>
-            <a href="#notificationstyles-class" className="text-blue-600 hover:underline">
-              NotificationStyles
-            </a>
-          </li>
-        </ul>
-      </nav>
+      {hasResults && (
+        <>
+          {version === "1.59" && (
+            <div className="ref-note">
+              <strong>v1.59 note:</strong> Methods were introduced to free up <code>__init__</code> kwargs and replace direct style usage.
+            </div>
+          )}
 
-      {/* v1.59 helper note */}
-      {version === "1.59" && (
-        <section className="side-note">
-          <h2>For v1.59</h2>
-          <p className="paragraph">
-            Methods were introduced to free up <InlineCode code="__init__" /> kwargs
-            and replace direct style usage.
-          </p>
-        </section>
-      )}
-
-      {/* Notification Methods */}
-      {notificationEntries.length > 0 && (
-      <section
-        id="notification-class"
-        className="space-y-6 page-section"
-        tabIndex={0}
-      >
-        <h2 className="text-xl font-bold">
-          Notification Attributes and Methods
-        </h2>
-
-        {notificationEntries.map(([key, m]) => (
-          <MethodCard key={key} method={m} fallback={key}/>
-        ))}
-      </section>
-      )}
-
-      {/* Handler Methods */}
-      {handlerMethods.length > 0 && (
-      <section
-        id="notificationhandler-class"
-        className="space-y-6 page-section"
-        tabIndex={0}
-      >
-        <h2 className="text-xl font-bold">NotificationHandler Methods</h2>
-
-        {handlerMethods.map((m) => (
-          <MethodCard key={nanoid()} method={m} />
-        ))}
-      </section>
-      )}
-
-      {/* Styles */}
-      {styleEntries.length > 0 && (
-      <section
-        id="notificationstyles-class"
-        className="space-y-6 page-section"
-        tabIndex={0}
-      >
-        {isLegacyVersion(version) ? (
-          <h2 className="text-xl font-bold">
-            NotificationStyles attributes for Safely Adding Styles
-          </h2>
-        ) : (
-          <> <h2 className="text-xl font-bold">NotificationStyles</h2> <p className="paragraph"> All NotificationStyles attributes are <InlineCode className="yellow" code="deprecated in v1.59.3" />  they were transformed to methods for better usability and to free up __init__ kwargs. </p> <p>The New Methods Are: <InlineCode className="green" code='setSmallIcon' />, <InlineCode className="green" code='setLargeIcon' />, <InlineCode className="green" code='setBigPicture' />, <InlineCode className="green" code='setBigText' /> and <InlineCode className="green" code='updateProgressBar'/> work to safely add styles without worrying about overwriting other styles or kwargs. </p> </>
-        )}
-
-        <div className="flex flex-wrap align-items-cen justify-content-cen styles-container">
-          {styleEntries.map(([key, m]) => (
-              <div
-                key={nanoid()}
-                className="bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition"
-              >
-                <h3 className="style-attr">
-                  <code>{m.signature || key}</code>
-                </h3>
-                <p className="text-gray-700 new-line-active">
-                  {m.description}
-                </p>
+          {notificationEntries.length > 0 && (
+            <section id="notification-class" className="ref-section" tabIndex={0}>
+              <h3 className="ref-section-title">Notification</h3>
+              <div className="api-grid">
+                {notificationEntries.map(([key, m]: [string, any]) => {
+                  const cls = "api-card" + (openCards[key] ? " open" : "");
+                  return (
+                    <div key={key} className={cls}>
+                      <div className="api-head" onClick={() => toggle(key)}>
+                        <span className="api-sig">{m.signature || key}</span>
+                        <ChevronDown size={14} className="api-chevron" />
+                      </div>
+                      <div className="api-body">
+                        <div className="api-inner">
+                          <p className="api-desc">{m.description}</p>
+                          {m.args && m.args.length > 0 && (
+                            <dl className="api-args">
+                              {m.args.map((a: any) => (
+                                <div key={a.name}><dt>{a.name}</dt><dd>{a.desc}</dd></div>
+                              ))}
+                            </dl>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-            ))}
-        </div>
-      </section>
-      )}
-      </>)}
+            </section>
+          )}
 
-      {/* Navigation */}
-      <span className="flex next-page-btns-box space-between">
-        <Link className="next-page-btn" to="/advanced-methods">
+          {handlerMethods.length > 0 && (
+            <section id="notificationhandler-class" className="ref-section" tabIndex={0}>
+              <h3 className="ref-section-title">NotificationHandler</h3>
+              <div className="api-grid">
+                {handlerMethods.map((m: any) => {
+                  const cls = "api-card" + (openCards[m.id] ? " open" : "");
+                  return (
+                    <div key={m.id} className={cls}>
+                      <div className="api-head" onClick={() => toggle(m.id)}>
+                        <span className="api-sig">{m.signature}</span>
+                        <ChevronDown size={14} className="api-chevron" />
+                      </div>
+                      <div className="api-body">
+                        <div className="api-inner">
+                          <p className="api-desc">{m.description}</p>
+                          {m.args && m.args.length > 0 && (
+                            <dl className="api-args">
+                              {m.args.map((a: any) => (
+                                <div key={a.name}><dt>{a.name}</dt><dd>{a.desc}</dd></div>
+                              ))}
+                            </dl>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          {styleEntries.length > 0 && (
+            <section id="notificationstyles-class" className="ref-section" tabIndex={0}>
+              <h3 className="ref-section-title">
+                {isLegacyVersion(version)
+                  ? "NotificationStyles Attributes"
+                  : "NotificationStyles (deprecated)"}
+              </h3>
+              {!isLegacyVersion(version) && (
+                <p className="ref-note warn" style={{ marginTop: 0 }}>
+                  All NotificationStyles attributes are deprecated in v1.59.3. Use methods like <code>setSmallIcon</code>, <code>setLargeIcon</code>, <code>setBigPicture</code>, <code>setBigText</code>, and <code>updateProgressBar</code> instead.
+                </p>
+              )}
+              <div className="api-grid">
+                {styleEntries.map(([key, m]: [string, any]) => {
+                  const cls = "api-card" + (openCards[key] ? " open" : "");
+                  return (
+                    <div key={key} className={cls}>
+                      <div className="api-head" onClick={() => toggle(key)}>
+                        <span className="api-sig">{m.signature || key}</span>
+                        <ChevronDown size={14} className="api-chevron" />
+                      </div>
+                      <div className="api-body">
+                        <div className="api-inner">
+                          <p className="api-desc">{m.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+        </>
+      )}
+      <button className="ref-download-btn" onClick={downloadMd} title={`Download android-notify-v${version}-api.md for AI coding agents`}>
+        <Download size={14} />
+        <span>Download API for Agents</span>
+      </button>
+
+      <span className='flex next-page-btns-box space-between'>
+        <Link className='next-page-btn' to='/advanced-methods'>
           <ChevronLeft />
           <span>
-            <p className="next-txt">Previous</p>
-            <p className="page-name">Advanced Methods</p>
+            <p className='next-txt'>Previous</p>
+            <p className='page-name'>Advanced Methods</p>
           </span>
         </Link>
-
-        <Link className="next-page-btn" to="/help">
+        <Link className='next-page-btn' to='/help'>
           <span>
-            <p className="next-txt">Next</p>
-            <p className="page-name">Help</p>
+            <p className='next-txt'>Next</p>
+            <p className='page-name'>Help</p>
           </span>
           <ChevronRight />
         </Link>

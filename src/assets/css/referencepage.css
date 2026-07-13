@@ -286,4 +286,178 @@ dd {
     }
 }
 
-/* .reference-page  */
+/* ═══ API Reference Accordion ═══ */
+.ref-section {
+    margin-bottom: 2rem;
+    outline: none;
+}
+
+.ref-section-title {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fafaf9;
+    margin-bottom: 0.75rem;
+}
+
+.api-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.api-card {
+    background: #181818a4;
+    border: 1px solid #3f3a36;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.api-card:hover {
+    border-color: #78716c;
+}
+
+.api-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.api-head:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.api-sig {
+    font-family: 'Fira Code', Consolas, monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #10b981;
+}
+
+.api-chevron {
+    margin-left: auto;
+    color: #78716c;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.api-card.open .api-chevron {
+    transform: rotate(180deg);
+}
+
+.api-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.api-card.open .api-body {
+    max-height: 600px;
+}
+
+.api-inner {
+    padding: 0 1.1rem 1rem;
+}
+
+.api-desc {
+    color: #a8a29e;
+    font-size: 0.88rem;
+    margin-bottom: 0.6rem;
+}
+
+.api-args {
+    padding-left: 0.5rem;
+}
+
+.api-args dt {
+    font-family: 'Fira Code', Consolas, monospace;
+    font-size: 0.78rem;
+    color: #fafaf9;
+    font-weight: 500;
+    background: none;
+    padding: 0;
+    width: auto;
+    border-radius: 0;
+    margin-block: 3px;
+}
+
+.api-args dd {
+    font-size: 0.82rem;
+    color: #78716c;
+    margin-bottom: 0.35rem;
+    margin-left: 0.5rem;
+}
+
+.ref-note {
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.15);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.25rem;
+    color: #a8a29e;
+    font-size: 0.88rem;
+}
+
+.ref-note strong {
+    color: #10b981;
+}
+
+.ref-note.warn {
+    background: rgba(245,158,11,0.08);
+    border-color: rgba(245,158,11,0.15);
+}
+
+.ref-note.warn strong {
+    color: #f59e0b;
+}
+
+.ref-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.2);
+    color: #10b981;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 1.25rem;
+}
+
+.ref-download-btn:hover {
+    background: rgba(16,185,129,0.18);
+    border-color: #10b981;
+}
+
+@media screen and (max-width:500px) {
+    .api-head {
+        padding: 0.7rem 0.9rem;
+    }
+
+    .api-sig {
+        font-size: 0.72rem;
+    }
+
+    .api-inner {
+        padding: 0 0.9rem 0.85rem;
+    }
+
+    .api-desc {
+        font-size: 0.82rem;
+    }
+
+    .api-args dt {
+        font-size: 0.72rem;
+    }
+
+    .api-args dd {
+        font-size: 0.76rem;
+    }
+}

@@ -1,9 +1,10 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router'
 import { ScrollToSection } from '../ui/ScrollAssist';
-import { CodeBlock, InlineCode } from '../ui/CodeBlock/CodeBlock';
+import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
+import { InstallSection } from '../ui/InstallSection';
 import '../assets/css/mainpage.css'
-import { code, installation_code_buildozer, installation_code_pip, installation_code_flet, installation_code_buildozer_without_androidx } from './versions-data/mainpage';
+import { code } from './versions-data/mainpage';
 
 export default function MainPage() {
 
@@ -13,143 +14,82 @@ export default function MainPage() {
             <section className="page-section" id="introduction">
                 <h2>Introduction</h2>
                 <hr />
-                <p className="reader">
-                    Android-Notify makes creating and managing Android notifications easy with <span className="code green">Python</span>.
+                <p className="intro-text">
+                    Android-Notify makes creating and managing Android notifications easy with <span className="code green">Python</span>. It handles all Java details so you can focus on notification content.
                 </p>
-                <p className="paragraph reader">
-                    Built with Pyjnius, it interacts directly with Android’s Java APIs.
-                </p>
-                <p className="paragraph">
-                    It handles all Java details so you can focus on notification content in Python, No extra APIs or services needed.
-                </p>
-                <p className="paragraph">Dependency: Pyjnius</p>
+                <div className="intro-info">
+                    <span className="intro-tag">Built with Pyjnius</span>
+                    <span className="intro-tag">No extra APIs or services needed</span>
+                </div>
             </section>
 
             <section className="page-section" id="features">
                 <h2>Features</h2>
                 <hr />
 
-                <ul className="inner-section-1 space-y-[20px]">
-
-                    <details>
-                        <summary><strong>Notification Components&Design:</strong></summary>
-
-                        <ul className='space-y-[20px] mt-[10px]'>
-                            <ul>
-                                <li>Texts (<a href="/components#texts" target="_blank" rel="noopener noreferrer">texts section </a>)</li>
-                                <li>Simple text</li>
-                                <li>Big text</li>
-                                <li>Inbox-style</li>
-                                <li>Sub Texts</li>
-                                <li>and Colored texts.</li>
-                            </ul>
-
-                            <ul>
-                                <li>Images
-                                    (<a href="/components#images" target="_blank" rel="noopener noreferrer">images section </a>)
-                                </li>
-                                <li>Large icon</li>
-                                <li>Big picture</li>
-                                <li>Custom app icons</li>
-                                <li>Colored app icons</li>
-                            </ul>
-
-                            <ul>
-                                <li>Progress bar (<a href="/components#progress-bars" target="_blank" rel="noopener noreferrer">
-                                    progress bars section</a>)
-                                </li>
-                                <li> Determinate</li>
-                                <li> Indeterminate</li>
-                            </ul>
-
-                            <ul>
-                                <li>Buttons (<a href="/components#buttons" target="_blank" rel="noopener noreferrer">
-                                    buttons section</a>)
-                                </li>
-                                <li> Runtime Functions</li>
-                                <li> Broadcast Actions</li>
-
-                            </ul>
-
-                        </ul>
-                    </details>
-                    <details>
-
-                        <summary><strong>Behaviours/ Runtime Functions:</strong></summary>
-
-                        <ul className='space-y-[10px] mt-[10px]'>
-                            <li>Send: normal/silent/persistent/vibrate</li>
-                            <li>Update: title, message, images, progress bar</li>
-                            <li>Add or Remove Buttons</li>
-                            <li>Click handlers and opening app on notification click</li>
-                            <li>Custom sound per and vibrate notification</li>
-                            <li>Set timestamps</li>
-                            <li>Clear single or all notifications</li>
-
-                        </ul>
+                <div className="features-accordion">
+                    <details className="feature-details">
+                        <summary>
+                            {/* <div className="feature-icon"><Type size={18} /></div> */}
+                            <span>Notification Components & Design</span>
+                        </summary>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>Texts</strong><span>Simple, big text, inbox-style, sub texts, coloured texts</span></div>
+                            <div className="feature-item"><strong>Images</strong><span>Large icons, big pictures, custom & coloured app icons</span></div>
+                            <div className="feature-item"><strong>Progress Bars</strong><span>Determinate and indeterminate with real-time updates</span></div>
+                            <div className="feature-item"><strong>Buttons</strong><span>Action buttons with callbacks and broadcast receivers</span></div>
+                        </div>
                     </details>
 
-                    <details>
-                        <summary><strong>Channels for </strong>(<a href="advanced-methods#channel-management" target="_blank" rel="noopener noreferrer">Android 8.0+</a>):</summary>
-                        <ul className='space-y-[10px] mt-[10px]'>
-                            <li>Create, delete, delete all</li>
-                            <li>Set importance, vibration, and sound</li>
-                        </ul>
+                    <details className="feature-details">
+                        <summary>
+                            {/* <div className="feature-icon"><Zap size={18} /></div> */}
+                            <span>Behaviours / Runtime Functions</span>
+                        </summary>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>Send Modes</strong><span>Normal, silent, persistent, or vibrate</span></div>
+                            <div className="feature-item"><strong>Live Updates</strong><span>Update title, message, images, and progress after sending</span></div>
+                            <div className="feature-item"><strong>Buttons</strong><span>Add or remove buttons at runtime</span></div>
+                            <div className="feature-item"><strong>Click Handlers</strong><span>Open app on notification click, custom callbacks</span></div>
+                            <div className="feature-item"><strong>Sound & Vibration</strong><span>Custom sound and vibration per notification</span></div>
+                            <div className="feature-item"><strong>Timestamps & Clear</strong><span>Set timestamps, clear single or all notifications</span></div>
+                        </div>
                     </details>
 
-                    <details>
-                        <summary><strong>Permissions:</strong></summary>
-                        <ul className='space-y-[10px] mt-[10px]'>
-                            <li>Ask / check notification permission with callback</li>
-                        </ul>
+                    <details className="feature-details">
+                        <summary>
+                            {/* <div className="feature-icon"><Radio size={18} /></div> */}
+                            <span>Channels <span className="feature-badge">Android 8.0+</span></span>
+                        </summary>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>Manage Channels</strong><span><Link to="/advanced-methods#channel-management">Create, delete, delete all</Link></span></div>
+                            <div className="feature-item"><strong>Configure</strong><span>Set importance, vibration, and sound</span></div>
+                        </div>
                     </details>
 
-
-                </ul>
+                    <details className="feature-details">
+                        <summary>
+                            {/* <div className="feature-icon"><Shield size={18} /></div> */}
+                            <span>Permissions</span>
+                        </summary>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>Permission Handling</strong><span>Ask and check notification permission with callback</span></div>
+                        </div>
+                    </details>
+                </div>
 
             </section>
 
             <section className="page-section" id='installation'>
-                <h2>Installation</h2>
-                <hr />
-                
-
-                <div className='inner-section-1'>
-                    <h3 className='sub-header text-marker system'>Kivy Apps</h3>
-                    <p>In your <InlineCode code="buildozer.spec"/> file include the following:</p>
-                    <CodeBlock code={installation_code_buildozer} lang='ini' />
-
-                    
-                    <h4 className='ml-[5px] my-[20px]'>Usage without additional Gradle dependency.</h4>
-
-                    <h3 className='sub-header text-marker system'>Flet Apps</h3>
-
-                    <p>Add the following to your <InlineCode code="pyproject.toml:"/></p>
-
-                    <CodeBlock code={installation_code_flet} lang='toml' />
-                    <h3 className='sub-header text-marker system'>Kivy Apps</h3>
-                    <p className='my-[20px]'>Add the following to your <InlineCode code="buildozer.spec:"/></p>
-                    <CodeBlock code={installation_code_buildozer_without_androidx} lang='ini' />
-
-                    <h3 className='sub-header text-marker system'>Pydroid 3 App</h3>
-                    <p className='paragraph'>In pip section where you're asked to insert libary name paste <InlineCode code='android-notify==1.60.10.dev0' /> </p>
-
-                    <h3 className='sub-header text-marker system'>PIP</h3>
-                    <p className='paragraph'>You can also install the package with pip for development, testing, or IDE IntelliSense.</p>
-                    <CodeBlock code={installation_code_pip} lang='bash' />
-
-                </div>
+                <InstallSection />
             </section>
 
 
             <section className="page-section" id='basic-usage'>
-
                 <h2>Basic Usage</h2>
                 <hr />
-                <div className='inner-section-1'>
-                    <p>You can easily create and send notifications with just a few lines of code.</p>
-                    <p>Below is a simple example of how to create a basic notification:</p>
-                    <CodeBlock code={code} pydroid={`# Testing with "android-notify==1.60.10.dev0" on pydroid
+                <p className="intro-text">Create and send notifications with just a few lines of code.</p>
+                <CodeBlock code={code} pydroid={`# Testing with "android-notify==1.60.10.dev0" on pydroid
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -183,9 +123,6 @@ class AndroidNotifyDemoApp(App):
 
 if __name__ == "__main__":
     AndroidNotifyDemoApp().run()`} />
-
-
-                </div>
             </section>
             <span className='flex next-page-btns-box space-between'>
             <Link className='next-page-btn' to='/'>
