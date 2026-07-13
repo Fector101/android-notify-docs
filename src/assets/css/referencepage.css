@@ -415,6 +415,27 @@ dd {
     color: #f59e0b;
 }
 
+.ref-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.2);
+    color: #10b981;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 1.25rem;
+}
+
+.ref-download-btn:hover {
+    background: rgba(16,185,129,0.18);
+    border-color: #10b981;
+}
+
 @media screen and (max-width:500px) {
     .api-head {
         padding: 0.7rem 0.9rem;

@@ -1,12 +1,66 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "../assets/css/referencepage.css";
-import { Search, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, ChevronDown, Download } from "lucide-react";
 import { Iversion } from "../assets/js/mytypes";
 import { isLegacyVersion } from "../assets/js/helper";
 
 import { VERSION_MAP } from "./versions-data/index";
 import { ScrollToSection } from "../ui/ScrollAssist";
 import { Link } from "react-router";
+
+function generateMarkdown(version: string, data: any): string {
+  const lines: string[] = [];
+  lines.push(`# Android Notify v${version} — API Reference\n`);
+
+  const notifMethods = data?.NOTIFICATION_METHODS || {};
+  const notifEntries = Object.entries(notifMethods);
+  if (notifEntries.length) {
+    lines.push(`## Notification\n`);
+    for (const [key, m] of notifEntries) {
+      const method = m as any;
+      lines.push(`### ${method.signature || key}\n`);
+      if (method.description) lines.push(`${method.description}\n`);
+      if (method.args?.length) {
+        lines.push(`| Parameter | Description |`);
+        lines.push(`|-----------|-------------|`);
+        for (const a of method.args) {
+          lines.push(`| \`${a.name}\` | ${a.desc} |`);
+        }
+        lines.push("");
+      }
+    }
+  }
+
+  const handlers = data?.HANDLER_METHODS || [];
+  if (handlers.length) {
+    lines.push(`## NotificationHandler\n`);
+    for (const m of handlers) {
+      lines.push(`### ${m.signature}\n`);
+      if (m.description) lines.push(`${m.description}\n`);
+      if (m.args?.length) {
+        lines.push(`| Parameter | Description |`);
+        lines.push(`|-----------|-------------|`);
+        for (const a of m.args) {
+          lines.push(`| \`${a.name}\` | ${a.desc} |`);
+        }
+        lines.push("");
+      }
+    }
+  }
+
+  const styles = data?.STYLE_ATTRIBUTES || {};
+  const styleEntries = Object.entries(styles);
+  if (styleEntries.length) {
+    lines.push(`## NotificationStyles (deprecated)\n`);
+    for (const [key, m] of styleEntries) {
+      const style = m as any;
+      lines.push(`### ${style.signature || key}\n`);
+      if (style.description) lines.push(`${style.description}\n`);
+    }
+  }
+
+  return lines.join("\n");
+}
 
 function matchesSearch(query: string, ...fields: (string | undefined)[]): boolean {
   if (!query) return true;
@@ -29,6 +83,17 @@ export default function ReferencePage({ version }: { version: Iversion }) {
   const NOTIFICATION_METHODS = data?.NOTIFICATION_METHODS || {};
   const [searchQuery, setSearchQuery] = useState("");
   const [openCards, setOpenCards] = useState<Record<string, boolean>>({});
+
+  const downloadMd = useCallback(() => {
+    const md = generateMarkdown(version, data);
+    const blob = new Blob([md], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `android-notify-v${version}-api.md`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [version, data]);
 
   const toggle = (key: string) => setOpenCards(p => ({ ...p, [key]: !p[key] }));
 
@@ -58,6 +123,10 @@ export default function ReferencePage({ version }: { version: Iversion }) {
       <hr />
 
       <p className="intro-text">All methods, arguments, and descriptions for v{version}.</p>
+      <button className="ref-download-btn" onClick={downloadMd} title="Download API docs for AI coding agents">
+        <Download size={14} />
+        <span>Download-for-agents.md</span>
+      </button>
 
       <div className="ref-search-wrapper">
         <Search className="ref-search-icon" size={18} />
