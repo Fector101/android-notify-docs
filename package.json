@@ -1,0 +1,7 @@
+{
+  "name": "android-notify-docs",
+  "private": true,
+  "scripts": {
+    "build": "echo 'static site - no build needed'"
+  }
+}
