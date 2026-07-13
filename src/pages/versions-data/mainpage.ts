@@ -18,6 +18,18 @@ dependencies = [
 [tool.flet.android.permission]
 "android.permission.POST_NOTIFICATIONS" = true`
 export const installation_code_pip = `pip install android-notify`
+
+export function getInstallCode(tab: string): string {
+  const codes: Record<string, string> = {
+    pip: installation_code_pip,
+    kivy: installation_code_buildozer,
+    flet: installation_code_flet,
+    pydroid: `# In Pydroid 3 pip section, add:
+android-notify==1.60.10.dev0`,
+    nox: installation_code_buildozer_without_androidx,
+  }
+  return codes[tab] || codes.pip
+}
 export const code = `from android_notify import Notification, NotificationHandler
 
 # Create a simple notification

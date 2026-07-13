@@ -1,9 +1,10 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router'
 import { ScrollToSection } from '../ui/ScrollAssist';
-import { CodeBlock, InlineCode } from '../ui/CodeBlock/CodeBlock';
+import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
+import { InstallSection } from '../ui/InstallSection';
 import '../assets/css/mainpage.css'
-import { code, installation_code_buildozer, installation_code_pip, installation_code_flet, installation_code_buildozer_without_androidx } from './versions-data/mainpage';
+import { code } from './versions-data/mainpage';
 
 export default function MainPage() {
 
@@ -110,35 +111,7 @@ export default function MainPage() {
             </section>
 
             <section className="page-section" id='installation'>
-                <h2>Installation</h2>
-                <hr />
-                
-
-                <div className='inner-section-1'>
-                    <h3 className='sub-header text-marker system'>Kivy Apps</h3>
-                    <p>In your <InlineCode code="buildozer.spec"/> file include the following:</p>
-                    <CodeBlock code={installation_code_buildozer} lang='ini' />
-
-                    
-                    <h4 className='ml-[5px] my-[20px]'>Usage without additional Gradle dependency.</h4>
-
-                    <h3 className='sub-header text-marker system'>Flet Apps</h3>
-
-                    <p>Add the following to your <InlineCode code="pyproject.toml:"/></p>
-
-                    <CodeBlock code={installation_code_flet} lang='toml' />
-                    <h3 className='sub-header text-marker system'>Kivy Apps</h3>
-                    <p className='my-[20px]'>Add the following to your <InlineCode code="buildozer.spec:"/></p>
-                    <CodeBlock code={installation_code_buildozer_without_androidx} lang='ini' />
-
-                    <h3 className='sub-header text-marker system'>Pydroid 3 App</h3>
-                    <p className='paragraph'>In pip section where you're asked to insert libary name paste <InlineCode code='android-notify==1.60.10.dev0' /> </p>
-
-                    <h3 className='sub-header text-marker system'>PIP</h3>
-                    <p className='paragraph'>You can also install the package with pip for development, testing, or IDE IntelliSense.</p>
-                    <CodeBlock code={installation_code_pip} lang='bash' />
-
-                </div>
+                <InstallSection />
             </section>
 
 

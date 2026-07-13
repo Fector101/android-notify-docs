@@ -1,0 +1,80 @@
+.terminal {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #333;
+  background: #0d0b0a;
+  margin: 1rem 0;
+  transition: border-color 0.2s;
+}
+.terminal:hover {
+  border-color: #555;
+}
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #1c1917;
+  border-bottom: 1px solid #333;
+}
+.terminal-dots {
+  display: flex;
+  gap: 5px;
+}
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.terminal-dot.r { background: #ef4444; }
+.terminal-dot.y { background: #eab308; }
+.terminal-dot.g { background: #22c55e; }
+.terminal-title {
+  margin-left: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #78716c;
+  font-family: 'Sometype Mono', monospace;
+}
+.terminal-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.35rem;
+}
+.term-btn {
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid #3f3a36;
+  color: #78716c;
+  cursor: pointer;
+  transition: all 0.12s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.term-btn:hover {
+  color: #fafaf9;
+  border-color: #78716c;
+}
+.term-btn.copied {
+  color: #10b981;
+  border-color: #10b981;
+}
+.terminal pre {
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: #a8a29e;
+  margin: 0;
+}
+.terminal code {
+  background: none;
+  padding: 0;
+  font-size: 0.8rem;
+  color: inherit;
+}

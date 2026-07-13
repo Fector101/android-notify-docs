@@ -1,0 +1,61 @@
+.install-section {
+  padding: 2.5rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.install-label {
+  font-family: 'Sometype Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4caf50;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.install-section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.install-intro {
+  color: #999;
+  font-size: 0.95rem;
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+}
+
+.install-tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.install-tab {
+  padding: 0.4rem 0.85rem;
+  border-radius: 7px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid #333;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.install-tab:hover {
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+.install-tab.on {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: #4caf50;
+  color: #4caf50;
+}
