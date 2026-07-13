@@ -5,6 +5,7 @@ import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
 import { InstallSection } from '../ui/InstallSection';
 import '../assets/css/mainpage.css'
 import { code } from './versions-data/mainpage';
+import { Type, Zap, Radio, Shield } from 'lucide-react';
 
 export default function MainPage() {
 
@@ -30,83 +31,93 @@ export default function MainPage() {
                 <h2>Features</h2>
                 <hr />
 
-                <ul className="inner-section-1 space-y-[20px]">
+                <div className="features-group">
+                    <div className="features-group-header">
+                        <div className="feature-icon"><Type size={20} /></div>
+                        <h3>Notification Components & Design</h3>
+                    </div>
+                    <div className="features-list">
+                        <div className="feature-item">
+                            <strong>Texts</strong>
+                            <span>Simple, big text, inbox-style, sub texts, coloured texts</span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Images</strong>
+                            <span>Large icons, big pictures, custom & coloured app icons</span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Progress Bars</strong>
+                            <span>Determinate and indeterminate with real-time updates</span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Buttons</strong>
+                            <span>Action buttons with callbacks and broadcast receivers</span>
+                        </div>
+                    </div>
+                </div>
 
-                    <details>
-                        <summary><strong>Notification Components&Design:</strong></summary>
+                <div className="features-group">
+                    <div className="features-group-header">
+                        <div className="feature-icon"><Zap size={20} /></div>
+                        <h3>Behaviours / Runtime Functions</h3>
+                    </div>
+                    <div className="features-list">
+                        <div className="feature-item">
+                            <strong>Send Modes</strong>
+                            <span>Normal, silent, persistent, or vibrate</span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Live Updates</strong>
+                            <span>Update title, message, images, and progress after sending</span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Buttons</strong>
+                            <span>Add or remove buttons at runtime</span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Click Handlers</strong>
+                            <span>Open app on notification click, custom callbacks</span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Sound & Vibration</strong>
+                            <span>Custom sound and vibration per notification</span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Timestamps & Clear</strong>
+                            <span>Set timestamps, clear single or all notifications</span>
+                        </div>
+                    </div>
+                </div>
 
-                        <ul className='space-y-[20px] mt-[10px]'>
-                            <ul>
-                                <li>Texts (<a href="/components#texts" target="_blank" rel="noopener noreferrer">texts section </a>)</li>
-                                <li>Simple text</li>
-                                <li>Big text</li>
-                                <li>Inbox-style</li>
-                                <li>Sub Texts</li>
-                                <li>and Colored texts.</li>
-                            </ul>
+                <div className="features-group">
+                    <div className="features-group-header">
+                        <div className="feature-icon"><Radio size={20} /></div>
+                        <h3>Channels <span className="feature-badge">Android 8.0+</span></h3>
+                    </div>
+                    <div className="features-list">
+                        <div className="feature-item">
+                            <strong>Manage Channels</strong>
+                            <span><Link to="/advanced-methods#channel-management">Create, delete, delete all</Link></span>
+                        </div>
+                        <div className="feature-item">
+                            <strong>Configure</strong>
+                            <span>Set importance, vibration, and sound</span>
+                        </div>
+                    </div>
+                </div>
 
-                            <ul>
-                                <li>Images
-                                    (<a href="/components#images" target="_blank" rel="noopener noreferrer">images section </a>)
-                                </li>
-                                <li>Large icon</li>
-                                <li>Big picture</li>
-                                <li>Custom app icons</li>
-                                <li>Colored app icons</li>
-                            </ul>
-
-                            <ul>
-                                <li>Progress bar (<a href="/components#progress-bars" target="_blank" rel="noopener noreferrer">
-                                    progress bars section</a>)
-                                </li>
-                                <li> Determinate</li>
-                                <li> Indeterminate</li>
-                            </ul>
-
-                            <ul>
-                                <li>Buttons (<a href="/components#buttons" target="_blank" rel="noopener noreferrer">
-                                    buttons section</a>)
-                                </li>
-                                <li> Runtime Functions</li>
-                                <li> Broadcast Actions</li>
-
-                            </ul>
-
-                        </ul>
-                    </details>
-                    <details>
-
-                        <summary><strong>Behaviours/ Runtime Functions:</strong></summary>
-
-                        <ul className='space-y-[10px] mt-[10px]'>
-                            <li>Send: normal/silent/persistent/vibrate</li>
-                            <li>Update: title, message, images, progress bar</li>
-                            <li>Add or Remove Buttons</li>
-                            <li>Click handlers and opening app on notification click</li>
-                            <li>Custom sound per and vibrate notification</li>
-                            <li>Set timestamps</li>
-                            <li>Clear single or all notifications</li>
-
-                        </ul>
-                    </details>
-
-                    <details>
-                        <summary><strong>Channels for </strong>(<a href="advanced-methods#channel-management" target="_blank" rel="noopener noreferrer">Android 8.0+</a>):</summary>
-                        <ul className='space-y-[10px] mt-[10px]'>
-                            <li>Create, delete, delete all</li>
-                            <li>Set importance, vibration, and sound</li>
-                        </ul>
-                    </details>
-
-                    <details>
-                        <summary><strong>Permissions:</strong></summary>
-                        <ul className='space-y-[10px] mt-[10px]'>
-                            <li>Ask / check notification permission with callback</li>
-                        </ul>
-                    </details>
-
-
-                </ul>
+                <div className="features-group">
+                    <div className="features-group-header">
+                        <div className="feature-icon"><Shield size={20} /></div>
+                        <h3>Permissions</h3>
+                    </div>
+                    <div className="features-list">
+                        <div className="feature-item">
+                            <strong>Permission Handling</strong>
+                            <span>Ask and check notification permission with callback</span>
+                        </div>
+                    </div>
+                </div>
 
             </section>
 
