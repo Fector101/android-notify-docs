@@ -31,92 +31,55 @@ export default function MainPage() {
                 <h2>Features</h2>
                 <hr />
 
-                <div className="features-group">
-                    <div className="features-group-header">
-                        <div className="feature-icon"><Type size={20} /></div>
-                        <h3>Notification Components & Design</h3>
-                    </div>
-                    <div className="features-list">
-                        <div className="feature-item">
-                            <strong>Texts</strong>
-                            <span>Simple, big text, inbox-style, sub texts, coloured texts</span>
+                <div className="features-accordion">
+                    <details className="feature-details">
+                        <summary>
+                            {/* <div className="feature-icon"><Type size={18} /></div> */}
+                            <span>Notification Components & Design</span>
+                        </summary>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>Texts</strong><span>Simple, big text, inbox-style, sub texts, coloured texts</span></div>
+                            <div className="feature-item"><strong>Images</strong><span>Large icons, big pictures, custom & coloured app icons</span></div>
+                            <div className="feature-item"><strong>Progress Bars</strong><span>Determinate and indeterminate with real-time updates</span></div>
+                            <div className="feature-item"><strong>Buttons</strong><span>Action buttons with callbacks and broadcast receivers</span></div>
                         </div>
-                        <div className="feature-item">
-                            <strong>Images</strong>
-                            <span>Large icons, big pictures, custom & coloured app icons</span>
-                        </div>
-                        <div className="feature-item">
-                            <strong>Progress Bars</strong>
-                            <span>Determinate and indeterminate with real-time updates</span>
-                        </div>
-                        <div className="feature-item">
-                            <strong>Buttons</strong>
-                            <span>Action buttons with callbacks and broadcast receivers</span>
-                        </div>
-                    </div>
-                </div>
+                    </details>
 
-                <div className="features-group">
-                    <div className="features-group-header">
-                        <div className="feature-icon"><Zap size={20} /></div>
-                        <h3>Behaviours / Runtime Functions</h3>
-                    </div>
-                    <div className="features-list">
-                        <div className="feature-item">
-                            <strong>Send Modes</strong>
-                            <span>Normal, silent, persistent, or vibrate</span>
+                    <details className="feature-details">
+                        <summary>
+                            {/* <div className="feature-icon"><Zap size={18} /></div> */}
+                            <span>Behaviours / Runtime Functions</span>
+                        </summary>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>Send Modes</strong><span>Normal, silent, persistent, or vibrate</span></div>
+                            <div className="feature-item"><strong>Live Updates</strong><span>Update title, message, images, and progress after sending</span></div>
+                            <div className="feature-item"><strong>Buttons</strong><span>Add or remove buttons at runtime</span></div>
+                            <div className="feature-item"><strong>Click Handlers</strong><span>Open app on notification click, custom callbacks</span></div>
+                            <div className="feature-item"><strong>Sound & Vibration</strong><span>Custom sound and vibration per notification</span></div>
+                            <div className="feature-item"><strong>Timestamps & Clear</strong><span>Set timestamps, clear single or all notifications</span></div>
                         </div>
-                        <div className="feature-item">
-                            <strong>Live Updates</strong>
-                            <span>Update title, message, images, and progress after sending</span>
-                        </div>
-                        <div className="feature-item">
-                            <strong>Buttons</strong>
-                            <span>Add or remove buttons at runtime</span>
-                        </div>
-                        <div className="feature-item">
-                            <strong>Click Handlers</strong>
-                            <span>Open app on notification click, custom callbacks</span>
-                        </div>
-                        <div className="feature-item">
-                            <strong>Sound & Vibration</strong>
-                            <span>Custom sound and vibration per notification</span>
-                        </div>
-                        <div className="feature-item">
-                            <strong>Timestamps & Clear</strong>
-                            <span>Set timestamps, clear single or all notifications</span>
-                        </div>
-                    </div>
-                </div>
+                    </details>
 
-                <div className="features-group">
-                    <div className="features-group-header">
-                        <div className="feature-icon"><Radio size={20} /></div>
-                        <h3>Channels <span className="feature-badge">Android 8.0+</span></h3>
-                    </div>
-                    <div className="features-list">
-                        <div className="feature-item">
-                            <strong>Manage Channels</strong>
-                            <span><Link to="/advanced-methods#channel-management">Create, delete, delete all</Link></span>
+                    <details className="feature-details">
+                        <summary>
+                            {/* <div className="feature-icon"><Radio size={18} /></div> */}
+                            <span>Channels <span className="feature-badge">Android 8.0+</span></span>
+                        </summary>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>Manage Channels</strong><span><Link to="/advanced-methods#channel-management">Create, delete, delete all</Link></span></div>
+                            <div className="feature-item"><strong>Configure</strong><span>Set importance, vibration, and sound</span></div>
                         </div>
-                        <div className="feature-item">
-                            <strong>Configure</strong>
-                            <span>Set importance, vibration, and sound</span>
-                        </div>
-                    </div>
-                </div>
+                    </details>
 
-                <div className="features-group">
-                    <div className="features-group-header">
-                        <div className="feature-icon"><Shield size={20} /></div>
-                        <h3>Permissions</h3>
-                    </div>
-                    <div className="features-list">
-                        <div className="feature-item">
-                            <strong>Permission Handling</strong>
-                            <span>Ask and check notification permission with callback</span>
+                    <details className="feature-details">
+                        <summary>
+                            {/* <div className="feature-icon"><Shield size={18} /></div> */}
+                            <span>Permissions</span>
+                        </summary>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>Permission Handling</strong><span>Ask and check notification permission with callback</span></div>
                         </div>
-                    </div>
+                    </details>
                 </div>
 
             </section>
