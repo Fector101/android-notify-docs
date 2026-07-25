@@ -71,13 +71,12 @@ const NOTIFICATION_METHODS = {
             { name: "action", desc: "Optional string to specify a custom intent action for receiver_name BroadcastReceiver, defaults to None" }
         ]
     },
-    setBigText: {
-        signature: 'setBigText(body, title?, summary?)',
-        description: 'Sets a big text for when drop down button is pressed.',
+    channelExists: {
+        signature: 'channelExists(channel_id)',
+        description: 'Checks if a channel with given id exists',
+        returns: 'bool | None — True if exists, False otherwise, None if not on Android',
         args: [
-            { name: 'body', desc: 'The big text that will be displayed.' },
-            { name: "title", desc: "You can also set title for big text style, if not provided it nothing displays." },
-            { name: "summary", desc: "You can also set summary for big text style, if not provided it nothing displays." }
+            { name: 'channel_id', desc: "id for specific channel" }
         ]
     },
     createChannel: {
@@ -93,22 +92,6 @@ const NOTIFICATION_METHODS = {
             { name: 'vibrate', desc: "Boolean if to vibrate when sent for channel, defaults to False" },
         ]
     },
-
-    setWhen: {
-        signature: 'setWhen(secs_ago)',
-        description: 'Changes the time the notification was created, it accepts seconds ago as argument so that it can show up as if it was created in the past.',
-        args: [
-            { name: 'secs_ago', desc: "Int of Seconds ago from current time, it can be used to make notification look like it was created in the past." }
-        ]
-    },
-    channelExists: {
-        signature: 'channelExists(channel_id)',
-        description: 'Checks if a channel with given id exists',
-        returns: 'bool | None — True if exists, False otherwise, None if not on Android',
-        args: [
-            { name: 'channel_id', desc: "id for specific channel" }
-        ]
-    },
     doChannelsExist: {
         signature: 'doChannelsExist(ids)',
         description: 'Accepts a list of channel IDs and returns those that do not exist',
@@ -117,12 +100,32 @@ const NOTIFICATION_METHODS = {
             { name: 'ids', desc: "List of channel ids" }
         ]
     },
-    setSubText: {
-        signature: 'setSubText(text)',
-        description: 'Adds small text near the title (e.g. download time remaining).',
+    fill_args: {
+        signature: 'fill_args(**kwargs)',
+        description: <>Takes same Arguments as send method, Returns builder object.<br /> It fills notification args without sending, useful for when you want to fill arguments without sending right away.<br /> For example calling startForeground from service you need to pass in notification.id and builder.build.</>,
+        returns: 'NotificationCompatBuilder — the builder object, useful for foreground services',
         args: [
-            { name: 'text', desc: "The subtext that will be displayed." }
+            { name: '**kwargs', desc: "Same arguments as send method." }
         ]
+    },
+    fVibrate: {
+        signature: 'fVibrate()',
+        // signature: 'fVibrate(pattern)',
+        description: 'For when regular notifications vibrate turned off in device settings (useful for Alarms). Uses Single 500ms vibration for pattern.',
+        returns: 'list[int] — default vibration pattern',
+        args: [
+            // { name: 'pattern', desc: "Vibration pattern, it accepts a list of ints representing vibration and pause durations in milliseconds, defaults to a single vibration of 500ms if not provided." }
+        ]
+    },
+    getChannels: {
+        signature: 'getChannels()',
+        description: 'Returns a list of all notification channels.',
+        returns: 'list — all notification channels',
+        args: []
+    },
+    refresh: {
+        signature: 'refresh()',
+        description: 'Applies new components after using the send() method.',
     },
     setColor: {
         signature: 'setColor(color)',
@@ -138,28 +141,13 @@ const NOTIFICATION_METHODS = {
             { name: 'data_object', desc: "A dictionary of data that can be accessed later via NotificationHandler's data_object property." }
         ]
     },
-    fVibrate: {
-        signature: 'fVibrate()',
-        // signature: 'fVibrate(pattern)',
-        description: 'For when regular notifications vibrate turned off in device settings (useful for Alarms). Uses Single 500ms vibration for pattern.',
-        returns: 'list[int] — default vibration pattern',
+    setBigText: {
+        signature: 'setBigText(body, title?, summary?)',
+        description: 'Sets a big text for when drop down button is pressed.',
         args: [
-            // { name: 'pattern', desc: "Vibration pattern, it accepts a list of ints representing vibration and pause durations in milliseconds, defaults to a single vibration of 500ms if not provided." }
-        ]
-    },
-    fill_args: {
-        signature: 'fill_args(**kwargs)',
-        description: <>Takes same Arguments as send method, Returns builder object.<br /> It fills notification args without sending, useful for when you want to fill arguments without sending right away.<br /> For example calling startForeground from service you need to pass in notification.id and builder.build.</>,
-        returns: 'NotificationCompatBuilder — the builder object, useful for foreground services',
-        args: [
-            { name: '**kwargs', desc: "Same arguments as send method." }
-        ]
-    },
-    setVibrate: {
-        signature: 'setVibrate(pattern)',
-        description: 'For devices less than Android 8, sets vibration pattern for notification, defaults to a single vibration of 500ms if not provided.',
-        args: [
-            { name: 'pattern', desc: "Vibration pattern, it accepts a list of ints representing vibration and pause durations in milliseconds, defaults to a single vibration of 500ms if not provided." }
+            { name: 'body', desc: 'The big text that will be displayed.' },
+            { name: "title", desc: "You can also set title for big text style, if not provided it nothing displays." },
+            { name: "summary", desc: "You can also set summary for big text style, if not provided it nothing displays." }
         ]
     },
     setSound: {
@@ -170,17 +158,27 @@ const NOTIFICATION_METHODS = {
             { name: 'res_sound_name', desc: "The name of the sound resource in your app (without file extension)." }
         ]
     },
-    refresh: {
-        signature: 'refresh()',
-        description: 'Applies new components after using the send() method.',
+    setSubText: {
+        signature: 'setSubText(text)',
+        description: 'Adds small text near the title (e.g. download time remaining).',
+        args: [
+            { name: 'text', desc: "The subtext that will be displayed." }
+        ]
     },
-    getChannels: {
-        signature: 'getChannels()',
-        description: 'Returns a list of all notification channels.',
-        returns: 'list — all notification channels',
-        args: []
-    }
-
+    setVibrate: {
+        signature: 'setVibrate(pattern)',
+        description: 'For devices less than Android 8, sets vibration pattern for notification, defaults to a single vibration of 500ms if not provided.',
+        args: [
+            { name: 'pattern', desc: "Vibration pattern, it accepts a list of ints representing vibration and pause durations in milliseconds, defaults to a single vibration of 500ms if not provided." }
+        ]
+    },
+    setWhen: {
+        signature: 'setWhen(secs_ago)',
+        description: 'Changes the time the notification was created, it accepts seconds ago as argument so that it can show up as if it was created in the past.',
+        args: [
+            { name: 'secs_ago', desc: "Int of Seconds ago from current time, it can be used to make notification look like it was created in the past." }
+        ]
+    },
 };
 
 
