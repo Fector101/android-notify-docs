@@ -62,7 +62,7 @@ const component_page = {
 
 const NOTIFICATION_METHODS = {
     addButton: {
-        signature: 'addButton(text, on_release)',
+        signature: 'addButton(text, on_release, receiver_name?, action?)',
         description: 'Adds an action button to the notification.',
         args: [
             { name: 'text', desc: 'Label for the button.' },
@@ -72,7 +72,7 @@ const NOTIFICATION_METHODS = {
         ]
     },
     setBigText: {
-        signature: 'setBigText(body)',
+        signature: 'setBigText(body, title?, summary?)',
         description: 'Sets a big text for when drop down button is pressed.',
         args: [
             { name: 'body', desc: 'The big text that will be displayed.' },
@@ -81,7 +81,7 @@ const NOTIFICATION_METHODS = {
         ]
     },
     createChannel: {
-        signature: 'createChannel(id, name:str, description?,importance:Importance?)',
+        signature: 'createChannel(id, name:str, description?,importance:Importance?,res_sound_name?,vibrate?)',
         description: 'Creates a user visible toggle button for specific notifications, Required For Android 8.0+',
         returns: 'bool | None — True if created, False if already exists, None if not on Android',
         args: [
@@ -89,8 +89,8 @@ const NOTIFICATION_METHODS = {
             { name: 'name', desc: "user-visible channel name." },
             { name: 'description', desc: "user-visible detail about channel (Not required defaults to empty str)." },
             { name: 'importance', desc: "['urgent', 'high', 'medium', 'low', 'none'] defaults to 'urgent' i.e. makes a sound and shows briefly" },
-            { name: 'vibrate', desc: "Boolean if to vibrate when sent for channel, defaults to False" },
             { name: 'res_sound_name', desc: "String of audio name in your app res/raw to be played when sent from channel, defaults to regular system notification sound" },
+            { name: 'vibrate', desc: "Boolean if to vibrate when sent for channel, defaults to False" },
         ]
     },
 
@@ -139,8 +139,10 @@ const NOTIFICATION_METHODS = {
         ]
     },
     fVibrate: {
-        signature: 'fVibrate(pattern)',
-        description: 'For when regular notifications vibrate turned off in device settings (useful for Alarms). Uses Single 500ms vibration for pattern.',// not provided.',
+        signature: 'fVibrate()',
+        // signature: 'fVibrate(pattern)',
+        description: 'For when regular notifications vibrate turned off in device settings (useful for Alarms). Uses Single 500ms vibration for pattern.',
+        returns: 'list[int] — default vibration pattern',
         args: [
             // { name: 'pattern', desc: "Vibration pattern, it accepts a list of ints representing vibration and pause durations in milliseconds, defaults to a single vibration of 500ms if not provided." }
         ]
@@ -179,7 +181,7 @@ const NOTIFICATION_METHODS = {
 const HANDLER_METHODS = [
     {
         id: 'get_name',
-        signature: 'NotificationHandler.get_name()',
+        signature: 'NotificationHandler.get_name(on_start?)',
         description:
             'Returns the unique string `name` or `id` for the notification or button that opened the app.',
         returns: 'str | None — name/id string of the clicked notification, or "Not on Android"',
