@@ -90,7 +90,7 @@ const NOTIFICATION_METHODS = {
             { name: 'description', desc: "user-visible detail about channel (Not required defaults to empty str)." },
             { name: 'importance', desc: "['urgent', 'high', 'medium', 'low', 'none'] defaults to 'urgent' i.e. makes a sound and shows briefly" },
             { name: 'vibrate', desc: "Boolean if to vibrate when sent for channel, defaults to False" },
-            { name: 'sound', desc: "String of audio name in your app res/raw to be played when sent from channel, defaults to regular system notification sound" }
+            { name: 'res_sound_name', desc: "String of audio name in your app res/raw to be played when sent from channel, defaults to regular system notification sound" },
         ]
     },
 

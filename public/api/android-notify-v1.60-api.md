@@ -194,7 +194,7 @@ Creates a user visible toggle button for specific notifications, Required For An
 | `description` | user-visible detail about channel (Not required defaults to empty str). |
 | `importance` | ['urgent', 'high', 'medium', 'low', 'none'] defaults to 'urgent' i.e. makes a sound and shows briefly |
 | `vibrate` | Boolean if to vibrate when sent for channel, defaults to False |
-| `sound` | String of audio name in your app res/raw to be played when sent from channel, defaults to regular system notification sound |
+| `res_sound_name` | String of audio name in your app res/raw to be played when sent from channel, defaults to regular system notification sound |
 
 ### deleteChannel(channel_id)
 
