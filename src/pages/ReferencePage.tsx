@@ -20,6 +20,7 @@ function generateMarkdown(version: string, data: any): string {
       const method = m as any;
       lines.push(`### ${method.signature || key}\n`);
       if (method.description) lines.push(`${method.description}\n`);
+      lines.push(`**Returns:** ${method.returns || 'None'}\n`);
       if (method.args?.length) {
         lines.push(`| Parameter | Description |`);
         lines.push(`|-----------|-------------|`);
@@ -37,6 +38,7 @@ function generateMarkdown(version: string, data: any): string {
     for (const m of handlers) {
       lines.push(`### ${m.signature}\n`);
       if (m.description) lines.push(`${m.description}\n`);
+      lines.push(`**Returns:** ${m.returns || 'None'}\n`);
       if (m.args?.length) {
         lines.push(`| Parameter | Description |`);
         lines.push(`|-----------|-------------|`);
@@ -71,7 +73,7 @@ function matchesSearch(query: string, ...fields: (string | undefined)[]): boolea
 function itemMatchesSearch(query: string, item: any, key?: string): boolean {
   if (!query) return true;
   const desc = typeof item.description === "string" ? item.description : "";
-  if (matchesSearch(query, key, item.signature, desc)) return true;
+  if (matchesSearch(query, key, item.signature, desc, item.returns)) return true;
   if (item.args?.length) {
     return item.args.some((a: any) => matchesSearch(query, a.name, a.desc));
   }
@@ -141,6 +143,11 @@ export default function ReferencePage({ version }: { version: Iversion }) {
         )}
       </div>
 
+      <button className="ref-download-btn" onClick={downloadMd} title={`Download android-notify-v${version}-api.md for AI coding agents`}>
+              <Download size={14} />
+              <span>Download Full API for Agents</span>
+      </button>
+
       {searchQuery && (
         <p className="ref-search-count">
           {hasResults
@@ -185,6 +192,9 @@ export default function ReferencePage({ version }: { version: Iversion }) {
                               ))}
                             </dl>
                           )}
+                          {m.returns && (
+                            <p className="api-returns"><span className="api-returns-label">Returns:</span> {m.returns}</p>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -215,6 +225,9 @@ export default function ReferencePage({ version }: { version: Iversion }) {
                                 <div key={a.name}><dt>{a.name}</dt><dd>{a.desc}</dd></div>
                               ))}
                             </dl>
+                          )}
+                          {m.returns && (
+                            <p className="api-returns"><span className="api-returns-label">Returns:</span> {m.returns}</p>
                           )}
                         </div>
                       </div>
@@ -259,10 +272,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
           )}
         </>
       )}
-      <button className="ref-download-btn" onClick={downloadMd} title={`Download android-notify-v${version}-api.md for AI coding agents`}>
-        <Download size={14} />
-        <span>Download API for Agents</span>
-      </button>
+      
 
       <span className='flex next-page-btns-box space-between'>
         <Link className='next-page-btn' to='/advanced-methods'>

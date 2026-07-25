@@ -142,6 +142,7 @@ class Myapp(MDApp):
 // Reference Page
 const NOTIFICATION_METHODS = {
     init: {
+        returns: 'self',
         args: [
             { name: 'id', desc: "a unique integer less than 2_147_483_647 that can be used to reference specific notification or handly to reference old notification instance (Optional, it's created by default)." },
             { name: 'body', desc: " -- use setBigText() instead." },
@@ -198,6 +199,7 @@ const NOTIFICATION_METHODS = {
     createChannel: {
         signature: 'createChannel(id, name:str, description?,importance:Importance?)',
         description: 'Creates a user visible toggle button for specific notifications, Required For Android 8.0+',
+        returns: 'bool | None — True if created, False if already exists, None if not on Android',
         args: [
             { name: 'id', desc: "Used to identify channel and send other notifications later through same channel." },
             { name: 'name', desc: "user-visible channel name." },
@@ -209,6 +211,7 @@ const NOTIFICATION_METHODS = {
     deleteChannel: {
         signature: 'deleteChannel(channel_id)',
         description: 'Uses channel_id to delete notification channel',
+        returns: 'bool | None — True if deleted, False if not found, None if not on Android',
         args: [
             { name: 'channel_id', desc: "id for specific channel" }
         ]
@@ -216,6 +219,7 @@ const NOTIFICATION_METHODS = {
     deleteAllChannel: {
         signature: 'deleteAllChannel()',
         description: 'Delete All notification channels',
+        returns: 'int — count of channels deleted',
         args: []
     },
     cancel: {
@@ -245,23 +249,27 @@ const HANDLER_METHODS = [
         signature: 'NotificationHandler.get_name()',
         description:
             'Returns the unique string `name` or `id` for the notification or button that opened the app.',
+        returns: 'str | None — name/id string of the clicked notification, or "Not on Android"'
     },
     {
         id: 'bindNotifyListener',
         signature: 'NotificationHandler.bindNotifyListener()',
         description:
-            'Binds by Default, Attaches a global listener to notification taps—your callbacks will fire when any notification is tapped.'
+            'Binds by Default, Attaches a global listener to notification taps—your callbacks will fire when any notification is tapped.',
+        returns: 'bool | None — True on success, False on failure, None if conditions not met'
     },
     {
         id: 'unbindNotifyListener',
         signature: 'NotificationHandler.unbindNotifyListener()',
-        description: 'Removes the listener set by `bindNotifyListener()`.'
+        description: 'Removes the listener set by `bindNotifyListener()`.',
+        returns: 'bool — True on success, False on failure'
     },
     {
         id: 'is_on_android',
         signature: 'NotificationHandler.is_on_android()',
         description:
-            'Returns `true` if running on Android, `false` otherwise—useful for platform checks.'
+            'Returns `true` if running on Android, `false` otherwise—useful for platform checks.',
+        returns: 'bool — True if on Android, False otherwise'
     }
 ];
 

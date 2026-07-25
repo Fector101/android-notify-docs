@@ -6,6 +6,7 @@ type object_list = {
   signature: string;
   description: string;
   args?: arg[];
+  returns?: string;
 };
 
 export type NotificationMethods = Record<
@@ -14,6 +15,7 @@ export type NotificationMethods = Record<
     signature?: string;
     description?: string|any;
     args?: arg[];
+    returns?: string;
   }
 >;
 

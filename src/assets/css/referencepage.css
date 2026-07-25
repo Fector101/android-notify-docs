@@ -356,7 +356,8 @@ dd {
 }
 
 .api-card.open .api-body {
-    max-height: 600px;
+    max-height: none;
+    overflow: auto;
 }
 
 .api-inner {
@@ -367,6 +368,22 @@ dd {
     color: #a8a29e;
     font-size: 0.88rem;
     margin-bottom: 0.6rem;
+}
+
+.api-returns {
+    font-size: 0.82rem;
+    color: #a8a29e;
+    margin-bottom: 0.6rem;
+    padding: 0.4rem 0.6rem;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 6px;
+}
+
+.api-returns-label {
+    font-family: 'Fira Code', Consolas, monospace;
+    font-weight: 600;
+    color: #60a5fa;
 }
 
 .api-args {
@@ -458,6 +475,10 @@ dd {
     }
 
     .api-args dd {
+        font-size: 0.76rem;
+    }
+
+    .api-returns {
         font-size: 0.76rem;
     }
 }

@@ -73,6 +73,7 @@ const mergeMethods = (
     result[key] = {
       signature: next.signature ?? prev.signature,
       description: next.description ?? prev.description,
+      returns: next.returns ?? prev.returns,
       args: mergedArgs.length > 0 ? mergedArgs : undefined,
     };
   }

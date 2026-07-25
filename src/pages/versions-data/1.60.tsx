@@ -83,6 +83,7 @@ const NOTIFICATION_METHODS = {
     createChannel: {
         signature: 'createChannel(id, name:str, description?,importance:Importance?)',
         description: 'Creates a user visible toggle button for specific notifications, Required For Android 8.0+',
+        returns: 'bool | None — True if created, False if already exists, None if not on Android',
         args: [
             { name: 'id', desc: "Used to identify channel and send other notifications later through same channel." },
             { name: 'name', desc: "user-visible channel name." },
@@ -103,6 +104,7 @@ const NOTIFICATION_METHODS = {
     channelExists: {
         signature: 'channelExists(channel_id)',
         description: 'Checks if a channel with given id exists',
+        returns: 'bool | None — True if exists, False otherwise, None if not on Android',
         args: [
             { name: 'channel_id', desc: "id for specific channel" }
         ]
@@ -110,6 +112,7 @@ const NOTIFICATION_METHODS = {
     doChannelsExist: {
         signature: 'doChannelsExist(ids)',
         description: 'Accepts a list of channel IDs and returns those that do not exist',
+        returns: 'list — channel IDs that do NOT exist',
         args: [
             { name: 'ids', desc: "List of channel ids" }
         ]
@@ -145,6 +148,7 @@ const NOTIFICATION_METHODS = {
     fill_args: {
         signature: 'fill_args(**kwargs)',
         description: <>Takes same Arguments as send method, Returns builder object.<br /> It fills notification args without sending, useful for when you want to fill arguments without sending right away.<br /> For example calling startForeground from service you need to pass in notification.id and builder.build.</>,
+        returns: 'NotificationCompatBuilder — the builder object, useful for foreground services',
         args: [
             { name: '**kwargs', desc: "Same arguments as send method." }
         ]
@@ -159,6 +163,7 @@ const NOTIFICATION_METHODS = {
     setSound: {
         signature: 'setSound(res_sound_name)',
         description: 'For devices less than Android 8, changes the default notification sound to a custom sound from app resources.',
+        returns: 'True | None — True on success, None if not on Android',
         args: [
             { name: 'res_sound_name', desc: "The name of the sound resource in your app (without file extension)." }
         ]
@@ -177,6 +182,7 @@ const HANDLER_METHODS = [
         signature: 'NotificationHandler.get_name()',
         description:
             'Returns the unique string `name` or `id` for the notification or button that opened the app.',
+        returns: 'str | None — name/id string of the clicked notification, or "Not on Android"',
         args: [
             { name: 'on_start', desc: 'must be True when called from App.on_start(), defaults to False.' },
         ]
@@ -186,6 +192,7 @@ const HANDLER_METHODS = [
         signature: 'NotificationHandler.has_permission()',
         description:
             'Checks if the app has notification permission. Returns True if granted.',
+        returns: 'bool — True if notification permission is granted',
     },
     {
         id: 'asks_permission',

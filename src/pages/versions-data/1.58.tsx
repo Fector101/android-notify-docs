@@ -185,6 +185,7 @@ const NOTIFICATION_METHODS = {
     init: {
         signature: `init`,
         description: 'Initializes the notification instance.',
+        returns: 'self',
         args: [
             { name: 'title', desc: 'string containing notification title' },
             { name: 'message', desc: 'string containing notification message' },
@@ -290,24 +291,28 @@ const HANDLER_METHODS = [
         id: 'getIdentifer',
         signature: 'NotificationHandler.getIdentifer()',
         description:
-            'Returns the unique string identifier for the notification or button that opened the app.'
+            'Returns the unique string identifier for the notification or button that opened the app.',
+        returns: 'str | None — name/id string of the clicked notification, or None'
     },
     {
         id: 'bindNotifyListener',
         signature: 'NotificationHandler.bindNotifyListener()',
         description:
-            'Binds by Default, Attaches a global listener to notification taps—your callbacks will fire when any notification is tapped.'
+            'Binds by Default, Attaches a global listener to notification taps—your callbacks will fire when any notification is tapped.',
+        returns: 'bool | None — True on success, False on failure, None if conditions not met'
     },
     {
         id: 'unbindNotifyListener',
         signature: 'NotificationHandler.unbindNotifyListener()',
-        description: 'Removes the listener set by `bindNotifyListener()`.'
+        description: 'Removes the listener set by `bindNotifyListener()`.',
+        returns: 'bool — True on success, False on failure'
     },
     {
         id: 'is_on_android',
         signature: 'NotificationHandler.is_on_android()',
         description:
-            'Returns `true` if running on Android, `false` otherwise—useful for platform checks.'
+            'Returns `true` if running on Android, `false` otherwise—useful for platform checks.',
+        returns: 'bool — True if on Android, False otherwise'
     }
 ];
 
