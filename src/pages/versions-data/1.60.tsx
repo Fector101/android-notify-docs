@@ -173,6 +173,12 @@ const NOTIFICATION_METHODS = {
     refresh: {
         signature: 'refresh()',
         description: 'Applies new components after using the send() method.',
+    },
+    getChannels: {
+        signature: 'getChannels()',
+        description: 'Returns a list of all notification channels.',
+        returns: 'list — all notification channels',
+        args: []
     }
 
 };
