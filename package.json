@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node generate-last-updated.cjs",
+    "prebuild": "node generate-last-updated.cjs && npx tsx --tsconfig tsconfig.app.json generate-api-docs.ts",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

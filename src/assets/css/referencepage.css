@@ -446,6 +446,7 @@ dd {
     cursor: pointer;
     transition: all 0.2s;
     margin-bottom: 1.25rem;
+    text-decoration: none;
 }
 
 .ref-download-btn:hover {
