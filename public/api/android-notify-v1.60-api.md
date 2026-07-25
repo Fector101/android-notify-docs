@@ -26,7 +26,7 @@ Initializes the notification instance.
 | `id` | a unique integer less than 2_147_483_647 that can be used to reference specific notification or handly to reference old notification instance (Optional, it's created by default). |
 | `lines_txt` |  -- use addLine() instead. |
 
-### addButton(text, on_release)
+### addButton(text, on_release, receiver_name?, action?)
 
 Adds an action button to the notification.
 
@@ -159,7 +159,7 @@ sets small icon to the top left.
 |-----------|-------------|
 | `path` | Image can be `Relative Path` or `URL`. |
 
-### setBigText(body)
+### setBigText(body, title?, summary?)
 
 Sets a big text for when drop down button is pressed.
 
@@ -181,7 +181,7 @@ Sets a inbox lines texts for when drop down button is pressed, each string will 
 |-----------|-------------|
 | `lines` | The List of texts that'll be used to create new lines. |
 
-### createChannel(id, name:str, description?,importance:Importance?)
+### createChannel(id, name:str, description?,importance:Importance?,res_sound_name?,vibrate?)
 
 Creates a user visible toggle button for specific notifications, Required For Android 8.0+
 
@@ -193,8 +193,8 @@ Creates a user visible toggle button for specific notifications, Required For An
 | `name` | user-visible channel name. |
 | `description` | user-visible detail about channel (Not required defaults to empty str). |
 | `importance` | ['urgent', 'high', 'medium', 'low', 'none'] defaults to 'urgent' i.e. makes a sound and shows briefly |
-| `vibrate` | Boolean if to vibrate when sent for channel, defaults to False |
 | `res_sound_name` | String of audio name in your app res/raw to be played when sent from channel, defaults to regular system notification sound |
+| `vibrate` | Boolean if to vibrate when sent for channel, defaults to False |
 
 ### deleteChannel(channel_id)
 
@@ -238,16 +238,6 @@ Sets <div className="reference">Importance</div> For devices less than android 8
 |-----------|-------------|
 | `importance` | ['urgent', 'high', 'medium', 'low', 'none'] defaults to 'urgent' i.e. makes a sound and shows briefly. |
 
-### setWhen(secs_ago)
-
-Changes the time the notification was created, it accepts seconds ago as argument so that it can show up as if it was created in the past.
-
-**Returns:** None
-
-| Parameter | Description |
-|-----------|-------------|
-| `secs_ago` | Int of Seconds ago from current time, it can be used to make notification look like it was created in the past. |
-
 ### channelExists(channel_id)
 
 Checks if a channel with given id exists
@@ -268,15 +258,33 @@ Accepts a list of channel IDs and returns those that do not exist
 |-----------|-------------|
 | `ids` | List of channel ids |
 
-### setSubText(text)
+### fill_args(**kwargs)
 
-Adds small text near the title (e.g. download time remaining).
+[object Object]
 
-**Returns:** None
+**Returns:** NotificationCompatBuilder — the builder object, useful for foreground services
 
 | Parameter | Description |
 |-----------|-------------|
-| `text` | The subtext that will be displayed. |
+| `**kwargs` | Same arguments as send method. |
+
+### fVibrate()
+
+For when regular notifications vibrate turned off in device settings (useful for Alarms). Uses Single 500ms vibration for pattern.
+
+**Returns:** list[int] — default vibration pattern
+
+### getChannels()
+
+Returns a list of all notification channels.
+
+**Returns:** list — all notification channels
+
+### refresh()
+
+Applies new components after using the send() method.
+
+**Returns:** None
 
 ### setColor(color)
 
@@ -298,21 +306,25 @@ Attach a dictionary of data for possible later use.
 |-----------|-------------|
 | `data_object` | A dictionary of data that can be accessed later via NotificationHandler's data_object property. |
 
-### fVibrate(pattern)
+### setSound(res_sound_name)
 
-For when regular notifications vibrate turned off in device settings (useful for Alarms). Uses Single 500ms vibration for pattern.
+For devices less than Android 8, changes the default notification sound to a custom sound from app resources.
 
-**Returns:** None
-
-### fill_args(**kwargs)
-
-[object Object]
-
-**Returns:** NotificationCompatBuilder — the builder object, useful for foreground services
+**Returns:** True | None — True on success, None if not on Android
 
 | Parameter | Description |
 |-----------|-------------|
-| `**kwargs` | Same arguments as send method. |
+| `res_sound_name` | The name of the sound resource in your app (without file extension). |
+
+### setSubText(text)
+
+Adds small text near the title (e.g. download time remaining).
+
+**Returns:** None
+
+| Parameter | Description |
+|-----------|-------------|
+| `text` | The subtext that will be displayed. |
 
 ### setVibrate(pattern)
 
@@ -324,21 +336,15 @@ For devices less than Android 8, sets vibration pattern for notification, defaul
 |-----------|-------------|
 | `pattern` | Vibration pattern, it accepts a list of ints representing vibration and pause durations in milliseconds, defaults to a single vibration of 500ms if not provided. |
 
-### setSound(res_sound_name)
+### setWhen(secs_ago)
 
-For devices less than Android 8, changes the default notification sound to a custom sound from app resources.
+Changes the time the notification was created, it accepts seconds ago as argument so that it can show up as if it was created in the past.
 
-**Returns:** True | None — True on success, None if not on Android
+**Returns:** None
 
 | Parameter | Description |
 |-----------|-------------|
-| `res_sound_name` | The name of the sound resource in your app (without file extension). |
-
-### refresh()
-
-Applies new components after using the send() method.
-
-**Returns:** None
+| `secs_ago` | Int of Seconds ago from current time, it can be used to make notification look like it was created in the past. |
 
 ## NotificationHandler
 
@@ -354,7 +360,7 @@ Removes the listener set by `bindNotifyListener()`.
 
 **Returns:** bool — True on success, False on failure
 
-### NotificationHandler.get_name()
+### NotificationHandler.get_name(on_start?)
 
 Returns the unique string `name` or `id` for the notification or button that opened the app.
 
