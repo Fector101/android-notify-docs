@@ -38,7 +38,7 @@ service.setAutoRestartService(True)`
 
 export default function ForegroundServicesPage() {
     return (
-        <div className="main-page page adv-methods-page">
+        <div className="main-page page adv-methods-page foreground-services-page">
             <ScrollToSection />
 
             <section id="overview" className="page-section" tabIndex={0}>
@@ -50,7 +50,7 @@ export default function ForegroundServicesPage() {
             </section>
 
             <section id="register-the-service" className="page-section" tabIndex={0}>
-                <h2 className="long-title">1. Register the Service in buildozer.spec</h2>
+                <h2 className="long-title">Register the Service in buildozer.spec</h2>
                 <hr />
                 <p className="paragraph">Declare the service in your <span className="code">buildozer.spec</span> with the format <span className="code">Name:path/to/service.py:foreground</span>. Append <span className="code">:foregroundServiceType=specialUse</span> so the type is written into <span className="code">AndroidManifest.xml</span> automatically:</p>
                 <CodeBlock title="buildozer.spec" code={serviceSpecLine} lang='ini' has_pydroid_support={false}/>
@@ -58,7 +58,7 @@ export default function ForegroundServicesPage() {
             </section>
 
             <section id="required-permissions" className="page-section" tabIndex={0}>
-                <h2 className="long-title">2. Add the Required Permissions</h2>
+                <h2 className="long-title">Add the Required Permissions</h2>
                 <hr />
                 <p className="paragraph">Add <span className="code">FOREGROUND_SERVICE</span> and <span className="code">POST_NOTIFICATIONS</span>. When using the <span className="code">specialUse</span> type also add <span className="code">FOREGROUND_SERVICE_SPECIAL_USE</span>:</p>
                 <CodeBlock title="buildozer.spec" code={permissionsLine} lang='ini' has_pydroid_support={false}/>
@@ -66,12 +66,11 @@ export default function ForegroundServicesPage() {
             </section>
 
             <section id="foreground-service-types" className="page-section" tabIndex={0}>
-                <h2 className="long-title">3. Foreground Service Types [Android 14+]</h2>
+                <h2 className="long-title">Foreground Service Types [Android 14+]</h2>
                 <hr />
-                <p className="ref-note warn">
-                    <strong>Types are needed on some Android levels.</strong> From Android 14 (SDK 34) a foreground service type must be passed as the third argument to <span className="code">startForeground()</span> and be declared in the manifest. On older devices pass <span className="code">0</span>.
-                </p>
-                <p className="paragraph">Pick the type that matches what the service does. <span className="code">specialUse</span> covers purposes that don't fit the other types and requires declaring why in <span className="code">FOREGROUND_SERVICE_SPECIAL_USE</span> permission. See the official Android docs:</p>
+                <p className="paragraph"><strong>Types are needed on some Android levels.</strong> From Android 14 (SDK 34) a foreground service type must be passed as the third argument to <span className="code">startForeground()</span> and be declared in the manifest. On older devices pass <span className="code">0</span>.</p>
+                <p className="paragraph">Pick the type that matches what the service does. <span className="code">specialUse</span> covers purposes that don't fit the other types and requires declaring why in <span className="code">FOREGROUND_SERVICE_SPECIAL_USE</span> permission.</p>
+                <p className="paragraph">See the official Android docs:</p>
                 <ul className="inner-section-2 paragraph">
                     <li><Link target='_blank' rel='noopener noreferrer' to='https://developer.android.com/about/versions/14/changes/fgs-types-required'>Android 14: Foreground service types required</Link></li>
                     <li><Link target='_blank' rel='noopener noreferrer' to='https://developer.android.com/develop/background-work/services/fgs/service-types'>Foreground service types</Link></li>

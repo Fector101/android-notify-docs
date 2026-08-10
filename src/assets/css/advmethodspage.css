@@ -9,6 +9,10 @@
     font-size: 15px;
 }
 
+.foreground-services-page .page-section + .page-section h2 {
+    margin-top: 3rem;
+}
+
 @media screen and (max-width:500px) {
     .adv-methods-page .progressbar-warning {
         font-size: 14px;
