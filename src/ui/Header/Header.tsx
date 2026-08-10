@@ -5,7 +5,6 @@ import {
 import './header.css'
 import { Link, useLocation } from 'react-router'
 import { toTitleCase } from '../../assets/js/helper';
-import { pages_dict } from '../../pages/versions-data/general';
 import { useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { toast } from 'sonner';
@@ -21,8 +20,7 @@ interface IHeader {
 export default function Header({ version,setVersion }:IHeader) {
     // const [search,setSearch]=useState('')
     const location = useLocation();
-    let description = pages_dict[location.pathname.slice(1)]?.description || '';
-    description = description ? ' - ' + description : '';
+    const pageTitle = location.pathname.slice(1).split('-').map(toTitleCase).join(' ');
     const isMobileView = useRef(window.innerWidth < 770)
     const [isOpen, setIsOpen] = useState(() => !isMobileView.current)
     const [oldSideWidth, setOldSideBarWidth] = useState(300)
@@ -68,7 +66,7 @@ export default function Header({ version,setVersion }:IHeader) {
                     <Link to='/versions' className='release-link'>View all release notes</Link>
                 </div>
             </div>
-            <p className='page-title'>{location.pathname.slice(1).split('-').map(toTitleCase).join(' ')}{description || ''}</p>
+            <p className='page-title'>{pageTitle}</p>
             {/* <input value={search} onChange={(e)=>setSearch(e.target.value)}/> */}
             <nav className="flex margin-left-auto icon-nav">
                 <Link target='_blank' rel='noopener noreferrer' className='btn-link' to="https://github.com/Fector101/android_notify"> <Github /> </Link>
