@@ -32,7 +32,7 @@ notification = Notification(
     channel_id="service_channel",
 )
 
-builder = notification.fill_args()  # build without sending
+builder = notification.fill_args()  # fill args into the builder (nothing posted yet)
 service.startForeground(notification.id, builder.build(), foreground_type)
 service.setAutoRestartService(True)`
 
@@ -45,7 +45,7 @@ export default function ForegroundServicesPage() {
                 <h2 className="long-title">Foreground Services</h2>
                 <hr />
                 <p className="paragraph">A foreground service keeps running even when the app is in the background. Android forces it to show a persistent notification, and you are responsible for posting that notification yourself.</p>
-                <p className="paragraph">Instead of calling <span className="code">send()</span>, you build the notification with <span className="code">fill_args()</span> (which returns the builder <strong>without dispatching it</strong>) and pass it to <span className="code">service.startForeground()</span>:</p>
+                <p className="paragraph">Instead of calling <span className="code">send()</span>, call <span className="code">fill_args()</span> to fill the notification's arguments into a builder without posting it, then pass <span className="code">builder.build()</span> to <span className="code">service.startForeground()</span>:</p>
                 <CodeBlock title="Service File — android/services/wallpaper.py" code={serviceFileExample} has_pydroid_support={false}/>
             </section>
 
