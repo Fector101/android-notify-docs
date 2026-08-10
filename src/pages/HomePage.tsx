@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { ChevronLeft, ChevronRight, BookOpen, Puzzle, Cpu, FileText, LifeBuoy } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, Puzzle, Cpu, FileText, LifeBuoy, Activity } from 'lucide-react';
 import { ScrollToSection } from '../ui/ScrollAssist'
 import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
 import "../assets/css/home-page.css"
@@ -8,6 +8,7 @@ const CARDS = [
     { title: 'Getting Started', desc: 'Installation, basic usage, and first notification', icon: BookOpen, to: '/getting-started' },
     { title: 'Components', desc: 'Images, buttons, progress bars, text styles', icon: Puzzle, to: '/components' },
     { title: 'Advanced Methods', desc: 'Channels, custom sound, vibration, identifiers', icon: Cpu, to: '/advanced-methods' },
+    { title: 'Foreground Services', desc: 'Persistent notifications for background services', icon: Activity, to: '/foreground-services' },
     { title: 'Reference', desc: 'Full API reference by version', icon: FileText, to: '/reference' },
     { title: 'Help', desc: 'Debugging, contributing, support', icon: LifeBuoy, to: '/help' },
 ]

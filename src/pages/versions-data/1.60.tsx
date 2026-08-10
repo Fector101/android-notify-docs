@@ -61,6 +61,15 @@ const component_page = {
 
 
 const NOTIFICATION_METHODS = {
+    init: {
+        returns: 'self',
+        args: [
+            { name: 'name', desc: "Unique string used to identify the notification or button, read back later with `NotificationHandler.get_name()`." },
+            { name: 'title_color', desc: "Custom color for the title text (to be safe use hex code e.g. `#FF0000`)." },
+            { name: 'message_color', desc: "Custom color for the message text (to be safe use hex code e.g. `#00FF00`)." },
+            { name: 'silent', desc: "If true, suppresses the heads-up alert, defaults to False." }
+        ]
+    },
     addButton: {
         signature: 'addButton(text, on_release, receiver_name?, action?)',
         description: 'Adds an action button to the notification.',
@@ -101,11 +110,13 @@ const NOTIFICATION_METHODS = {
         ]
     },
     fill_args: {
-        signature: 'fill_args(**kwargs)',
-        description: <>Takes same Arguments as send method, Returns builder object.<br /> It fills notification args without sending, useful for when you want to fill arguments without sending right away.<br /> For example calling startForeground from service you need to pass in notification.id and builder.build.</>,
+        signature: 'fill_args(silent?, persistent?, close_on_click?)',
+        description: 'Takes the same arguments as send() and returns the builder object. It fills notification args without sending, useful for when you want to fill arguments without sending right away. For example when calling startForeground from a service you need to pass in notification.id and builder.build().',
         returns: 'NotificationCompatBuilder — the builder object, useful for foreground services',
         args: [
-            { name: '**kwargs', desc: "Same arguments as send method." }
+            { name: 'silent', desc: 'If true, suppresses the heads-up alert.' },
+            { name: 'persistent', desc: 'If true, the notification survives “Clear All.”' },
+            { name: 'close_on_click', desc: 'If true, tapping the notification dismisses it.' }
         ]
     },
     fVibrate: {
@@ -121,6 +132,22 @@ const NOTIFICATION_METHODS = {
         signature: 'getChannels()',
         description: 'Returns a list of all notification channels.',
         returns: 'list — all notification channels',
+        args: []
+    },
+    start_building: {
+        signature: 'start_building(silent?, persistent?, close_on_click?)',
+        description: 'Builds the notification without dispatching it, returning the builder object. Main use is for foreground services so you can pass the builder to `service.startForeground(...)` instead of sending via `.notify()`.',
+        returns: 'NotificationCompatBuilder — the built builder object, ready for foreground services',
+        args: [
+            { name: 'silent', desc: 'If true, suppresses the heads-up alert.' },
+            { name: 'persistent', desc: 'If true, the notification survives “Clear All.”' },
+            { name: 'close_on_click', desc: 'If true, tapping the notification dismisses it.' }
+        ]
+    },
+    isUsingCustom: {
+        signature: 'isUsingCustom()',
+        description: 'Checks if the notification is using custom colors. Returns True if `title_color` or `message_color` was set.',
+        returns: 'bool — True if custom colors are set, False otherwise',
         args: []
     },
     refresh: {

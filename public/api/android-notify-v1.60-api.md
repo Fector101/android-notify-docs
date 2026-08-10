@@ -25,6 +25,10 @@ Initializes the notification instance.
 | `logs` | Enable debug logs when not on Android. |
 | `id` | a unique integer less than 2_147_483_647 that can be used to reference specific notification or handly to reference old notification instance (Optional, it's created by default). |
 | `lines_txt` |  -- use addLine() instead. |
+| `name` | Unique string used to identify the notification or button, read back later with `NotificationHandler.get_name()`. |
+| `title_color` | Custom color for the title text (to be safe use hex code e.g. `#FF0000`). |
+| `message_color` | Custom color for the message text (to be safe use hex code e.g. `#00FF00`). |
+| `silent` | If true, suppresses the heads-up alert, defaults to False. |
 
 ### addButton(text, on_release, receiver_name?, action?)
 
@@ -230,7 +234,7 @@ Removes App Notifications from tray.
 
 ### setPriority(importance)
 
-Sets <div className="reference">Importance</div> For devices less than android 8.
+Sets the notification importance for devices less than Android 8.
 
 **Returns:** None
 
@@ -258,15 +262,17 @@ Accepts a list of channel IDs and returns those that do not exist
 |-----------|-------------|
 | `ids` | List of channel ids |
 
-### fill_args(**kwargs)
+### fill_args(silent?, persistent?, close_on_click?)
 
-[object Object]
+Takes the same arguments as send() and returns the builder object. It fills notification args without sending, useful for when you want to fill arguments without sending right away. For example when calling startForeground from a service you need to pass in notification.id and builder.build().
 
 **Returns:** NotificationCompatBuilder — the builder object, useful for foreground services
 
 | Parameter | Description |
 |-----------|-------------|
-| `**kwargs` | Same arguments as send method. |
+| `silent` | If true, suppresses the heads-up alert. |
+| `persistent` | If true, the notification survives “Clear All.” |
+| `close_on_click` | If true, tapping the notification dismisses it. |
 
 ### fVibrate()
 
@@ -279,6 +285,24 @@ For when regular notifications vibrate turned off in device settings (useful for
 Returns a list of all notification channels.
 
 **Returns:** list — all notification channels
+
+### start_building(silent?, persistent?, close_on_click?)
+
+Builds the notification without dispatching it, returning the builder object. Main use is for foreground services so you can pass the builder to `service.startForeground(...)` instead of sending via `.notify()`.
+
+**Returns:** NotificationCompatBuilder — the built builder object, ready for foreground services
+
+| Parameter | Description |
+|-----------|-------------|
+| `silent` | If true, suppresses the heads-up alert. |
+| `persistent` | If true, the notification survives “Clear All.” |
+| `close_on_click` | If true, tapping the notification dismisses it. |
+
+### isUsingCustom()
+
+Checks if the notification is using custom colors. Returns True if `title_color` or `message_color` was set.
+
+**Returns:** bool — True if custom colors are set, False otherwise
 
 ### refresh()
 

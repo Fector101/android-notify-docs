@@ -165,6 +165,17 @@ export default function SiteOverview() {
             },
         },
         {
+            title: "Foreground Services",
+            route: "/foreground-services",
+            sections: {
+                "Overview": "overview",
+                "Register the Service": "register-the-service",
+                "Required Permissions": "required-permissions",
+                "Foreground Service Types": "foreground-service-types",
+                "Real-World Example": "real-world-example",
+            },
+        },
+        {
             title: "Reference",
             route: "/reference",
             sections: {

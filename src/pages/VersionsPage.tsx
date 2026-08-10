@@ -71,6 +71,7 @@ export default function VersionsPage() {
                         { msg: <><span className="code">addButton</span> - receiver_name, action</>, type: 'good' },
                         { msg: <><span className="code">createChannel</span> - vibrate, res_sound_name</>, type: 'good' },
                         { msg: <><span className="code">setBigText</span> - title, summary</>, type: 'good' },
+                        { msg: <><span className="code">Notification()</span> - name, title_color, message_color, silent</>, type: 'good' },
 
                         { msg: 'New Methods', type: '' },
                         { msg: <><span className="code">setColor</span> - color, changes app icon color using hex code.</>, type: 'good' },
@@ -81,6 +82,8 @@ export default function VersionsPage() {
                         { msg: <><span className="code">setData</span> - attach a dictionary of data for later use.</>, type: 'good' },
                         { msg: <><span className="code">fVibrate</span> - Trigger a standard notification vibration.</>, type: 'good' },
                         { msg: <><span className="code">fill_args</span> - fills notification args without sending.</>, type: 'good' },
+                        { msg: <><span className="code">start_building</span> - builds the notification without sending, returns the builder (for foreground services).</>, type: 'good' },
+                        { msg: <><span className="code">isUsingCustom</span> - returns True if custom title/message colors are set.</>, type: 'good' },
 
                         { msg: 'Support for devices less than Android 8', type: 'good' },
                         { msg: <><span className="code">setVibrate</span> - pattern, defaults to a single vibration.</>, type: 'good' },

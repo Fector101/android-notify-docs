@@ -13,6 +13,11 @@ const pages_dict: IPageDict = {
             "Explore the various components.",
             // "Explore the various components available in the Android-notify library.",
     },
+    "foreground-services": {
+        title: "Foreground Services",
+        description:
+            "Persistent notifications for background services.",
+    },
     // 'general': {
     //     'title': 'General',
     //     'description': 'Learn about the general features and functionalities of the Android-notify library.',

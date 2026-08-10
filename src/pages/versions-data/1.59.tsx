@@ -236,7 +236,7 @@ const NOTIFICATION_METHODS = {
     },
     setPriority: {
         signature: 'setPriority(importance)',
-        description: 'Sets <div className="reference">Importance</div> For devices less than android 8.',
+        description: 'Sets the notification importance for devices less than Android 8.',
         args: [
             { name: 'importance', desc: "['urgent', 'high', 'medium', 'low', 'none'] defaults to 'urgent' i.e. makes a sound and shows briefly." }
         ]

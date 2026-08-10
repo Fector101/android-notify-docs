@@ -224,7 +224,7 @@ Removes App Notifications from tray.
 
 ### setPriority(importance)
 
-Sets <div className="reference">Importance</div> For devices less than android 8.
+Sets the notification importance for devices less than Android 8.
 
 **Returns:** None
 

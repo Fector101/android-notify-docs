@@ -11,6 +11,7 @@ import Header from './ui/Header/Header.tsx';
 import SiteOverview from "./ui/SiteOverview/SiteOverview.tsx";
 import ComponentsPage from "./pages/ComponentsPage.tsx";
 import AdvancedMethodsPage from "./pages/AdvancedMethodsPage.tsx";
+import ForegroundServicesPage from "./pages/ForegroundServicesPage.tsx";
 import ReferencePage from "./pages/ReferencePage.tsx";
 import ExtrasPage from "./pages/ExtrasPage.tsx";
 import VersionsPage from "./pages/VersionsPage.tsx";
@@ -32,6 +33,7 @@ function App() {
                         <Route path="/getting-started" element={<MainPage />} />
                         <Route path="/components" element={<ComponentsPage version={version} setVersion={setVersion} />} />
                         <Route path="/advanced-methods" element={<AdvancedMethodsPage version={version} />} />
+                        <Route path="/foreground-services" element={<ForegroundServicesPage />} />
                         <Route path="/reference" element={<ReferencePage version={version} />} />
                         <Route path="/help" element={<ExtrasPage />} />
                         {/* <Route path="/versions" element={<p className="main-page page">Will contain list of versions from 1.58+</p>} /> */}
