@@ -34,7 +34,11 @@ notification = Notification(
 
 builder = notification.fill_args()  # fill args into the builder (nothing posted yet)
 service.startForeground(notification.id, builder.build(), foreground_type)
-service.setAutoRestartService(True)`
+service.setAutoRestartService(True)
+
+# Your service logic goes here
+# Example: while True: do_something()
+`
 
 export default function ForegroundServicesPage() {
     return (
