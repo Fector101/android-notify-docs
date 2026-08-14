@@ -54,8 +54,7 @@ export default function ForegroundServicesPage() {
                 <hr />
                 <p className="paragraph">Declare the service in your <span className="code">buildozer.spec</span> with the format <span className="code">Name:path/to/service.py:foreground</span>. Append <span className="code">:foregroundServiceType=specialUse</span> so the type is written into <span className="code">AndroidManifest.xml</span> automatically:</p>
                 <CodeBlock title="buildozer.spec" code={serviceSpecLine} lang='ini' has_pydroid_support={false}/>
-                <p className="paragraph">The service file lives inside your <span className="code">source.dir</span> (e.g. <span className="code">app_src/android/services/wallpaper.py</span>).</p>
-            </section>
+                          </section>
 
             <section id="required-permissions" className="page-section" tabIndex={0}>
                 <h2 className="long-title">Add the Required Permissions</h2>
