@@ -12,7 +12,7 @@ android.permissions = POST_NOTIFICATIONS
 `
 export const installation_code_flet = `[tool.flet.android]
 dependencies = [
-  "pyjnius","android-notify==1.60.10.dev0"
+  "pyjnius","android-notify"
 ]
 
 [tool.flet.android.permission]
