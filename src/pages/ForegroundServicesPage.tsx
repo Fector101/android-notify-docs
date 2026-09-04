@@ -48,7 +48,7 @@ export default function ForegroundServicesPage() {
             <section id="overview" className="page-section" tabIndex={0}>
                 <h2 className="long-title">Foreground Services</h2>
                 <hr />
-                <p className="paragraph">A foreground service keeps running even when the app is in the background. Android forces it to show a persistent notification, and you are responsible for posting that notification yourself.</p>
+                <p className="paragraph">A foreground service keeps running even when the app is in the background. Android requires a persistent notification.</p>
                 <p className="paragraph">Instead of calling <span className="code">send()</span>, call <span className="code">fill_args()</span> to fill the notification's arguments into a builder without posting it, then pass <span className="code">builder.build()</span> to <span className="code">service.startForeground()</span>:</p>
                 <CodeBlock title="Service File — android/services/wallpaper.py" code={serviceFileExample} has_pydroid_support={false}/>
             </section>
