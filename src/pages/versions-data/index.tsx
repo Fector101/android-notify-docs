@@ -3,6 +3,7 @@ import { Iversion, NotificationMethods, IReferencePage } from "../../assets/js/m
 import { reference_page as v158 } from "./1.58";
 import { reference_page as v159 } from "./1.59";
 import { reference_page as v160 } from "./1.60";
+import { reference_page as v161 } from "./1.61";
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,7 @@ import { reference_page as v160 } from "./1.60";
 | 2. add it to this list
 | DONE.
 */
-export const VERSION_ORDER: Iversion[] = ["1.58", "1.59", "1.60"];
+export const VERSION_ORDER: Iversion[] = ["1.58", "1.59", "1.60", "1.61"];
 
 /* ------------------------------------------------ */
 /* REMOVALS PER VERSION */
@@ -31,6 +32,13 @@ const REMOVALS: Record<Iversion, { methods?: string[]; args?: Record<string, str
   },
   "1.59": {
     handlers: ["getIdentifer"], // remove old handler
+  },
+  "1.61": {
+    methods: ["addNotificationStyle"], // deprecated API removed in 1.61
+    args: {
+      // createChannel: ["vibrate"]
+    },
+    handlers: ["getIdentifer", "is_on_android"],
   }
 };
 
@@ -115,6 +123,7 @@ const RAW_VERSION_MAP: Record<Iversion, IReferencePage> = {
   "1.58": v158,
   "1.59": v159,
   "1.60": v160,
+  "1.61": v161,
 };
 
 /* ------------------------------------------------ */

@@ -20,7 +20,7 @@ import HomePage from "./pages/HomePage.tsx";
 import Footer from "./ui/Footer/Footer.tsx";
 
 function App() {
-    const [version, setVersion] = useState("1.60")
+    const [version, setVersion] = useState("1.61")
     return (
         <>
             <Toaster position="top-right" />

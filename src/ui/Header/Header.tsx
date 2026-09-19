@@ -62,7 +62,7 @@ export default function Header({ version,setVersion }:IHeader) {
                     <ChevronUp className='up-svg' />
                 </span>
                 <div className='opts'>
-                    {["1.58","1.59", "1.60"].map(each => <button onClick={() => { setVersion(each); toast.success(`Switched docs to v${each}`) }} key={nanoid()}>{each}</button>)}
+                    {["1.58","1.59", "1.60", "1.61"].map(each => <button onClick={() => { setVersion(each); toast.success(`Switched docs to v${each}`) }} key={nanoid()}>{each}</button>)}
                     <Link to='/versions' className='release-link'>View all release notes</Link>
                 </div>
             </div>
