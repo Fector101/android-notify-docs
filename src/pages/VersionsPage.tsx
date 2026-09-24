@@ -10,11 +10,6 @@ const TYPE_ITEM_CLASS: Record<string, string> = {
     bad: 'bad-item',
 }
 
-const LEGEND = [
-    { label: 'New features or API', dotClass: 'good' },
-    { label: 'API changes or issues with advanced methods', dotClass: 'warning' },
-    { label: 'Critical fixes', dotClass: 'bad' },
-]
 
 function VersionBlock({ version, sections }: { version: string; sections: { msg: React.ReactNode; type: SectionType }[] }) {
     return (
@@ -39,16 +34,79 @@ export default function VersionsPage() {
             <h1 className="page-heading">Changelog</h1>
             <p className="page-subtitle">Release notes for all versions of Android Notify</p>
 
-            {/* <div className="legend">
-                {LEGEND.map(item => (
-                    <span key={item.label} className="legend-item">
-                        <span className={`legend-dot ${item.dotClass}`} />
-                        {item.label}
-                    </span>
-                ))}
-            </div> */}
 
             <section className="versions">
+                <VersionBlock
+                    version="1.61"
+                    sections={[
+                        { msg: 'Improvements', type: '' },
+                        { msg: 'Auto detecting Androidx, Flet and Pyroid3 runtimes - Merged without-androidx branch', type: 'good' },
+                        { msg: 'Keeping Apps start up time at 0 secs - Lazy loading Android classes ', type: 'good' },
+                        {msg: 'Initial release for music notification feature', type: 'good' },
+                        {msg: 'Auto striping the audio extension from res_sound_name with a warning', type: 'good' },
+                        
+                        { msg: 'Fixes ', type: '' },
+                        { msg: 'Locating icons on Flet new versions',type:'good'},
+                        {msg:'Permission check in a service raising NoneType errors', type: 'good' },
+                        { msg: 'Support for Android 7 and below in the notification builder and permission checks', type: 'good' },
+    
+                        { msg: <>Class: <span className="code">Notification</span></>, type: '' },
+    
+                        { msg: 'New Arguments', type: '' },
+                        { msg: <><span className="code">setSound</span> - sound_path</>, type: 'good' },
+                        { msg: <><span className="code">createChannel</span> - sound_path</>, type: 'good' },
+                        
+
+                        { msg: 'New Methods', type: '' },
+                        { msg: <><span className="code">setObeyUserClear</span> - control whether the notification reappears when updated by app, after the user clears it.</>, type: 'good' },
+                        { msg: <><span className="code">setOnlyAlertOnce</span> - control whether updates show a heads-up popup.</>, type: 'good' },
+                        { msg: <><span className="code">getChannels</span> - returns a list of readable per-channel dicts (id, name, description, state, j_obj).</>, type: 'good' },
+                        { msg: <><span className="code">isInTray</span> - check if the notification is in the tray.</>, type: 'good' },
+
+                        { msg: 'Removed deprecated APIs', type: '' },
+                        { msg: 'These parameters have been replaced with methods since version 1.59', type: 'good' },
+                        {
+                            msg: (
+                                <table className="deprecated-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Deprecated argument</th>
+                                            <th>Replacement Method</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span className="code">big_picture_path</span></td>
+                                            <td><span className="code">setBigPicture</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span className="code">large_icon_path</span></td>
+                                            <td><span className="code">setLargeIcon</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span className="code">body</span></td>
+                                            <td><span className="code">setBigText</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span className="code">lines_txt</span></td>
+                                            <td><span className="code">addLine</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span className="code">both_imgs</span></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span className="code">style</span></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            ),
+                            type: 'good',
+                        },
+
+                    ]}
+                />
                 <VersionBlock
                     version="1.60"
                     sections={[

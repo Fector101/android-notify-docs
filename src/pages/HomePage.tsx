@@ -29,7 +29,7 @@ export default function HomePage() {
                 <h1>Android Notify</h1>
                 <p className="tagline">A simple way to create and customize Android notifications in Kivy and Flet apps.</p>
 
-                <Link to="/versions#v1_60" className="version-badge">v1.60.10</Link>
+                <Link to="/versions#v1_61" className="version-badge">v1.61.8</Link>
             </section>
 
             <section className="home-section">
