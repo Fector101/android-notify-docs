@@ -1,6 +1,6 @@
 header {
     /* background-color: var(--body-bg); */
-    background-color: #171716;
+    background-color: #1f2229;
     position: sticky;
     top: 0;
     padding: 0 30px;
@@ -58,7 +58,7 @@ header .css-dropdown .opts {
     top: 46px;
     left: 0;
     min-width: 160px;
-    background: #1e1e1e;
+    background: #212226;
     border: 1px solid #444;
     border-radius: 8px;
     padding: 4px;

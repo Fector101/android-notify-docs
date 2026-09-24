@@ -28,20 +28,21 @@ a:hover {
 body>#root {
 
     --font-style: sans-serif;
-    --custom-font-style: 'Sometype Mono', monospace;
+    --custom-font-style: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
     --theme-color: yellow;
     --bod-color: rgb(255, 255, 255);
     --svg-primary-bg: aliceblue;
     --accent-color: rgb(207, 207, 249);
     --modal-bg: #000000de;
     --primary-btn-bg: #17a1cf;
+    --accent-color: #51b0cb;
 
 
     /* Is been used by other components */
     --header-height: 70px;
     --overview-width: 320px;
-    --body-bg: #1a1a19;
-    --link-color: #64e964;
+    --body-bg: #1b1b1d;
+    --link-color: #51b0cb;
 
     background-color: var(--body-bg);
     display: flex;

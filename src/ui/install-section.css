@@ -8,7 +8,7 @@
   font-family: 'Sometype Mono', monospace;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #4caf50;
+  color: var(--accent-color);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 0.5rem;
@@ -46,8 +46,8 @@
 
 .install-tab.on {
   background: rgba(76, 175, 80, 0.1);
-  border-color: #4caf50;
-  color: #4caf50;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 @media screen and (max-width: 500px) {

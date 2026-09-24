@@ -11,6 +11,10 @@
 .main-page h2 {
     margin-top: 20px;
     font-size: 26px;
+    line-height: 3rem;
+  font-size: 1.8rem !important;
+  font-weight: 700;
+  font-family: "Optimistic Display",system-ui,-apple-system,sans-serif;
 }
 
 .main-page .sub-header {
@@ -100,7 +104,7 @@
 }
 
 .feature-details[open] {
-    border-color: #4caf50;
+    border-color: var(--accent-color);
 }
 .feature-details h3{
     margin-block: 15px;
@@ -144,7 +148,7 @@
     font-size: 0.65rem;
     font-weight: 500;
     background: rgba(76, 175, 80, 0.12);
-    color: #4caf50;
+    color: var(--accent-color);
     padding: 2px 7px;
     border-radius: 4px;
 }
@@ -154,7 +158,7 @@
     height: 30px;
     border-radius: 7px;
     background: rgba(76, 175, 80, 0.1);
-    color: #4caf50;
+    color: var(--accent-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,7 +194,7 @@
 }
 
 .feature-item a {
-    color: #4caf50;
+    color: var(--accent-color);
 }
 
 .feature-item a:hover {
