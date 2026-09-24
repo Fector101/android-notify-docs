@@ -7,7 +7,7 @@ android.permissions = POST_NOTIFICATIONS
 # AndroidX dependency
 android.gradle_dependencies = androidx.core:core:1.12.0
 android.enable_androidx = True`
-export const installation_code_buildozer_without_androidx = `requirements = python3, kivy, pyjnius, android-notify==1.60.10.dev0
+export const installation_code_buildozer_without_androidx = `requirements = python3, kivy, pyjnius, android-notify
 android.permissions = POST_NOTIFICATIONS
 `
 export const installation_code_flet = `[tool.flet.android]
