@@ -118,7 +118,8 @@ print(f"Deleted {count} channels")`} has_pydroid_support={false}/>
                 <h4 className="text-lg font-semibold mt-[20px] mb-[0] underline">Method 2: Using Absolute Path to Audio File</h4>
                 <p className="paragraph">You can also use an absolute path to an audio file on the device, if you have permission to access it.</p>
                 <p className="paragraph">For example, if you have a sound file at <span className="code">/storage/emulated/0/Download/sneeze.wav</span>, you can set it like this:</p>
-                <CodeBlock title="Custom Sound Absolute Path" code={`Notification.createChannel(
+                <CodeBlock title="Custom Sound Absolute Path" code={`from android_notify import Notification
+Notification.createChannel(
     id="local_sound",
     name="Local Sound",
     sound_path="/storage/emulated/0/Download/sneeze.wav"
