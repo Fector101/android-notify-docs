@@ -90,8 +90,8 @@
 }
 
 .feature-details {
-    background: #1e1e1e;
-    border: 1px solid #333;
+    background: var(--card-bg);
+    /* border: 1px solid #333; */
     border-radius: 10px;
     overflow: hidden;
     transition: border-color 0.15s;
