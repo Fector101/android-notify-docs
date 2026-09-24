@@ -39,14 +39,14 @@ export default function VersionsPage() {
             <h1 className="page-heading">Changelog</h1>
             <p className="page-subtitle">Release notes for all versions of Android Notify</p>
 
-            <div className="legend">
+            {/* <div className="legend">
                 {LEGEND.map(item => (
                     <span key={item.label} className="legend-item">
                         <span className={`legend-dot ${item.dotClass}`} />
                         {item.label}
                     </span>
                 ))}
-            </div>
+            </div> */}
 
             <section className="versions">
                 <VersionBlock
