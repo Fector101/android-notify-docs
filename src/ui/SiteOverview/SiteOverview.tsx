@@ -3,12 +3,15 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import "./siteoverview.css";
 import { useEffect, useState } from "react";
 
+interface ISiteSection {
+    label: string;
+    id: string;
+}
+
 interface ISiteOverviewData {
     title: string;
     route: string;
-    sections: {
-        [key: string]: string;
-    };
+    sections: ISiteSection[];
 }
 
 function DropDown({
@@ -19,7 +22,7 @@ function DropDown({
 }: {
     route: string;
     title: string;
-    sections: string[];
+    sections: ISiteSection[];
     hash: string;
 }) {
     const [opened, setOpened] = useState(false);
@@ -30,12 +33,7 @@ function DropDown({
 
     // auto open if hash belongs here
     useEffect(() => {
-        const match = sections.some((each) => {
-            const h =
-                "#" + each.trim().toLowerCase().replace(/ /g, "-");
-            return h === hash;
-        });
-
+        const match = sections.some((each) => "#" + each.id === hash);
         if (match) setOpened(true);
     }, [hash, sections]);
 
@@ -52,25 +50,22 @@ function DropDown({
                 </button>
             </div>
 
-            <ol
+            <ul
                 className="content width100per flex fd-column"
                 style={{ height: opened ? "auto" : "0px" }}
             >
                 {sections.length ? (
                     sections.map((each) => {
-                        const hash_ =
-                            "#" + each.trim().toLowerCase().replace(/ /g, "-");
-
-                        const active = hash === hash_;
+                        const active = "#" + each.id === hash;
 
                         return (
-                            <li key={each}>
+                            <li key={each.label}>
                                 <Link
                                     className={active ? "active" : ""}
-                                    to={route + hash_}
+                                    to={route + "#" + each.id}
                                     tabIndex={opened ? 0 : -1}
                                 >
-                                    {each}
+                                    {each.label}
                                 </Link>
                             </li>
                         );
@@ -78,7 +73,7 @@ function DropDown({
                 ) : (
                     <li>No Content</li>
                 )}
-            </ol>
+            </ul>
         </div>
     );
 }
@@ -94,7 +89,7 @@ export default function SiteOverview() {
         if (!mainContent) return;
 
         const sections = mainContent.querySelectorAll('[id]');
-        let visibleSections = new Map<string, number>();
+        const visibleSections = new Map<string, number>();
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -137,71 +132,90 @@ export default function SiteOverview() {
         {
             title: "Getting Started",
             route: "/getting-started",
-            sections: {
-                Introduction: "introduction",
-                Features: "features",
-                Installation: "installation",
-                "Basic Usage": "basic-usage",
-            },
+            sections: [
+                { label: "Introduction", id: "introduction" },
+                { label: "Features", id: "features" },
+                { label: "Installation", id: "installation" },
+                { label: "Basic Usage", id: "basic-usage" },
+            ],
         },
         {
             title: "Components",
             route: "/components",
-            sections: {
-                Images: "images",
-                Buttons: "buttons",
-                "Progress Bars": "progress-bars",
-                Texts: "texts",
-            },
+            sections: [
+                { label: "Images", id: "images" },
+                { label: "Buttons", id: "buttons" },
+                { label: "Progress Bars", id: "progress-bars" },
+                { label: "Texts", id: "texts" },
+            ],
         },
-        // {
-        //     title: "Behaviours",
-        //     route: "/behaviours",
-        //     sections: {
-        //         "Send Modes": "send-modes",
-                
-        //     },
-        // },
         {
-            title: "Advanced Methods",
-            route: "/advanced-methods",
-            sections: {
-                "Channel Management": "channel-management",
-                "Custom Sound": "custom-sound",
-                "Vibration": "vibration",
-                "Getting Identifer": "getting-identifer",
-            },
+            title: "Channels",
+            route: "/channels",
+            sections: [
+                { label: "Channel Management", id: "channel-management" },
+                { label: "Reading Channels", id: "reading-channels" },
+                { label: "Deleting Channels", id: "deleting-channels" },
+                { label: "Custom Sound", id: "custom-sound" },
+                { label: "Vibration", id: "vibration" },
+            ],
+        },
+        {
+            title: "Notification Behaviour",
+            route: "/notification-behaviour",
+            sections: [
+                { label: "Heads-Up Alerts", id: "only-alert-once" },
+                { label: "Obey User Clear", id: "obey-user-clear" },
+                { label: "Is In Tray", id: "is-in-tray" },
+            ],
+        },
+        {
+            title: "Notification Data",
+            route: "/notification-data",
+            sections: [
+                { label: "Getting Name", id: "getting-identifier" },
+                { label: "Mutable Data", id: "notification-data" },
+            ],
+        },
+        {
+            title: "Notification Control",
+            route: "/notification-control",
+            sections: [
+                { label: "Cancelling", id: "cancel-notifications" },
+                { label: "Timestamps", id: "timestamps" },
+                { label: "Priority", id: "priority" },
+            ],
         },
         {
             title: "Foreground Services",
             route: "/foreground-services",
-            sections: {
-                "Overview": "overview",
-                "Register the Service": "register-the-service",
-                "Required Permissions": "required-permissions",
-                "Foreground Service Types": "foreground-service-types",
-                "Real-World Example": "real-world-example",
-            },
+            sections: [
+                { label: "Overview", id: "overview" },
+                { label: "Register the Service", id: "register-the-service" },
+                { label: "Required Permissions", id: "required-permissions" },
+                { label: "Foreground Service Types", id: "foreground-service-types" },
+                { label: "Real-World Example", id: "real-world-example" },
+            ],
         },
         {
             title: "Reference",
             route: "/reference",
-            sections: {
-                "Notification Class": "notification-class",
-                "NotificationHandler Class": "notificationhandler-class",
-                "NotificationStyles Class": "notificationstyles-class",
-            },
+            sections: [
+                { label: "Notification Class", id: "notification-class" },
+                { label: "NotificationHandler Class", id: "notificationhandler-class" },
+                { label: "NotificationStyles Class", id: "notificationstyles-class" },
+            ],
         },
         {
             title: "Help",
             route: "/help",
-            sections: {
-                "How to update": "how-to-update",
-                "Debugging Tips": "debugging-tips",
-                "Contributing-Issues": "contributing-issues",
-                "Support Project": "support-project",
-                Credits: "credits",
-            },
+            sections: [
+                { label: "How to update", id: "how-to-update" },
+                { label: "Debugging Tips", id: "debugging-tips" },
+                { label: "Contributing-Issues", id: "contributing-issues" },
+                { label: "Support Project", id: "support-project" },
+                { label: "Credits", id: "credits" },
+            ],
         },
     ];
 
@@ -217,7 +231,7 @@ export default function SiteOverview() {
                     hash={hash}
                     title={each.title}
                     route={each.route}
-                    sections={Object.keys(each.sections)}
+                    sections={each.sections}
                 />
             ))}
         </div>

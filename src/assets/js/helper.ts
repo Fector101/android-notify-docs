@@ -164,3 +164,6 @@ export {
 export function isLegacyVersion(version: string) {
         return version == "1.58";
     }
+export function isAtLeastVersion(version: string, min: string): boolean {
+    return parseFloat(version) >= parseFloat(min);
+}

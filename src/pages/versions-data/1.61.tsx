@@ -1,5 +1,46 @@
 import { IReferencePage } from "../../assets/js/mytypes";
-import { component_page, advanced_methods_page } from "./1.60";
+import { component_page, advanced_methods_page as base_advanced_methods_page } from "./1.60";
+
+const only_alert_once_code = `from android_notify import Notification
+
+n = Notification(
+    title="Downloading update...",
+    message="0% downloaded",
+)
+n.setOnlyAlertOnce(True)  # only the FIRST send pops up as a heads-up alert
+n.send()
+
+# Later updates stay quiet — no heads-up popup
+n.updateProgressBar(50, "50% downloaded")`
+
+const obey_user_clear_code = `from android_notify import Notification
+
+n = Notification(title="Task", message="Working...")
+n.send()
+
+# When True, updating this notification after the user already cleared it
+# will NOT bring it back to the tray
+n.setObeyUserClear(True)`
+
+const is_intray_code = `from android_notify import Notification
+
+n = Notification(
+    title="Status",
+    message="Is this still around?",
+)
+n.send()
+
+if n.isInTray():
+    print("Notification is still in the tray")
+else:
+    print("Notification was cleared")`
+
+const advanced_methods_page = {
+    ...base_advanced_methods_page,
+    only_alert_once_code,
+    obey_user_clear_code,
+    is_intray_code,
+};
 
 
 const NOTIFICATION_METHODS = {

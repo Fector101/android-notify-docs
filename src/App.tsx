@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, Navigate } from "react-router";
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from "sonner";
 
@@ -10,7 +10,10 @@ import MainPage from "./pages/MainPage";
 import Header from './ui/Header/Header.tsx';
 import SiteOverview from "./ui/SiteOverview/SiteOverview.tsx";
 import ComponentsPage from "./pages/ComponentsPage.tsx";
-import AdvancedMethodsPage from "./pages/AdvancedMethodsPage.tsx";
+import ChannelsPage from "./pages/ChannelsPage.tsx";
+import NotificationBehaviourPage from "./pages/NotificationBehaviourPage.tsx";
+import NotificationDataPage from "./pages/NotificationDataPage.tsx";
+import NotificationControlPage from "./pages/NotificationControlPage.tsx";
 import ForegroundServicesPage from "./pages/ForegroundServicesPage.tsx";
 import ReferencePage from "./pages/ReferencePage.tsx";
 import ExtrasPage from "./pages/ExtrasPage.tsx";
@@ -32,7 +35,11 @@ function App() {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/getting-started" element={<MainPage />} />
                         <Route path="/components" element={<ComponentsPage version={version} setVersion={setVersion} />} />
-                        <Route path="/advanced-methods" element={<AdvancedMethodsPage version={version} />} />
+                        <Route path="/advanced-methods" element={<Navigate to="/channels" replace />} />
+                        <Route path="/channels" element={<ChannelsPage version={version} setVersion={setVersion} />} />
+                        <Route path="/notification-behaviour" element={<NotificationBehaviourPage version={version} setVersion={setVersion} />} />
+                        <Route path="/notification-data" element={<NotificationDataPage version={version} setVersion={setVersion} />} />
+                        <Route path="/notification-control" element={<NotificationControlPage version={version} setVersion={setVersion} />} />
                         <Route path="/foreground-services" element={<ForegroundServicesPage />} />
                         <Route path="/reference" element={<ReferencePage version={version} />} />
                         <Route path="/help" element={<ExtrasPage />} />

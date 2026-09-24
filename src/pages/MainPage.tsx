@@ -54,7 +54,7 @@ export default function MainPage() {
                     <div className="feature-details">
                         <h3>Channels <span className="feature-badge">Android 8.0+</span></h3>
                         <div className="feature-body">
-                            <div className="feature-item"><strong>Manage Channels</strong><span><Link to="/advanced-methods#channel-management">Create, read, delete</Link></span></div>
+                            <div className="feature-item"><strong>Manage Channels</strong><span><Link to="/channels#channel-management">Create, read, delete</Link></span></div>
                             <div className="feature-item"><strong>Configure</strong><span>Set importance, vibration, and sound</span></div>
                         </div>
                     </div>

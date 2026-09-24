@@ -89,11 +89,11 @@ export default function ForegroundServicesPage() {
             </section>
 
             <span className='flex next-page-btns-box space-between'>
-                <Link className='next-page-btn' to='/advanced-methods'>
+                <Link className='next-page-btn' to='/notification-control'>
                     <ChevronLeft />
                     <span>
                         <p className='next-txt'>Previous</p>
-                        <p className='page-name'>Advanced Methods</p>
+                        <p className='page-name'>Notification Control</p>
                     </span>
                 </Link>
                 <Link className='next-page-btn' to='/reference'>

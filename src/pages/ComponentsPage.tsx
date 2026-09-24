@@ -133,7 +133,7 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
 
                     }
 
-                    <p className='paragraph inner-section-1'>For about Images see <Link to='/advanced-methods#updating-notification'>advanced methods</Link> section</p>
+                    <p className='paragraph inner-section-1'>For more on channel-based settings (custom sound, vibration) see the <Link to='/channels'>Channels</Link> page.</p>
                 </div>
             </section>
 
@@ -262,12 +262,11 @@ notification.updateMessage("Task finished successfully")`} />
                         <p className='page-name'>Getting Started</p>
                     </span>
                 </Link>
-                <Link className='next-page-btn' to='/advanced-methods'>
+                <Link className='next-page-btn' to='/channels'>
                     {/* <Link className='next-page-btn' to='/event-handling'> */}
                     <span>
                         <p className='next-txt'>Next</p>
-                        <p className='page-name'>Advanced Methods</p>
-                        {/* <p className='page-name'>Event Handling</p> */}
+                        <p className='page-name'>Channels</p>
                     </span>
                     <ChevronRight />
                 </Link>
