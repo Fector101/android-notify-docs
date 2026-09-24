@@ -45,7 +45,7 @@
 }
 
 .install-tab.on {
-  background: rgba(76, 175, 80, 0.1);
+  background: var(--accent-tint-soft);
   border-color: var(--accent-color);
   color: var(--accent-color);
 }

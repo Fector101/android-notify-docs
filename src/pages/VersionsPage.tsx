@@ -33,10 +33,11 @@ export default function VersionsPage() {
             <ScrollToSection />
             <h1 className="page-heading">Changelog</h1>
             <p className="page-subtitle">Release notes for all versions of Android Notify</p>
-
+            <p className="compare-link">
+                <a href="https://github.com/Fector101/android_notify/compare/v1.60.8...v1.61.9" target="_blank" rel="noopener noreferrer">Compare v1.60.8 → v1.61.9</a>
+            </p>
 
             <section className="versions">
-                https://github.com/Fector101/android_notify/compare/v1.60.8...v1.61.9
                 <VersionBlock
                     version="1.61"
                     sections={[

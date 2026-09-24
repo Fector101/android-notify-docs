@@ -32,17 +32,31 @@ body>#root {
     --theme-color: yellow;
     --bod-color: rgb(255, 255, 255);
     --svg-primary-bg: aliceblue;
-    --accent-color: rgb(207, 207, 249);
     --modal-bg: #000000de;
     --primary-btn-bg: #17a1cf;
-    --accent-color: #51b0cb;
 
+    /* THEME SECTION START */
+    --accent-color: #51b0cb;
+    --accent-tint: rgba(81, 176, 203, 0.12);
+    --accent-tint-soft: rgba(81, 176, 203, 0.1);
+    --accent-muted: #51b0cb66;
+
+    /* Surfaces */
+    --header-bg: #1f2229;
+    --dropdown-bg: #212226;
+    --footer-bg: #20232a;
+    --sidebar-bg: var(--body-bg);
+    --card-bg: #242426;
+    --card-hover-bg: #323235;
+    --badge-bg: #1e282d;
+    --code-bg: #282c34;
+    --link-color: var(--accent-color);
+    /* THEME SECTION ENDS */
 
     /* Is been used by other components */
     --header-height: 70px;
     --overview-width: 320px;
     --body-bg: #1b1b1d;
-    --link-color: #51b0cb;
 
     background-color: var(--body-bg);
     display: flex;

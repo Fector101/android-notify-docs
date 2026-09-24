@@ -102,7 +102,7 @@
 }
 
 .version-content li.good-item {
-    border-left-color: var(--accent-color)66;
+    border-left-color: var(--accent-muted);
 }
 
 .version-content li.warning-item {
@@ -152,7 +152,20 @@
         font-size: 1.15rem;
     }
 
-    .versions-page .legend {
+.versions-page .compare-link {
+    margin: 0 0 16px 0;
+    font-size: 0.85rem;
+}
+
+.versions-page .compare-link a {
+    color: var(--accent-color);
+}
+
+.versions-page .compare-link a:hover {
+    text-decoration: underline;
+}
+
+.versions-page .legend {
         flex-direction: column;
         gap: 8px;
     }

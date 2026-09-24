@@ -9,7 +9,7 @@
     height: calc(100vh - calc(var(--header-height) + 2px));
     overflow-y: auto;
     padding-block: 10px 20px;
-    background-color: #1b1b1d;
+    background-color: var(--sidebar-bg);
     /* padding-top: var(--header-height); */
     /* background-color: antiquewhite; */
 }

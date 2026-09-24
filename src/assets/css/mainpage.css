@@ -147,7 +147,7 @@
 .feature-badge {
     font-size: 0.65rem;
     font-weight: 500;
-    background: rgba(76, 175, 80, 0.12);
+    background: var(--accent-tint);
     color: var(--accent-color);
     padding: 2px 7px;
     border-radius: 4px;
@@ -157,7 +157,7 @@
     width: 30px;
     height: 30px;
     border-radius: 7px;
-    background: rgba(76, 175, 80, 0.1);
+    background: var(--accent-tint-soft);
     color: var(--accent-color);
     display: flex;
     align-items: center;
