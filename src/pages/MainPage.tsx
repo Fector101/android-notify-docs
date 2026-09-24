@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Type } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router'
 import { ScrollToSection } from '../ui/ScrollAssist';
 import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
