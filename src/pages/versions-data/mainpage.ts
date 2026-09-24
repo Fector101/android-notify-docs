@@ -22,10 +22,9 @@ export const installation_code_pip = `pip install android-notify`
 export function getInstallCode(tab: string): string {
   const codes: Record<string, string> = {
     pip: installation_code_pip,
-    kivy: installation_code_buildozer,
+    kivy: installation_code_buildozer_without_androidx,
     flet: installation_code_flet,
-    pydroid: `# In Pydroid 3 pip section, add:
-android-notify==1.60.10.dev0`,
+    pydroid: `# In pip section, type in "android-notify" and click install`,
     nox: installation_code_buildozer_without_androidx,
   }
   return codes[tab] || codes.pip

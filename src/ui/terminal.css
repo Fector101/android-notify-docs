@@ -67,9 +67,9 @@
   padding: 1rem 1.25rem;
   overflow-x: auto;
   font-family: 'Sometype Mono', monospace;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1.8;
-  color: #a8a29e;
+  /* color: #a8a29e; */
   margin: 0;
   -webkit-overflow-scrolling: touch;
 }
@@ -86,7 +86,7 @@
   }
   .terminal pre {
     padding: 0.75rem;
-    font-size: 0.7rem;
+    /* font-size: 0.7rem; */
   }
   .term-btn {
     padding: 0.15rem 0.4rem;

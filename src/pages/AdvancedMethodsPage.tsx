@@ -64,7 +64,7 @@ export default function AdvancedMethodsPage({ version }: { version: Iversion }) 
                 <ul className="inner-section-2 paragraph">
                     <li><span className="code">channelExists(channel_id)</span> - check if one channel exists, returns <span className="code">True</span>/<span className="code">False</span></li>
                     <li><span className="code">doChannelsExist(ids)</span> - pass a list of ids, returns the ids that do <strong>not</strong> exist</li>
-                    <li><span className="code">getChannels()</span> - returns a list of all notification channels</li>
+                    <li><span className="code">getChannels()</span> - returns a list of dicts {'{id, name, description, state, j_obj} '}</li>
                 </ul>
                 <CodeBlock title="Reading Channels" code={`from android_notify import Notification
 
@@ -80,10 +80,10 @@ print("Missing channels:", missing)
 
 # List every channel created by the app
 channels = Notification.getChannels()
-print("All channels:", channels)`} has_pydroid_support={false}/>
+print("All channels:", channels) # [{id: "downloads_notifications", name: "Downloads", description: "Notifications for download updates", state: True, j_obj: <java_object>},...]`} has_pydroid_support={false}/>
 
                 <h3 id="deleting-channels" className="underline text-xl mt-[10px] mb-[0]">Deleting Channels:</h3>
-                <p className="paragraph">Channels can be deleted at runtime. Once deleted, notifications using that channel are no longer shown and the user has to re-create it:</p>
+                <p className="paragraph">Channels can be deleted at runtime. Once deleted, notifications using that channel are no longer shown</p>
                 <ul className="inner-section-2 paragraph">
                     <li><span className="code">deleteChannel(channel_id)</span> - deletes a single channel, returns <span className="code">True</span> if deleted, <span className="code">False</span> if not found</li>
                     <li><span className="code">deleteAllChannel()</span> - deletes every channel, returns the count deleted</li>
@@ -98,11 +98,47 @@ count = Notification.deleteAllChannel()
 print(f"Deleted {count} channels")`} has_pydroid_support={false}/>
 
                 <h3 id="custom-sound" className="underline text-xl mt-[10px] mb-[0]">Custom Sound:</h3>
-                <p className="paragraph">You can assign a custom sound from your app's <span className="code">res/raw</span> folder to a notification channel for Android 8+:</p>
+                <p className="paragraph">The Sound your notification makes when sent can be customized in two ways:</p>
+                <ul className="inner-section-2 paragraph">
+                    <li>By using audio files in your app's <span className="code">res/raw</span> folder</li>
+                    <li>By passing in the absolute path to an audio file on the device. 
+                    </li>
+                </ul>
+                <p className="paragraph">For Android 8+, the sound is set on the channel. For Android 7 and below, the sound is set on the notification itself.</p>
+                
+                <p className="paragraph">If you use a long audio file, it will be played till the user swipes down the notification tray.</p>
+
+                
+                <h4 className="text-lg font-semibold mt-[20px] mb-[0] underline">Method 1: Using Audio Files in res/raw</h4>
+                <p className="paragraph">Make sure to not include the file extension. Pass in <span className="code">sneeze</span> instead of <span className="code">sneeze.wav</span></p>
                 <p className="paragraph">Put your audio files (e.g. <span className="code">sneeze.wav</span>) in <span className="code">res/raw</span>, then configure <span className="code">buildozer.spec</span>:</p>
                 <CodeBlock title="buildozer.spec" code={soundBuildozerCode} has_pydroid_support={false}/>
                 <CodeBlock has_pydroid_support={false} title="Custom Sound Channel" code={data?.custom_sound_code || ''} />
-                <p className="paragraph">For devices below Android 8, use <span className="code">setSound</span> on the notification object.</p>
+                
+                <h4 className="text-lg font-semibold mt-[20px] mb-[0] underline">Method 2: Using Absolute Path to Audio File</h4>
+                <p className="paragraph">You can also use an absolute path to an audio file on the device, if you have permission to access it.</p>
+                <p className="paragraph">For example, if you have a sound file at <span className="code">/storage/emulated/0/Download/sneeze.wav</span>, you can set it like this:</p>
+                <CodeBlock title="Custom Sound Absolute Path" code={`Notification.createChannel(
+    id="local_sound",
+    name="Local Sound",
+    sound_path="/storage/emulated/0/Download/sneeze.wav"
+)
+
+# Using a content URI (e.g., from media store)
+Notification.createChannel(
+    id="uri_sound",
+    name="URI Sound",
+    sound_path="content://media/external/audio/media/123"
+)
+
+# Send notification with custom sound path
+n = Notification(
+    title="Custom Sound",
+    message="Playing from local path",
+    channel_id="local_sound"
+)
+n.setSound(sound_path="/storage/emulated/0/Download/sneeze.wav")
+n.send()`}/>
 
                 <h3 id="vibration" className="underline text-xl mt-[10px] mb-[0]">Vibration:</h3>
                 <p className="paragraph">For the vibrate feature to work correctly, make sure to use version <span className="code">1.61.0</span> or later.</p>

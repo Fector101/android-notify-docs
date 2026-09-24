@@ -49,7 +49,8 @@
 
 .intro-tag {
     font-size: 0.75rem;
-    color: #888;
+    color: #c9c8c8;
+
     background: #262626;
     padding: 4px 10px;
     border-radius: 6px;
@@ -99,9 +100,14 @@
 }
 
 .feature-details[open] {
-    /* border-color: #4caf50; */
+    border-color: #4caf50;
 }
-
+.feature-details h3{
+    margin-block: 15px;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
 .feature-details summary {
     display: flex;
     align-items: center;
@@ -156,7 +162,7 @@
 }
 
 .feature-body {
-    padding: 0 16px 14px 58px;
+    padding: 0 16px 14px 30px;
 }
 
 .feature-item {
@@ -179,7 +185,7 @@
 
 .feature-item span {
     font-size: 0.78rem;
-    color: #888;
+    color: #b4b3b3;
     line-height: 1.4;
 }
 
@@ -217,10 +223,6 @@
     .feature-icon {
         width: 28px;
         height: 28px;
-    }
-
-    .feature-body {
-        padding: 0 12px 12px 50px;
     }
 
     .feature-item strong {

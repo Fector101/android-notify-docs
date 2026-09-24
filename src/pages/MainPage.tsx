@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Type } from 'lucide-react';
 import { Link } from 'react-router'
 import { ScrollToSection } from '../ui/ScrollAssist';
 import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
@@ -28,54 +28,43 @@ export default function MainPage() {
                 <hr />
 
                 <div className="features-accordion">
-                    <details className="feature-details">
-                        <summary>
-                            {/* <div className="feature-icon"><Type size={18} /></div> */}
-                            <span>Notification Components & Design</span>
-                        </summary>
+                    <div className="feature-details">
+                        <h3>Notification Components & Design</h3>
                         <div className="feature-body">
                             <div className="feature-item"><strong>Texts</strong><span>Simple, big text, inbox-style, sub texts, coloured texts</span></div>
                             <div className="feature-item"><strong>Images</strong><span>Large icons, big pictures, custom & coloured app icons</span></div>
                             <div className="feature-item"><strong>Progress Bars</strong><span>Determinate and indeterminate with real-time updates</span></div>
                             <div className="feature-item"><strong>Buttons</strong><span>Action buttons with callbacks and broadcast receivers</span></div>
                         </div>
-                    </details>
+                    </div>
 
-                    <details className="feature-details">
-                        <summary>
-                            {/* <div className="feature-icon"><Zap size={18} /></div> */}
-                            <span>Behaviours / Runtime Functions</span>
-                        </summary>
+                    <div className="feature-details">
+                        <h3>Behaviours / Runtime Functions</h3>
                         <div className="feature-body">
                             <div className="feature-item"><strong>Send Modes</strong><span>Normal, silent, persistent, or vibrate</span></div>
                             <div className="feature-item"><strong>Live Updates</strong><span>Update title, message, images, and progress after sending</span></div>
                             <div className="feature-item"><strong>Buttons</strong><span>Add or remove buttons at runtime</span></div>
                             <div className="feature-item"><strong>Click Handlers</strong><span>Open app on notification click, custom callbacks</span></div>
                             <div className="feature-item"><strong>Sound & Vibration</strong><span>Custom sound and vibration per notification</span></div>
+                            <div className='feature-item'><strong>Obey user Clear</strong><span>Don't show new updates after User clears notification</span></div>
                             <div className="feature-item"><strong>Timestamps & Clear</strong><span>Set timestamps, clear single or all notifications</span></div>
                         </div>
-                    </details>
+                    </div>
 
-                    <details className="feature-details">
-                        <summary>
-                            {/* <div className="feature-icon"><Radio size={18} /></div> */}
-                            <span>Channels <span className="feature-badge">Android 8.0+</span></span>
-                        </summary>
+                    <div className="feature-details">
+                        <h3>Channels <span className="feature-badge">Android 8.0+</span></h3>
                         <div className="feature-body">
                             <div className="feature-item"><strong>Manage Channels</strong><span><Link to="/advanced-methods#channel-management">Create, read, delete</Link></span></div>
                             <div className="feature-item"><strong>Configure</strong><span>Set importance, vibration, and sound</span></div>
                         </div>
-                    </details>
+                    </div>
 
-                    <details className="feature-details">
-                        <summary>
-                            {/* <div className="feature-icon"><Shield size={18} /></div> */}
-                            <span>Permissions</span>
-                        </summary>
+                    <div className="feature-details">
+                        <h3>Permissions</h3>
                         <div className="feature-body">
                             <div className="feature-item"><strong>Permission Handling</strong><span>Ask and check notification permission with callback</span></div>
                         </div>
-                    </details>
+                    </div>
                 </div>
 
             </section>
@@ -89,12 +78,10 @@ export default function MainPage() {
                 <h2>Basic Usage</h2>
                 <hr />
                 <p className="intro-text">Create and send notifications with just a few lines of code.</p>
-                <CodeBlock code={code} pydroid={`# Testing with "android-notify==1.60.10.dev0" on pydroid
-from kivy.app import App
+                <CodeBlock code={code} pydroid={`from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-from android_notify import Notification
-from android_notify.core import asks_permission_if_needed
+from android_notify import Notification, NotificationHandler
 
 
 class AndroidNotifyDemoApp(App):
@@ -111,8 +98,7 @@ class AndroidNotifyDemoApp(App):
         return layout
 
     def request_permission(self, *args):
-        # Callback for NotificationHandler.asks_permission not Available on Pyroid3
-        asks_permission_if_needed(legacy=True)
+        NotificationHandler.asks_permission()
 
     def send_notification(self, *args):
         Notification(

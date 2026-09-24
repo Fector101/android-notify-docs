@@ -154,6 +154,14 @@ export default function SiteOverview() {
                 Texts: "texts",
             },
         },
+        // {
+        //     title: "Behaviours",
+        //     route: "/behaviours",
+        //     sections: {
+        //         "Send Modes": "send-modes",
+                
+        //     },
+        // },
         {
             title: "Advanced Methods",
             route: "/advanced-methods",
