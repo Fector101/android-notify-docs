@@ -5,7 +5,6 @@
 }
 
 .install-label {
-  font-family: 'Sometype Mono', monospace;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--accent-color);

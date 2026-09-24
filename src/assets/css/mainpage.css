@@ -10,11 +10,9 @@
 
 .main-page h2 {
     margin-top: 20px;
-    font-size: 26px;
-    line-height: 3rem;
-  font-size: 1.8rem !important;
-  font-weight: 700;
-  font-family: "Optimistic Display",system-ui,-apple-system,sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 .main-page .sub-header {
@@ -52,8 +50,8 @@
 }
 
 .intro-tag {
-    font-size: 0.75rem;
-    color: #c9c8c8;
+    font-size: 0.8rem;
+    color: #dadada;
 
     background: #262626;
     padding: 4px 10px;
@@ -110,7 +108,7 @@
     margin-block: 15px;
     margin-left: 20px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.97rem;
 }
 .feature-details summary {
     display: flex;
@@ -182,13 +180,13 @@
 }
 
 .feature-item strong {
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     color: #e0e0e0;
     font-weight: 600;
 }
 
 .feature-item span {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     color: #b4b3b3;
     line-height: 1.4;
 }
@@ -229,9 +227,6 @@
         height: 28px;
     }
 
-    .feature-item strong {
-        font-size: 0.78rem;
-    }
 
     .feature-item span {
         font-size: 0.72rem;

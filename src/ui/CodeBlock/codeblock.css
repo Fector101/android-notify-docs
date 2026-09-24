@@ -14,7 +14,11 @@ code {
     /* background-color: #1c1c1e; */
     /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
     position: relative;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--custom-font-style);
+}
+.code-block pre,
+.code-block code {
+    font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
 }
 
 .code-block .header {

@@ -64,7 +64,7 @@ ref-code/* Spacing utilities */
 
 /* Colors */
 .text-blue-600 {
-    color: #2563EB;
+    color: var(--accent-color);
 }
 
 .text-gray-700 {
@@ -82,7 +82,7 @@ ref-code/* Spacing utilities */
 }
 
 .border-blue-600 {
-    border-color: #2563EB;
+    border-color: var(--accent-color);
 }
 
 .pl-4 {
@@ -220,8 +220,8 @@ dd {
 }
 
 .ref-search-input:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(81, 176, 203, 0.15);
 }
 
 .ref-search-input::placeholder {
@@ -293,7 +293,6 @@ dd {
 }
 
 .ref-section-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
     color: #fafaf9;
@@ -307,7 +306,6 @@ dd {
 }
 
 .api-card {
-    background: #181818a4;
     border: 1px solid #3f3a36;
     border-radius: 10px;
     overflow: hidden;
@@ -335,7 +333,7 @@ dd {
     font-family: 'Fira Code', Consolas, monospace;
     font-size: 0.82rem;
     font-weight: 500;
-    color: #10b981;
+    color: var(--accent-color);
 }
 
 .api-chevron {
@@ -375,15 +373,15 @@ dd {
     color: #a8a29e;
     margin-bottom: 0.6rem;
     padding: 0.4rem 0.6rem;
-    background: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.15);
+    background: var(--accent-tint-soft);
+    border: 1px solid rgba(81, 176, 203, 0.2);
     border-radius: 6px;
 }
 
 .api-returns-label {
     font-family: 'Fira Code', Consolas, monospace;
     font-weight: 600;
-    color: #60a5fa;
+    color: var(--accent-color);
 }
 
 .api-args {
@@ -410,8 +408,8 @@ dd {
 }
 
 .ref-note {
-    background: rgba(16,185,129,0.08);
-    border: 1px solid rgba(16,185,129,0.15);
+    background: var(--accent-tint-soft);
+    border: 1px solid rgba(81, 176, 203, 0.2);
     border-radius: 8px;
     padding: 0.85rem 1rem;
     margin-bottom: 1.25rem;
@@ -420,7 +418,7 @@ dd {
 }
 
 .ref-note strong {
-    color: #10b981;
+    color: var(--accent-color);
 }
 
 .ref-note.warn {
@@ -438,9 +436,9 @@ dd {
     gap: 0.35rem;
     padding: 0.35rem 0.7rem;
     border-radius: 6px;
-    background: rgba(16,185,129,0.1);
-    border: 1px solid rgba(16,185,129,0.2);
-    color: #10b981;
+    background: var(--accent-tint-soft);
+    border: 1px solid rgba(81, 176, 203, 0.25);
+    color: var(--accent-color);
     font-size: 0.78rem;
     font-weight: 500;
     cursor: pointer;
@@ -450,8 +448,8 @@ dd {
 }
 
 .ref-download-btn:hover {
-    background: rgba(16,185,129,0.18);
-    border-color: #10b981;
+    background: var(--accent-tint);
+    border-color: var(--accent-color);
 }
 
 @media screen and (max-width:500px) {

@@ -28,7 +28,7 @@ a:hover {
 body>#root {
 
     --font-style: sans-serif;
-    --custom-font-style: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --custom-font-style: 'Inter', system-ui, -apple-system, sans-serif;
     --theme-color: yellow;
     --bod-color: rgb(255, 255, 255);
     --svg-primary-bg: aliceblue;
@@ -67,7 +67,7 @@ body>#root {
     height: 100%;
     width: 100%;
     padding-bottom: 5px;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 #root>main {
@@ -183,10 +183,9 @@ body>#root {
 
 @media screen and (max-width:500px) {
 
-    .main-page>section p,
-    .main-page li {
+    .main-page>section p, .main-page li {
         width: 100%;
-        font-size: 14px;
+        /* font-size: 14px; */
     }
 
     .next-page-btns-box {
