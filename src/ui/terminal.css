@@ -2,7 +2,7 @@
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #333;
-  background: #0d0b0a;
+  background: var(--code-bg);
   margin: 1rem 0;
   transition: border-color 0.2s;
 }
@@ -14,7 +14,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1rem;
-  background: #1c1917;
+  background: rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid #333;
 }
 .terminal-dots {
