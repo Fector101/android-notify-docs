@@ -142,14 +142,13 @@
 
 span.code {
     font-style: italic;
-    /* background-color: #333333; */
+    background-color: #333333;
     padding: 2px 5px;
     line-height: 1.5;
     border-radius: 3px;
     white-space: normal;
     word-break: break-word;
     line-height: 1.8;
-    border: 1px solid #4e4d4d;
 }
 
 span.code.green {
