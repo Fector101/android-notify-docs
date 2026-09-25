@@ -169,7 +169,7 @@
 
 .feature-item {
     padding: 6px 0;
-    border-bottom: 1px solid #262626;
+    /* border-bottom: 1px solid #262626; */
     display: flex;
     flex-direction: column;
     gap: 2px;
