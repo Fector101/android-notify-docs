@@ -1,4 +1,4 @@
-import { IReferencePage } from "../../assets/js/mytypes";
+import { IReferencePage } from "../../../assets/js/mytypes";
 import { component_page, advanced_methods_page as base_advanced_methods_page } from "./1.60";
 
 const only_alert_once_code = `from android_notify import Notification

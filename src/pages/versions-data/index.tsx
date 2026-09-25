@@ -1,9 +1,9 @@
 // index.tsx
 import { Iversion, NotificationMethods, IReferencePage } from "../../assets/js/mytypes";
-import { reference_page as v158 } from "./1.58";
-import { reference_page as v159 } from "./1.59";
-import { reference_page as v160 } from "./1.60";
-import { reference_page as v161 } from "./1.61";
+import { reference_page as v158 } from "./versions/1.58";
+import { reference_page as v159 } from "./versions/1.59";
+import { reference_page as v160 } from "./versions/1.60";
+import { reference_page as v161 } from "./versions/1.61";
 
 /*
 |--------------------------------------------------------------------------

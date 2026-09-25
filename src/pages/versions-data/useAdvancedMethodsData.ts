@@ -20,9 +20,9 @@ export function useAdvancedMethodsData(version: Iversion): IAdvancedMethodsPage 
     useEffect(() => {
         let stale = false;
         (async () => {
-            const v1 = await import(`./1.58.tsx`);
-            const v2 = await import(`./1.59.tsx`);
-            const current = await import(`./${version}.tsx`);
+            const v1 = await import(`./versions/1.58.tsx`);
+            const v2 = await import(`./versions/1.59.tsx`);
+            const current = await import(`./versions/${version}.tsx`);
             if (stale) return;
             setData({
                 ...v1.advanced_methods_page,

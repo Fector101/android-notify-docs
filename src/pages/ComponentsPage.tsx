@@ -46,9 +46,9 @@ export default function ComponentsPage({ version, setVersion }: { version: Ivers
     async function changeVersionData(version: Iversion) {
         console.log('vers0+0' + version);
 
-        const v1 = await import(`./versions-data/1.58.tsx`);
-        const v2 = await import(`./versions-data/1.59.tsx`);
-        const data = await import(`./versions-data/${version}.tsx`);
+        const v1 = await import(`./versions-data/versions/1.58.tsx`);
+        const v2 = await import(`./versions-data/versions/1.59.tsx`);
+        const data = await import(`./versions-data/versions/${version}.tsx`);
         setData({ ...v1.component_page, ...v2.component_page, ...data.component_page })
         // data.default; // if exported as default
     }

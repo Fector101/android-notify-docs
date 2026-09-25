@@ -1,4 +1,4 @@
-import { IReferencePage } from "../../assets/js/mytypes";
+import { IReferencePage } from "../../../assets/js/mytypes";
 
 const subtextcode = `from android_notify import Notification
 
