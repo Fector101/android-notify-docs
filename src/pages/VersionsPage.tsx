@@ -49,7 +49,10 @@ export default function VersionsPage() {
                         
                         { msg: 'Fixes ', type: '' },
                         { msg: 'Locating icons on Flet new versions',type:'good'},
-                        {msg:'Permission check in a service raising NoneType errors', type: 'good' },
+                        { msg: 'Overwriting old notifications on app restart',type:'good'},
+                        { msg: 'NotificationHandler class now works on pydroid 3',type:'good'},
+                        { msg: 'Vibrate Feature',type:'good'},
+                        { msg:'Permission check in a service raising NoneType errors', type: 'good' },
                         { msg: 'Support for Android 7 and below in the notification builder and permission checks', type: 'good' },
     
                         { msg: <>Class: <span className="code">Notification</span></>, type: '' },
