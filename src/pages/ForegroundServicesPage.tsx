@@ -102,7 +102,7 @@ export default function ForegroundServicesPage() {
                 <h2 className="long-title underline">5. Add Buttons (Bonus)</h2>
                 <p className="paragraph">In a Java file you can either:</p>
                 <ol className="paragraph list-decimal ml-[20px]">
-                    <li>Route Broadcast listener to your service process -  <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/Routing-Broadcast-listener-to-Python'>broadcast buttons with python listener</Link> </li>
+                    <li>Route Broadcast listener to your service process -  <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/Routing-Broadcast-listener-to-Python'>broadcast buttons with python listener</Link> (Recommended)</li>
                     <li className='mt-[10px]'>Have it send a OSC (network requests) to your service server -  <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/How-to-Use-Buttons-to-Communicate-with-Service'>broadcast buttons with python-osc</Link>  </li>
                 </ol>
                 <p className="paragraph">To see logs on a plugged in device <span className="code">adb logcat | grep -E "python|CarouselService|CarouselReceiver"</span></p>
