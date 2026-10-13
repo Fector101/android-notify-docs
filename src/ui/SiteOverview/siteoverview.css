@@ -10,6 +10,7 @@
     overflow-y: auto;
     padding-block: 10px 20px;
     background-color: var(--sidebar-bg);
+    border-right: 1px solid #454444;
     /* padding-top: var(--header-height); */
     /* background-color: antiquewhite; */
 }

@@ -99,7 +99,7 @@ export default function ForegroundServicesPage() {
             </section>
 
             <section id="add-buttons" className="page-section" tabIndex={0}>
-                <h2 className="long-title underline">4. Add Buttons (Bonus)</h2>
+                <h2 className="long-title underline">5. Add Buttons (Bonus)</h2>
                 <p className="paragraph">In a Java file you can either:</p>
                 <ol className="paragraph list-decimal ml-[20px]">
                     <li>Route Broadcast listener to your service process -  <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/Routing-Broadcast-listener-to-Python'>broadcast buttons with python listener</Link> </li>

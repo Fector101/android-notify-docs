@@ -193,6 +193,9 @@ export default function SiteOverview() {
                 { label: "Overview", id: "overview" },
                 { label: "Register the Service", id: "register-the-service" },
                 { label: "Required Permissions", id: "required-permissions" },
+                { label: "Start the Service", id: "start-service" },
+                { label: "Running the Service", id: "running-the-service" },
+                { label: "Add Buttons", id: "add-buttons" },
                 { label: "Foreground Service Types", id: "foreground-service-types" },
                 { label: "Real-World Example", id: "real-world-example" },
             ],
@@ -224,7 +227,7 @@ export default function SiteOverview() {
         setHash(location.hash);
     }, [location]);
     return (
-        <div id="site-overview">
+        <div id="site-overview" className="border-r border-[#454444]">
             {data.map((each) => (
                 <DropDown
                     key={each.title}
