@@ -16,10 +16,10 @@ export default function NotificationBehaviourPage({ version, setVersion }: { ver
             <ScrollToSection />
 
             <section id="notification-behaviour" className="page-section" tabIndex={0}>
-                <h2 className="long-title">Notification Behaviour{!hasBehaviourApi && ' '}
+                <h2 className="long-title large-title">Notification Behaviour{!hasBehaviourApi && ' '}
                     {!hasBehaviourApi && <span className="feature-badge">v1.61+</span>}
                 </h2>
-                <hr />
+                {/* <hr /> */}
                 {hasBehaviourApi && data ? (
                     <>
                         <p className="paragraph">Fine-tune how updates behave in the tray: suppress heads-up popups, respect a user's clear, and check whether the notification is still around.</p>
