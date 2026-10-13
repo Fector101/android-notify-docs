@@ -21,7 +21,7 @@ export default function NotificationControlPage({ version, setVersion }: { versi
                 <h3 id="cancel-notifications" className="underline text-xl mt-[10px] mb-[0]">Cancelling:</h3>
                 {hasCancelApi ? (
                     <>
-                        <p className="paragraph">Remove notifications from the tray with <span className="code">cancel()</span> and <span className="code">cancelAll()</span>. If you no longer have the original instance, create a new one with the same <span className="code">id</span> and call <span className="code">cancel()</span>:</p>
+                        <p className="paragraph">Remove notifications from the tray with <span className="code">cancel()</span> and <span className="code">cancelAll()</span>. If you no longer have the original instance but the <span className="code">id</span> you use also remove it with that:</p>
                         <CodeBlock title="Cancelling Notifications" code={`from android_notify import Notification
 
 n = Notification(title="Task", message="Working...")

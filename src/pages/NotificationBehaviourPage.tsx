@@ -25,15 +25,15 @@ export default function NotificationBehaviourPage({ version, setVersion }: { ver
                         <p className="paragraph">Fine-tune how updates behave in the tray: suppress heads-up popups, respect a user's clear, and check whether the notification is still around.</p>
 
                         <h3 id="only-alert-once" className="underline text-xl mt-[10px] mb-[0]">Heads-Up Alerts — <span className="code">setOnlyAlertOnce</span></h3>
-                        <p className="paragraph">By default every update can trigger a <strong>heads-up popup</strong>. Use <span className="code">setOnlyAlertOnce(True)</span> so only the first send pops up while updates stay quiet in the tray:</p>
+                        <p className="paragraph">By default every new update does not trigger a <strong>heads-up popup</strong>. Use <span className="code">setOnlyAlertOnce(False)</span> so very new update triggers a popup:</p>
                         <CodeBlock title="Suppress Heads-Up on Updates" code={data?.only_alert_once_code || ''} />
 
                         <h3 id="obey-user-clear" className="underline text-xl mt-[10px] mb-[0]">Reappear After User Clears — <span className="code">setObeyUserClear</span></h3>
-                        <p className="paragraph">If the user swipes your notification away, an update from the app can bring it back. Use <span className="code">setObeyUserClear(True)</span> to respect the clear and keep it gone (Android 6+):</p>
+                        <p className="paragraph">If the user swipes your notification away, an update from the app can bring it back. Use <span className="code">setObeyUserClear(True)</span> to respect the clear and keep it gone:</p>
                         <CodeBlock title="Don't Reappear After User Clears" code={data?.obey_user_clear_code || ''} />
 
                         <h3 id="is-in-tray" className="underline text-xl mt-[10px] mb-[0]">Check Tray Presence — <span className="code">isInTray</span></h3>
-                        <p className="paragraph">Check whether this notification is currently in the system tray before deciding to update or resend (Android 6+):</p>
+                        <p className="paragraph">Check whether this notification is currently in the system tray before deciding to update or resend:</p>
                         <CodeBlock title="Is It Still In The Tray?" code={data?.is_intray_code || ''} />
                     </>
                 ) : (

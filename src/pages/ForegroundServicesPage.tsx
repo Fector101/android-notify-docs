@@ -67,15 +67,15 @@ export default function ForegroundServicesPage() {
             <ScrollToSection />
 
             <section id="overview" className="page-section" tabIndex={0}>
-                <h2 className="long-title">Foreground Services</h2>
-                <hr />
+                <h2 className="long-title large-title">Foreground Services</h2>
+                {/* <hr /> */}
                 <p className="paragraph">A foreground service keeps running even when the app is in the background. Android requires a persistent notification.</p>
                 <p className="paragraph">Instead of calling <span className="code">send()</span>, call <span className="code">fill_args()</span> to fill the notification's arguments into a builder without posting it, then pass <span className="code">builder.build()</span> to <span className="code">service.startForeground()</span>:</p>
             </section>
 
             <section id="register-the-service" className="page-section" tabIndex={0}>
                 <h2 className="long-title underline">1. Register the Service in buildozer.spec</h2>
-                <p className="paragraph">Declare the service in your <span className="code">buildozer.spec</span> with the format <span className="code">Name:path/to/service.py:foreground</span>. Append <span className="code">:foregroundServiceType=specialUse</span> so the type is written into <span className="code">AndroidManifest.xml</span> automatically:</p>
+                <p className="paragraph">Declare the service in your <span className="ode">buildozer.spec</span> with the format <span className="code">Name:path/to/service.py:foreground</span>. Appending <span className="code">:foregroundServiceType=specialUse</span> as it's type, types are required from android 14+</p>
                 <CodeBlock title="buildozer.spec" code={serviceSpecLine} lang='ini' has_pydroid_support={false}/>
             </section>
 

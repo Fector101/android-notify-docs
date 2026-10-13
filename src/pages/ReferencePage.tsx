@@ -54,8 +54,7 @@ export default function ReferencePage({ version }: { version: Iversion }) {
   return (
     <div className="page main-page reference-page">
       <ScrollToSection />
-      <h2>Reference</h2>
-      <hr />
+      <h2 className="large-title">Reference</h2>
 
       <p className="intro-text">All methods, arguments, and descriptions for v{version}.</p>
       

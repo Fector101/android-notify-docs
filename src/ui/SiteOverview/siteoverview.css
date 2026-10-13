@@ -10,11 +10,17 @@
     overflow-y: auto;
     padding-block: 10px 20px;
     background-color: var(--sidebar-bg);
-    border-right: 1px solid #454444;
+
+    font-weight: 500;
+  letter-spacing: 0.3px;
     /* padding-top: var(--header-height); */
     /* background-color: antiquewhite; */
 }
 
+#site-overview[style*="width: 320px;"][style*="min-width: 320px;"] {
+    border-right: 1px solid #454444;
+ 
+}
 #site-overview .dropdown {
     /* background-color: rgb(49, 52, 55); */
 }

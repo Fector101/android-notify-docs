@@ -7,10 +7,10 @@ n = Notification(
     title="Downloading update...",
     message="0% downloaded",
 )
-n.setOnlyAlertOnce(True)  # only the FIRST send pops up as a heads-up alert
+n.setOnlyAlertOnce(False)  # every new update shows a pop up
 n.send()
 
-# Later updates stay quiet — no heads-up popup
+# Later updates with heads-up popup
 n.updateProgressBar(50, "50% downloaded")`
 
 const obey_user_clear_code = `from android_notify import Notification
@@ -59,14 +59,14 @@ const NOTIFICATION_METHODS = {
     },
     setObeyUserClear: {
         signature: 'setObeyUserClear(state)',
-        description: 'Control whether the notification reappears when the app updates it after the user cleared it. Android 6+.',
+        description: 'Control whether the notification reappears when the app updates it after the user cleared it..',
         args: [
             { name: 'state', desc: 'Boolean — True to reappear when updated after being cleared by the user.' }
         ]
     },
     isInTray: {
         signature: 'isInTray()',
-        description: 'Check whether this notification is currently present in the system tray. Android 6+.',
+        description: 'Check whether this notification is currently present in the system tray.',
         returns: 'bool — True if the notification is active in the tray, otherwise False',
         args: []
     },
