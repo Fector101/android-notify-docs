@@ -9,14 +9,15 @@ interface IActiveSectionOptions {
 
 /**
  * Tracks which section of the current docs page is in view.
- * Re-initializes whenever the route changes so the observer always
- * watches the ids of the page that is actually rendered.
+ * The active section is the last one whose top edge has scrolled past
+ * the header, which also gives sane results for sections nested in a
+ * larger wrapper section. Re-initializes whenever the route changes.
  */
 export function useActiveSection({ updateUrl = false }: IActiveSectionOptions = {}) {
     const location = useLocation();
     const [activeHash, setActiveHash] = useState(location.hash);
 
-    // Follow deep links / route changes right away, before the observer has fired.
+    // Follow deep links / route changes right away, before scrolling starts.
     useEffect(() => {
         setActiveHash(location.hash);
     }, [location.pathname, location.hash]);
@@ -30,35 +31,69 @@ export function useActiveSection({ updateUrl = false }: IActiveSectionOptions = 
             .filter((element): element is HTMLElement => Boolean(element));
         if (!elements.length) return;
 
-        const visibleSections = new Map<string, number>();
+        const headerHeight = document.querySelector("header")?.offsetHeight ?? 70;
+        const lineOffset = headerHeight + 8;
+        let frame = 0;
+        let lastHash = "";
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    const id = "#" + entry.target.id;
+        const update = () => {
+            frame = 0;
 
-                    if (entry.isIntersecting) {
-                        visibleSections.set(id, entry.intersectionRatio);
-                    } else {
-                        visibleSections.delete(id);
-                    }
-                });
+            const line = window.scrollY + lineOffset;
+            let current: HTMLElement | null = null;
+            let currentTop = -Infinity;
+            let first = elements[0];
+            let firstTop = Infinity;
+            let last = elements[0];
+            let lastTop = -Infinity;
 
-                if (visibleSections.size > 0) {
-                    const mostVisible = Array.from(visibleSections.entries()).sort(
-                        (a, b) => b[1] - a[1]
-                    )[0][0];
+            elements.forEach((element) => {
+                const top = element.getBoundingClientRect().top + window.scrollY;
 
-                    setActiveHash(mostVisible);
-                    if (updateUrl) window.history.replaceState(null, "", mostVisible);
+                if (top < firstTop) {
+                    firstTop = top;
+                    first = element;
                 }
-            },
-            { threshold: [0, 0.1, 0.25, 0.5], rootMargin: "-20px 0px -20px 0px" }
-        );
+                if (top > lastTop) {
+                    lastTop = top;
+                    last = element;
+                }
+                if (top <= line && top > currentTop) {
+                    currentTop = top;
+                    current = element;
+                }
+            });
 
-        elements.forEach((element) => observer.observe(element));
+            // At the very bottom of the page the last section is the one in view.
+            const atBottom =
+                window.innerHeight + window.scrollY >=
+                document.documentElement.scrollHeight - 2;
+            if (atBottom) current = last;
 
-        return () => observer.disconnect();
+            // Nothing has scrolled past the header yet, so highlight the first section.
+            if (!current) current = first;
+
+            const hash = "#" + current.id;
+            if (hash === lastHash) return;
+            lastHash = hash;
+
+            setActiveHash(hash);
+            if (updateUrl) window.history.replaceState(null, "", hash);
+        };
+
+        const onScroll = () => {
+            if (!frame) frame = requestAnimationFrame(update);
+        };
+
+        update();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
+            if (frame) cancelAnimationFrame(frame);
+        };
     }, [location.pathname, updateUrl]);
 
     return activeHash;
