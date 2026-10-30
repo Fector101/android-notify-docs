@@ -16,7 +16,7 @@ export default function NotificationDataPage({ version, setVersion }: { version:
             <ScrollToSection />
 
             <section id="getting-identifier" className="page-section" tabIndex={0}>
-                <h2 className="long-title">Getting Name</h2>
+                <h2>Getting Name</h2>
                 <hr />
                 <p className="paragraph">To get the exact notification (or button) that opened the app, use <span className="code">NotificationHandler{isLegacyVersion(version) ? ".getIdentifer" : '.get_name'}</span> to get the unique identifier string:</p>
                 {isLegacyVersion(version) && (
@@ -26,7 +26,7 @@ export default function NotificationDataPage({ version, setVersion }: { version:
             </section>
 
             <section id="notification-data" className="page-section" tabIndex={0}>
-                <h2 className="long-title">Mutable Data</h2>
+                <h2>Mutable Data</h2>
                 <hr />
                 {hasDataApi ? (
                     <>

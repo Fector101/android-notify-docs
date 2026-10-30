@@ -21,6 +21,7 @@ import VersionsPage from "./pages/VersionsPage.tsx";
 import { useState } from "react";
 import HomePage from "./pages/HomePage.tsx";
 import Footer from "./ui/Footer/Footer.tsx";
+import OnThisPage from "./ui/OnThisPage/OnThisPage.tsx";
 
 function App() {
     const [version, setVersion] = useState("1.61")
@@ -28,28 +29,32 @@ function App() {
         <>
             <Toaster position="top-right" />
             <Header version={version} setVersion={setVersion} />
-            <main className="flex">
-                <SiteOverview />
-                <main className="flex fd-column overflow-hidden m-auto " style={{"flex":"1","minHeight": "calc(100vh - var(--header-height))"}}>
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/getting-started" element={<MainPage />} />
-                        <Route path="/components" element={<ComponentsPage version={version} setVersion={setVersion} />} />
-                        <Route path="/advanced-methods" element={<Navigate to="/channels" replace />} />
-                        <Route path="/channels" element={<ChannelsPage version={version} setVersion={setVersion} />} />
-                        <Route path="/notification-behaviour" element={<NotificationBehaviourPage version={version} setVersion={setVersion} />} />
-                        <Route path="/notification-data" element={<NotificationDataPage version={version} setVersion={setVersion} />} />
-                        <Route path="/notification-control" element={<NotificationControlPage version={version} setVersion={setVersion} />} />
-                        <Route path="/foreground-services" element={<ForegroundServicesPage />} />
-                        <Route path="/reference" element={<ReferencePage version={version} />} />
-                        <Route path="/help" element={<ExtrasPage />} />
-                        {/* <Route path="/versions" element={<p className="main-page page">Will contain list of versions from 1.58+</p>} /> */}
-                        <Route path="/versions" element={<VersionsPage />} />
-                        <Route path="*" element={<p className="flex m-auto">Page Not Found</p>} />
-                    </Routes>
-                    <Footer />
-                </main>
-
+            <main className="flex fd-column">
+                <div className="docs-row flex">
+                    <SiteOverview />
+                    <div className="docs-body flex">
+                        <OnThisPage />
+                        <main className="flex fd-column overflow-hidden" style={{ "flex": "1", "minWidth": 0 }}>
+                            <Routes>
+                                <Route path="/" element={<HomePage />} />
+                                <Route path="/getting-started" element={<MainPage />} />
+                                <Route path="/components" element={<ComponentsPage version={version} setVersion={setVersion} />} />
+                                <Route path="/advanced-methods" element={<Navigate to="/channels" replace />} />
+                                <Route path="/channels" element={<ChannelsPage version={version} setVersion={setVersion} />} />
+                                <Route path="/notification-behaviour" element={<NotificationBehaviourPage version={version} setVersion={setVersion} />} />
+                                <Route path="/notification-data" element={<NotificationDataPage version={version} setVersion={setVersion} />} />
+                                <Route path="/notification-control" element={<NotificationControlPage version={version} setVersion={setVersion} />} />
+                                <Route path="/foreground-services" element={<ForegroundServicesPage />} />
+                                <Route path="/reference" element={<ReferencePage version={version} />} />
+                                <Route path="/help" element={<ExtrasPage />} />
+                                {/* <Route path="/versions" element={<p className="main-page page">Will contain list of versions from 1.58+</p>} /> */}
+                                <Route path="/versions" element={<VersionsPage />} />
+                                <Route path="*" element={<p className="flex m-auto">Page Not Found</p>} />
+                            </Routes>
+                        </main>
+                    </div>
+                </div>
+                <Footer />
             </main>
             <Analytics />
         </>

@@ -56,6 +56,7 @@ body>#root {
     /* Is been used by other components */
     --header-height: 70px;
     --overview-width: 320px;
+    --toc-width: 240px;
     --body-bg: #1b1b1d;
 
     background-color: var(--body-bg);
@@ -72,6 +73,24 @@ body>#root {
 
 #root>main {
     flex: 1;
+}
+
+/* Page body: sidebar + content row, with a full-width footer below it */
+.docs-row {
+    flex: 1;
+    align-items: stretch;
+}
+
+.docs-body {
+    flex: 1;
+    min-width: 0;
+    flex-direction: row-reverse;
+}
+
+@media screen and (max-width:1199px) {
+    .docs-body {
+        flex-direction: column;
+    }
 }
 
 .page {

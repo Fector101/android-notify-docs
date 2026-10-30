@@ -9,8 +9,8 @@
 }
 
 .main-page h2 {
-    margin-top: 20px;
-    font-size: 1.6rem;
+    margin-top: 50px;
+    font-size: 2.6rem;
     font-weight: 700;
     line-height: 1.4;
 }
@@ -208,13 +208,23 @@
         width: 60%;
     }
 }
+
+/* When the "On this page" rail is visible it takes part of the width,
+   so let the page use more of the remaining space. */
+@media screen and (min-width:1200px) {
+    .docs-body:has(#on-this-page) .main-page {
+        width: 80%;
+        max-width: 1000px;
+    }
+}
 @media screen and (max-width:500px) {
     .main-page {
         padding: 12px;
     }
 
     .main-page h2 {
-        font-size: 22px;
+        font-size: 2.5rem;
+        /* font-size: 22px; */
     }
 
     .main-page section#features p {

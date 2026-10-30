@@ -16,7 +16,7 @@ export default function NotificationControlPage({ version, setVersion }: { versi
             <ScrollToSection />
 
             <section id="notification-control" className="page-section" tabIndex={0}>
-                <h2 className="long-title">Cancelling & Controlling Notifications</h2>
+                <h2>Cancelling & Controlling Notifications</h2>
                 <hr />
                 <h3 id="cancel-notifications" className="underline text-xl mt-[10px] mb-[0]">Cancelling:</h3>
                 {hasCancelApi ? (

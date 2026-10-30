@@ -82,7 +82,7 @@ export default function ChannelsPage({ version, setVersion }: { version: Iversio
             </p>
 
             <section id="channel-management" className="page-section" tabIndex={0}>
-                <h2 className="long-title">Channel Management</h2>
+                <h2>Channel Management</h2>
                 <hr />
                 <p className="paragraph">From Android 8.0 above channels are required, android-notify use <span className="code">Default Channel</span> if no channel specified.</p>
                 <p className="paragraph">You can customize the channel name and ID:</p>
