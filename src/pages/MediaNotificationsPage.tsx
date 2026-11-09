@@ -383,11 +383,7 @@ export default function MediaNotificationsPage() {
                     and the events <span className="code">on_load</span>, <span className="code">on_play</span>, <span className="code">on_pause</span>,
                     <span className="code">on_stop</span>, <span className="code">on_seek</span> and <span className="code">on_complete</span>.
                 </p>
-                <p className="paragraph">
-                    The track's controller must expose <span className="code">source</span>, <span className="code">play()</span>,
-                    <span className="code">pause()</span>, <span className="code">seek(seconds)</span>, <span className="code">get_pos()</span>,
-                    <span className="code">length</span> and <span className="code">state</span>.
-                </p>
+                
             </section>
 
             <span className='flex next-page-btns-box space-between'>
