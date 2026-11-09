@@ -4,6 +4,7 @@ import { reference_page as v158 } from "./versions/1.58";
 import { reference_page as v159 } from "./versions/1.59";
 import { reference_page as v160 } from "./versions/1.60";
 import { reference_page as v161 } from "./versions/1.61";
+import { reference_page as v162 } from "./versions/1.62";
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ import { reference_page as v161 } from "./versions/1.61";
 | 2. add it to this list
 | DONE.
 */
-export const VERSION_ORDER: Iversion[] = ["1.58", "1.59", "1.60", "1.61"];
+export const VERSION_ORDER: Iversion[] = ["1.58", "1.59", "1.60", "1.61", "1.62"];
 
 /* ------------------------------------------------ */
 /* REMOVALS PER VERSION */
@@ -124,6 +125,7 @@ const RAW_VERSION_MAP: Record<Iversion, IReferencePage> = {
   "1.59": v159,
   "1.60": v160,
   "1.61": v161,
+  "1.62": v162,
 };
 
 /* ------------------------------------------------ */

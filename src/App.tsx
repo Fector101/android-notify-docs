@@ -15,6 +15,7 @@ import NotificationBehaviourPage from "./pages/NotificationBehaviourPage.tsx";
 import NotificationDataPage from "./pages/NotificationDataPage.tsx";
 import NotificationControlPage from "./pages/NotificationControlPage.tsx";
 import ForegroundServicesPage from "./pages/ForegroundServicesPage.tsx";
+import MediaNotificationsPage from "./pages/MediaNotificationsPage.tsx";
 import ReferencePage from "./pages/ReferencePage.tsx";
 import ExtrasPage from "./pages/ExtrasPage.tsx";
 import VersionsPage from "./pages/VersionsPage.tsx";
@@ -24,7 +25,7 @@ import Footer from "./ui/Footer/Footer.tsx";
 import OnThisPage from "./ui/OnThisPage/OnThisPage.tsx";
 
 function App() {
-    const [version, setVersion] = useState("1.61")
+    const [version, setVersion] = useState("1.62")
     return (
         <>
             <Toaster position="top-right" />
@@ -45,6 +46,8 @@ function App() {
                                 <Route path="/notification-data" element={<NotificationDataPage version={version} setVersion={setVersion} />} />
                                 <Route path="/notification-control" element={<NotificationControlPage version={version} setVersion={setVersion} />} />
                                 <Route path="/foreground-services" element={<ForegroundServicesPage />} />
+                                <Route path="/media-notifications" element={<MediaNotificationsPage />} />
+                                <Route path="/music-notifications" element={<Navigate to="/media-notifications" replace />} />
                                 <Route path="/reference" element={<ReferencePage version={version} />} />
                                 <Route path="/help" element={<ExtrasPage />} />
                                 {/* <Route path="/versions" element={<p className="main-page page">Will contain list of versions from 1.58+</p>} /> */}

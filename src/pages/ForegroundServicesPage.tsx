@@ -17,6 +17,29 @@ service_name = "CarouselService"
 service = autoclass(context.getPackageName() + '.Service' + service_name.capitalize())
 service.start(mActivity, "")
 `
+const dynamicBroadcastExample = `from android.broadcast import BroadcastReceiver
+from android_notify import Notification
+from android_notify.config import get_package_name
+
+package = get_package_name()
+
+
+def on_broadcast(context, intent):
+    print(f"Button action: {intent.getAction()}")
+
+
+# Keep a reference. An unreferenced receiver can be collected and stop receiving.
+receiver = BroadcastReceiver(
+    on_broadcast,
+    actions=[package + ".ACTION_STOP", package + ".ACTION_SKIP"],
+)
+receiver.start()
+
+notification = Notification(title="Service controls")
+notification.addButton("Stop", action=package + ".ACTION_STOP", dynamic=True)
+notification.addButton("Skip", action=package + ".ACTION_SKIP", dynamic=True)
+notification.send()`
+
 const serviceFileExample = `from android_notify import Notification
 from android_notify.config import get_python_service
 from android_notify.internal.java_classes import BuildVersion, autoclass
@@ -100,10 +123,13 @@ export default function ForegroundServicesPage() {
 
             <section id="add-buttons" className="page-section" tabIndex={0}>
                 <h2 className="long-title underline">5. Add Buttons (Bonus)</h2>
-                <p className="paragraph">In a Java file you can either:</p>
+                <p className="paragraph">From v1.62 you can wire buttons to a <span className="code">BroadcastReceiver</span> registered at runtime. No Java receiver or manifest entry is needed: <span className="code">dynamic=True</span> sends a package-scoped broadcast that the runtime receiver matches.</p>
+                <CodeBlock title="Service notification with dynamic buttons" code={dynamicBroadcastExample} has_pydroid_support={false}/>
+                <p className="paragraph">Keep a reference to the receiver for as long as you need it. An unreferenced receiver can be garbage-collected and stop receiving button presses. In a foreground service, build the notification with <span className="code">fill_args()</span> and pass the builder to <span className="code">startForeground()</span> as shown above instead of calling <span className="code">send()</span>.</p>
+                <p className="paragraph">Older Java and Python-OSC setups still work:</p>
                 <ol className="paragraph list-decimal ml-[20px]">
-                    <li>Route Broadcast listener to your service process -  <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/Routing-Broadcast-listener-to-Python'>broadcast buttons with python listener</Link> (Recommended)</li>
-                    <li className='mt-[10px]'>Have it send a OSC (network requests) to your service server -  <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/How-to-Use-Buttons-to-Communicate-with-Service'>broadcast buttons with python-osc</Link>  </li>
+                    <li>Route a broadcast listener to your service process - <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/Routing-Broadcast-listener-to-Python'>broadcast buttons with python listener</Link></li>
+                    <li className='mt-[10px]'>Have it send an OSC (network request) to your service - <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/How-to-Use-Buttons-to-Communicate-with-Service'>broadcast buttons with python-osc</Link></li>
                 </ol>
                 <p className="paragraph">To see logs on a plugged in device <span className="code">adb logcat | grep -E "python|CarouselService|CarouselReceiver"</span></p>
                 
@@ -137,10 +163,10 @@ export default function ForegroundServicesPage() {
                         <p className='page-name'>Notification Control</p>
                     </span>
                 </Link>
-                <Link className='next-page-btn' to='/reference'>
+                <Link className='next-page-btn' to='/media-notifications'>
                     <span>
                         <p className='next-txt'>Next</p>
-                        <p className='page-name'>Reference</p>
+                        <p className='page-name'>Media Notifications</p>
                     </span>
                     <ChevronRight />
                 </Link>

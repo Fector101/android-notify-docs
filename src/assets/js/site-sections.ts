@@ -82,6 +82,19 @@ export const SITE_OVERVIEW_DATA: ISiteOverviewData[] = [
         ],
     },
     {
+        title: "Media Notifications",
+        route: "/media-notifications",
+        sections: [
+            { label: "Overview", id: "overview" },
+            { label: "Setup", id: "setup" },
+            { label: "Permissions", id: "permissions" },
+            { label: "Reading Audio Files", id: "reading-audio" },
+            { label: "Minimal Example", id: "minimal-example" },
+            { label: "Plain Controllers", id: "plain-controllers" },
+            { label: "Reference", id: "reference" },
+        ],
+    },
+    {
         title: "Reference",
         route: "/reference",
         sections: [

@@ -371,7 +371,7 @@ Control whether updates to this notification show a heads-up popup.
 
 ### setObeyUserClear(state)
 
-Control whether the notification reappears when the app updates it after the user cleared it. Android 6+.
+Control whether the notification reappears when the app updates it after the user cleared it.
 
 **Returns:** None
 
@@ -381,7 +381,7 @@ Control whether the notification reappears when the app updates it after the use
 
 ### isInTray()
 
-Check whether this notification is currently present in the system tray. Android 6+.
+Check whether this notification is currently present in the system tray.
 
 **Returns:** bool — True if the notification is active in the tray, otherwise False
 

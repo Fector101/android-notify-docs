@@ -155,7 +155,7 @@ notification.send()`} title='Online Image' img={onlineBigPicImg} />
                 </div>
                 <CodeBlock title='Button Example' img={btnsImg} code={data?.buttons_code || ''} />
                 {/* <p className='paragraph inner-section-1'>For more on functions and callbacks see the <Link to='/advanced-methods#functions'>Advanced</Link> section</p> */}
-                <p className='paragraph inner-section-1'>For Steps to Create BroadCast Buttons Visit: <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/How-to-Use-with-Broadcast-Listener'>android-notify-wiki</Link> - make things happen without opening app.</p>
+                <p className='paragraph inner-section-1'>Need the button to act without opening the app? Use <span className='code'>addButton(..., action=..., dynamic=True)</span> with a <span className='code'>BroadcastReceiver</span> registered at runtime. See <Link to='/foreground-services#add-buttons'>Add Buttons</Link> for the full example. The <Link target='_blank' rel='noopener noreferrer' to='https://github.com/Fector101/android_notify/wiki/How-to-Use-with-Broadcast-Listener'>manifest-receiver wiki page</Link> still covers Java receivers.</p>
             </section>
 
             <section tabIndex={0} className="page-section" id="progress-bars">

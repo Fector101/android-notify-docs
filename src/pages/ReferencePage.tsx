@@ -207,11 +207,11 @@ export default function ReferencePage({ version }: { version: Iversion }) {
       
 
       <span className='flex next-page-btns-box space-between'>
-        <Link className='next-page-btn' to='/notification-control'>
+        <Link className='next-page-btn' to='/media-notifications'>
           <ChevronLeft />
           <span>
             <p className='next-txt'>Previous</p>
-            <p className='page-name'>Notification Control</p>
+            <p className='page-name'>Media Notifications</p>
           </span>
         </Link>
         <Link className='next-page-btn' to='/help'>

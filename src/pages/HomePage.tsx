@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { ChevronLeft, ChevronRight, BookOpen, Puzzle, Cpu, FileText, LifeBuoy, Activity, BellRing, Database, XCircle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, Puzzle, Cpu, FileText, LifeBuoy, Activity, BellRing, Database, XCircle, Music } from 'lucide-react';
 import { ScrollToSection } from '../ui/ScrollAssist'
 import { CodeBlock } from '../ui/CodeBlock/CodeBlock';
 import "../assets/css/home-page.css"
@@ -12,6 +12,7 @@ const CARDS = [
     { title: 'Notification Data', desc: 'Read the identifier and extra data from taps', icon: Database, to: '/notification-data' },
     { title: 'Notification Control', desc: 'Cancel notifications, timestamps, priority', icon: XCircle, to: '/notification-control' },
     { title: 'Foreground Services', desc: 'Persistent notifications for background services', icon: Activity, to: '/foreground-services' },
+    { title: 'Media Notifications', desc: 'Notification, lock-screen and headset controls for media', icon: Music, to: '/media-notifications' },
     { title: 'Reference', desc: 'Full API reference by version', icon: FileText, to: '/reference' },
     { title: 'Help', desc: 'Debugging, contributing, support', icon: LifeBuoy, to: '/help' },
 ]
@@ -32,7 +33,7 @@ export default function HomePage() {
                 <h1>Android Notify</h1>
                 <p className="tagline">A simple way to create and customize Android notifications in Kivy and Flet apps.</p>
 
-                <Link to="/versions#v1_61" className="version-badge">v1.61.8</Link>
+                <Link to="/versions#v1_62" className="version-badge">v1.62.0</Link>
             </section>
 
             <section className="home-section">

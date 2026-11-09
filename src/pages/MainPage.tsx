@@ -60,6 +60,15 @@ export default function MainPage() {
                     </div>
 
                     <div className="feature-details">
+                        <h3>Media Notifications</h3>
+                        <div className="feature-body">
+                            <div className="feature-item"><strong>MediaSession Controls</strong><span><Link to="/media-notifications">Notification, lock screen and Quick Settings</Link></span></div>
+                            <div className="feature-item"><strong>Any Player</strong><span>Use the bundled SoundLoader or your own media controller</span></div>
+                            <div className="feature-item"><strong>Plain Controllers</strong><span>Manual sync with syncPlaybackState()</span></div>
+                        </div>
+                    </div>
+
+                    <div className="feature-details">
                         <h3>Permissions</h3>
                         <div className="feature-body">
                             <div className="feature-item"><strong>Permission Handling</strong><span>Ask and check notification permission with callback</span></div>

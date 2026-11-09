@@ -59,7 +59,7 @@ const NOTIFICATION_METHODS = {
     },
     setObeyUserClear: {
         signature: 'setObeyUserClear(state)',
-        description: 'Control whether the notification reappears when the app updates it after the user cleared it..',
+        description: 'Control whether the notification reappears when the app updates it after the user cleared it.',
         args: [
             { name: 'state', desc: 'Boolean — True to reappear when updated after being cleared by the user.' }
         ]
@@ -73,7 +73,7 @@ const NOTIFICATION_METHODS = {
 };
 
 
-const HANDLER_METHODS: any[] = [];
+const HANDLER_METHODS: IReferencePage["HANDLER_METHODS"] = [];
 
 
 const reference_page: IReferencePage = {

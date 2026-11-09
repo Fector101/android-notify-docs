@@ -34,17 +34,41 @@ export default function VersionsPage() {
             <h1 className="page-heading">Changelog</h1>
             <p className="page-subtitle">Release notes for all versions of Android Notify</p>
             <p className="compare-link">
-                <a href="https://github.com/Fector101/android_notify/compare/v1.60.8...v1.61.9" target="_blank" rel="noopener noreferrer">Compare v1.60.8 → v1.61.9</a>
+                <a href="https://github.com/Fector101/android_notify/compare/v1.61.10...v1.62.0" target="_blank" rel="noopener noreferrer">Compare v1.61.10 → v1.62.0</a>
             </p>
 
             <section className="versions">
+                <VersionBlock
+                    version="1.62"
+                    sections={[
+                        { msg: 'Improvements', type: '' },
+                        { msg: <>Dynamic broadcast buttons: <span className="code">addButton(..., action=..., dynamic=True)</span> sends a package-scoped broadcast to a runtime <span className="code">BroadcastReceiver</span>, so a button can act from a service without a manifest receiver or Java class.</>, type: 'good' },
+                        { msg: <><span className="code">MediaNotification.setNowPlaying(title, artist)</span> updates the live notification and lock-screen metadata in one call on a track change.</>, type: 'good' },
+                        { msg: <>Media notification module moved to <span className="code">android_notify.media</span>. <span className="code">SoundLoader</span> and <span className="code">MediaPermissionHandler</span> stay under <span className="code">android_notify.media.music</span>.</>, type: 'good' },
+                        { msg: <>Plain controllers that do not dispatch events can drive the notification with <span className="code">syncPlaybackState()</span>.</>, type: 'good' },
+                        { msg: 'Media artwork now falls back to the app icon when a track has no embedded cover art.', type: 'good' },
+                        { msg: 'Faster path and playback handling: removed the slow android.storage import from the notification path and optimized media position/length reads.', type: 'good' },
+
+                        { msg: 'Changed', type: '' },
+                        { msg: <>Removed the <span className="code">run_on_ui_thread</span> helper. Open activities from the UI thread directly; do not ask permissions from a background thread.</>, type: 'warning' },
+                        { msg: 'Button PendingIntent request codes are unique per notification, so two notifications with the same button action no longer overwrite each other\'s extras.', type: 'good' },
+
+                        { msg: 'Fixed', type: '' },
+                        { msg: 'Unknown media length no longer raises while the notification is being updated.', type: 'good' },
+                        { msg: 'Media metadata and artwork refresh on a track change without waiting for the next playback event.', type: 'good' },
+
+                        { msg: 'Docs', type: '' },
+                        { msg: <>The music notifications page is now <strong>Media Notifications</strong>. The old <span className="code">music-notifications</span> URL redirects to <span className="code">media-notifications</span>.</>, type: 'good' },
+                        { msg: 'Documented plain controllers, Android background playback with Kivy\'s SoundLoader, the default-cover fallback, and runtime broadcast receivers.', type: 'good' },
+                    ]}
+                />
                 <VersionBlock
                     version="1.61"
                     sections={[
                         { msg: 'Improvements', type: '' },
                         { msg: 'Auto detecting Androidx, Flet and Pyroid3 runtimes - Merged without-androidx branch', type: 'good' },
                         { msg: 'Keeping Apps start up time at 0 secs - Lazy loading Android classes ', type: 'good' },
-                        {msg: 'Initial release for music notification feature', type: 'good' },
+                        {msg: 'Initial release for media notification feature', type: 'good' },
                         {msg: 'Auto striping the audio extension from res_sound_name with a warning', type: 'good' },
                         
                         { msg: 'Fixes ', type: '' },
