@@ -144,9 +144,9 @@ for (let i = 0; i < VERSION_ORDER.length; i++) {
     const v = VERSION_ORDER[j];
     const ref = RAW_VERSION_MAP[v];
 
-    methods = mergeMethods(methods, ref.NOTIFICATION_METHODS, version);
-    handlers = mergeArrayById(handlers, ref.HANDLER_METHODS || [], version);
-    styles = mergeArrayById(styles, ref.STYLE_ATTRIBUTES || [], version);
+    methods = mergeMethods(methods, ref.NOTIFICATION_METHODS, v);
+    handlers = mergeArrayById(handlers, ref.HANDLER_METHODS || [], v);
+    styles = mergeArrayById(styles, ref.STYLE_ATTRIBUTES || [], v);
   }
 
   VERSION_MAP[version] = {

@@ -90,17 +90,6 @@ Updates the notification message.
 |-----------|-------------|
 | `new_message` | String for the new message. |
 
-### addNotificationStyle(style, already_sent?)
-
-Applies or updates a notification style (big_text, inbox, images, etc.).
-
-**Returns:** None
-
-| Parameter | Description |
-|-----------|-------------|
-| `style` | One of ['simple','progress','inbox','big_text','large_icon','big_picture','both_imgs'] |
-| `already_sent` | If true, re-dispatches the notification so style changes appear immediately. |
-
 ### updateProgressBar(current_value, message?, title?, cooldown?)
 
 Updates a determinate progress bar (0 – max). Internally throttled to 0.5 s.
@@ -399,12 +388,6 @@ Check whether this notification is currently present in the system tray.
 
 ## NotificationHandler
 
-### NotificationHandler.getIdentifer()
-
-Returns the unique string identifier for the notification or button that opened the app.
-
-**Returns:** str | None — name/id string of the clicked notification, or None
-
 ### NotificationHandler.bindNotifyListener()
 
 Binds by Default, Attaches a global listener to notification taps—your callbacks will fire when any notification is tapped.
@@ -416,12 +399,6 @@ Binds by Default, Attaches a global listener to notification taps—your callbac
 Removes the listener set by `bindNotifyListener()`.
 
 **Returns:** bool — True on success, False on failure
-
-### NotificationHandler.is_on_android()
-
-Returns `true` if running on Android, `false` otherwise—useful for platform checks.
-
-**Returns:** bool — True if on Android, False otherwise
 
 ### NotificationHandler.get_name(on_start?)
 
