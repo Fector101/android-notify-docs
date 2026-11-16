@@ -182,7 +182,7 @@ const gettingFilePathSnippet = `cursor = resolver.query(
 data_idx = cursor.getColumnIndex("_data")
 # while cursor.moveToNext():
 tracks.append(
-    {..., "path": cursor.getString(data_idx)"}
+    {..., "path": cursor.getString(data_idx)}
 )
 `
 export default function MediaNotificationsPage() {
